@@ -1,0 +1,37 @@
+Q. Why isn't the Calvin fortune program displaying a witticism when
+I log into my Red Hat box?
+
+	Symptoms:
+
+		1. The regular fortune is still 
+		   displaying it's message.   
+		2. There isn't any fortune.
+
+
+A. You have to first install the regular fortune program and then 
+edit a shell script.
+
+
+I found that the Calvin program won't work unless the 'standard' fortune module 
+is already installed on the system.  Once you've downloaded the RPM or source 
+code for that program and have installed it, you must then alter a shell script 
+if you only want the Calvin messages displayed upon login.  
+
+*** If you want Linux to choose between regular fortunes and Calvin fortunes
+each time you login, then you can leave 'as-is' and you're finished. ***
+
+If you only want the Calvin fortunes displayed, then cd to the 
+appropriate directory and edit the file.
+
+	cd /etc/profile.d ; vi fortune.sh
+
+Scroll down near the bottom of the file, and you should see this:
+
+	echo ------------------------------------------
+	fortune
+	echo ------------------------------------------
+
+Simply add 'calvin' after the word fortune, save the script,
+and you're finished.
+
+(For more information refer to the fortune man page.) 

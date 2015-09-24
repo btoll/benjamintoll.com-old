@@ -1,0 +1,12 @@
+Q.  I have a webpage that I need to be refreshed every x number of seconds.
+How can I do this?
+
+A.  Include a meta tag with the refresh argument.
+
+This example refreshes the show_log.php script in the relative directory every 10 seconds.
+
+	<meta http-equiv="refresh" content="10;url=show_log.php">
+
+
+
+

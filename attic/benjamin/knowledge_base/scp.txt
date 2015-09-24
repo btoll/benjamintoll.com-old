@@ -1,0 +1,16 @@
+Q.  How do I transfer files between computers when using SSH?
+
+A.  Use scp, which is native to the SSH package.
+
+To copy from the local machine to Athena:
+
+  scp localfilename athena.dialup.mit.edu:/path/to/remotefilename
+
+To copy from Athena to the local machine:
+
+  scp athena.dialup.mit.edu:/path/to/remotefilename localfilename
+
+
+To specify your Athena username (necessary if your username on the local machine is not the same as your Athena username):
+
+  scp jqpublic@athena.dialup.mit.edu:/path/to/remotefilename localfilename

@@ -1,0 +1,10 @@
+Q.  How do I search for a particular file?
+
+A.  Use the find command.
+
+ex.  You want to search recursively through the 
+/etc directory for a file named foo.php.
+
+          cd /etc
+          find . -name foo.php
+

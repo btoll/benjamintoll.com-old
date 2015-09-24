@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript" src="./zapatec.js"></script>
+<script type="text/javascript" src="./zpwidget-sample.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+//////////////////////////////////
+// Sample of use of ChildWidget //
+//////////////////////////////////
+
+// Source object
+var objSource = {
+  // Data in JSON format
+  // ...
+};
+
+// Initialize ChildWidget
+var myWidget = new Zapatec.ChildWidget({
+  source: objSource,
+  sourceType: 'json',
+  option1: 'new value'
+});
+
+// Test
+alert('Option1: ' + myWidget.config.option1 + '\nOption2: ' +
+ myWidget.config.option2 + '\nPath: ' + Zapatec.ChildWidget.path);
+
+</script>
+</body>
+</html>

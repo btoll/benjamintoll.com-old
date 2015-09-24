@@ -1,0 +1,6 @@
+[12:55] misterchops72: yo bill i figured it out
+[12:56] misterchops72: i could see my samba home share from my windows box, but it kept saying i didn't have the correct permissions set, and i knew that i did
+[12:56] misterchops72: so the problem was that fedora core 5 has this thing called SELinux, and it was blocking samba from sharing its home directories
+[12:56] misterchops72: grrrrrr
+[12:57] misterchops72: i booted into x, pointed and clicked, and that was that
+[12:57] misterchops72: unbelievable

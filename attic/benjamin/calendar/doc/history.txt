@@ -1,0 +1,56 @@
+Thu Nov 17 08:07:52 PST 2005
+2.1.1
+Bug fixes
+
+Fri Sep 16 19:31:36 UTC 2005
+2.0.2 Beta
+Bug fixes
+
+Wed Sep  7 19:21:08 UTC 2005
+2.0.1 Beta
+Multiple months in the calendar
+Incremental time
+Bug fixes
+
+1.2.4
+fixed bug with %k at 00:00
+
+Wed Apr 27 23:16:39 UTC 2005
+1.2.3 
+Fixed bug where date wasn't initialized correctly if the calendar
+included time
+
+Mon Apr 18 17:47:00 PDT 2005
+1.2.2 
+Fixed bug where %u wasn't displaying the correct day of the week.
+
+Mon Apr 18 11:45:31 PDT 2005
+1.2.1 
+Limit Time as Well as Dates
+Have the Calendar Remember Last Date Chosen
+Multiple Dates in Flat Calendar
+New Aqua Theme
+
+Wed Mar 23 15:41:20 PST 2005
+1.1.1
+We now provide a .NET addon
+
+Tue Mar 15 13:06:17 PST 2005
+1.0.6
+Change layout-common.css z-index should be for .calendar not .calendar .combo 
+otherwise images with z-index display over instead of under the calendar
+
+Fri Mar  4 15:14:46 PST 2005
+1.0.5
+Fixed bug where time was defaulting to current time instead of initializing from
+the text box.
+
+Mon Feb 14 11:37:20 PST 2005
+1.0.4
+Fixed bug where "date" param wasn't really setting the initial date
+
+Mon Feb  7 22:51:01 PST 2005
+1.0.3
+
+Provide a minimal Zip file too
+provide multiple icons to click to trigger the calendar -- example3.html

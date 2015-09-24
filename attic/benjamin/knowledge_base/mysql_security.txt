@@ -1,0 +1,50 @@
+Several steps can be taken to secure the default mysql installation. 
+
+1. Root Password
+
+When you first install mysql, be it from a source tarball or from a RPM, you must set
+the 'root' password. This is the password that can be used to control all of the tables,
+mysql startup/shutdown, etc. To do this type the command; 
+
+	mysqladmin -u root password 'new-password'
+
+
+2. Default Users and Tables
+
+mysql also ships with two default users and default 'test' tables. The default users are
+for connecting to the DBMS without specifying a password, so removing these users is obviously
+a very good security measure. There are also entries so that tables called or starting with
+'test' can be world-writable. These should also be disabled for obvious reasons. To do so, you
+must first go into the DBMS: 
+
+	mysql -u root -p mysql
+	Enter password:
+	Reading table information for completion of table and column names
+	You can turn off this feature to get a quicker startup with -A
+
+	Welcome to the MySQL monitor.  Commands end with ; or g.
+	Your MySQL connection id is 2 to server version: 4.0.16-standard
+
+	Type 'help' for help.
+
+
+3. Now we execute the two commands to delete the desired entries: 
+
+	mysql> DELETE FROM user WHERE User = '';
+	mysql> DELETE FROM db WHERE Host = '%';
+
+
+**Note** It is recommended not to maintain the MySQL server as the root user.
+	 It is better to create a user with all privileges for this purpose.
+
+
+Thanks to Ryan W. Maple for the bulk of this HOWTO.
+
+ 
+
+
+
+
+
+
+

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+	<meta name="description" content=" This is a flat, in-the-page calendar. This calendar displays six months, three months in each row. The control month is set to two. The default date, all the standard controls for next month, next year, etc. are based on the control month. The title changes based on the control month (titleHtml option). ">
+	<meta name="keywords" content="dhtml tools,javascript,DHTML Tools,Javascript,ajax,AJAX,Ajax,ajax tools,AJAX Tools,tools controls,simple javascript tools">
+	<title>Zapatec DHTML Calendar Widget - Six Month Calendar</title>
+
+	<!-- Common JS files -->
+	<script type='text/javascript' src='../utils/zapatec.js'></script>
+
+	<!-- Custom includes -->	
+		<!-- import the calendar script -->
+		<script type="text/javascript" src="../src/calendar.js"></script>
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+
+		<!-- other languages might be available in the lang directory; please check
+		your distribution archive. -->
+
+
+	<!-- ALL demos need these css -->
+	<link href="../website/css/zpcal.css" rel="stylesheet" type="text/css">
+	<link href="../website/css/template.css" rel="stylesheet" type="text/css">
+
+	<!-- Theme css -->
+	<link href="../themes/bluexp.css" rel="stylesheet" type="text/css">
+
+	<link rel="SHORTCUT ICON" href="http://www.zapatec.com/website/main/favicon.ico">
+	
+
+
+</head>
+<body>
+	<div class="zpStandard">
+
+	<div class="topMenuHeader">
+		<div class="logo">
+			<a href='http://www.zapatec.com'><img src='../website/images/logoNew.gif' alt='Zapatec logo' border='0'></a>
+		</div>
+		<div class="btn1">
+			<a href="https://www.zapatec.com/zadmin/buy.jsp">
+				<img src="../website/images/buttonBuy.png" alt='Buy Zapatec DHTML Calendar Widget' border ="0">
+			</a>
+		</div>
+
+		<div class="btn1">
+			<a href="http://www.zapatec.com/website/main/pricing.jsp">
+				<img src="../website/images/buttonPricing.png" alt='Pricing for Zapatec DHTML Calendar Widget' border="0">
+			</a>
+		</div>
+	</div>
+
+	<div class="pageMain">
+	<a href="example96.html" style="float:right; margin-right:2em; margin-top:.5em;" accesskey="N" title="Next Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/next.png" alt="Next Zapatec DHTML Calendar Widget Example"></a>
+	<a href="example94.html" style="float:left; margin-left:2em; margin-top:.5em;" accesskey="P" title="Previous Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/previous.png" alt="Previous Zapatec DHTML Calendar Widget Example"></a>
+	<div class='zpCalSubHeader' style='text-align:center;'>Six Month Calendar</div>
+
+
+		<div class='zpCalDemoText'>
+		<ul>
+		<li>This demo uses the <b>bluexp theme</b>.</li>
+		
+		<li>This is a flat, in-the-page calendar.</li>
+		<li>This calendar displays six months, three months in each row.</li>
+		<li>The control month is set to two. The default date, all
+		the standard controls for next month, next year, etc. are based on the control month.
+		<li>The title changes based on the control month (titleHtml option).</li>
+
+		</ul>
+		</div>
+
+
+
+<br/>
+<br/>
+<br/>
+	<div style="float: right; margin-left: 1em; margin-bottom: 1em;"
+		id="calendar-container">
+
+		<div style='text-align:center; font-weight:bold' id="preview"> Click a date.</div>
+		<br/>
+	</div>
+<script type="text/javascript">
+	<!--  to hide script contents from old browsers
+	function dateChanged(calendar) {
+		var preview = document.getElementById("preview");
+		if (preview) {
+			preview.innerHTML = calendar.currentDate.print('%a, %b %d, %Y');
+		}
+	}
+
+	// end hiding contents from old browsers  -->
+</script>
+
+	<script type="text/javascript">
+		var cal = new Zapatec.Calendar.setup({
+		
+		flat         : "calendar-container", // ID of the parent element
+		flatCallback : dateChanged,          // our callback function
+		numberMonths   :     6,
+		controlMonth   :     2,
+		monthsInRow    :     3,
+		titleHtml     : function(strTitle, month, year) {
+			return "Control Month is " +  Zapatec.Calendar.i18n(month, "mn")
+			},
+		showsTime      :     false      //don't show time, only date
+
+		});
+		
+	</script>
+
+
+	<noscript>
+		<br/>
+		This page uses a <a href='http://www.zapatec.com/website/main/products/prod1/'>
+		Zapatec DHTML Calendar Widget</a>, but your browser does not support Javascript.
+		<br/>
+		<br/>
+	</noscript>      
+		<br/><br/><br/>
+		<div id="divFooter" class="footer" style='text-align:center; margin-top:2em'>
+		&copy; 2004-2006 <strong> <a href='http://www.zapatec.com/'>Zapatec, Inc.</a> </strong>
+		</div>
+	</div>
+</body>
+</html>

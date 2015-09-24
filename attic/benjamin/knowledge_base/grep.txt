@@ -1,0 +1,23 @@
+Q. How can I search for keywords within a file or directory?
+
+A. Use the grep command.
+
+For example, to search recursively for every instance of POST in the 
+your web directory, type in the following at a shell prompt:
+
+          grep -ir post /var/www/html
+
+          i = case-insensitive
+          r = recursively
+
+          You can use the following as a template:
+
+          grep [options] pattern [files] 
+
+Oftentimes this will find many instances, and if you output the 
+search to a file you can then look at it at you leisure.
+
+          grep -ir post /var/www/html > my_grep.txt
+
+
+

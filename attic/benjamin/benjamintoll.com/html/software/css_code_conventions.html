@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Code Conventions for Cascading Style Sheets</title>
+<style type="text/css">
+h1 {
+  font-size: 22px;
+}
+h3 {
+  margin-bottom: 0;
+}
+h3 + p {
+  margin-top: 0;
+}
+blockquote {
+  font-family: monospace;
+  margin: 10px;
+  margin-left: 0;
+  white-space: pre;
+}
+a {
+  text-decoration: none;
+  white-space: nowrap;
+}
+[href*="http"]:after {
+  color: #999;
+  content: " {" attr(href) "} ";
+  font: 11px Verdana, serif;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Code Conventions for Cascading Style Sheets</h1>
+<p>The following are coding conventions for Cascading Style Sheets. They are not meant to be restrictive; rather, they are based upon best practices that have been developed over the years within the web development community.</p>
+
+<h3>Quotes</h3>
+<p>Strings should be double-quoted.</p>
+
+<h3>Files</h3>
+<p>Style sheets should use the following syntax when being referenced to externally:</p>
+
+  <blockquote>
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen&quot; href=&quot;http://www.benjamintoll.com/lib/global.css&quot; /&gt;
+  </blockquote>
+
+<p>The <code>rel</code> attribute should always come first. The <code>link</code> element is a self-closing element.<p>
+<p>Embedded styles should use the following syntax:</p>
+
+  <blockquote>
+    &lt;style type=&quot;text/css&quot;&gt;
+      <em>...styles...</em>
+    &lt;/style&gt;
+  </blockquote>
+
+<h3>Indentation</h3>
+<p>Use two spaces.</p>
+
+<h3>Comments</h3>
+<p>CSS uses only the  <code>/* ... */</code> syntax for comments.</p>
+
+<h3>Style Declarations</h3>
+<p>Each declaration should appear on its own line, except if it's a simple selector. Please review the following rules and the proper spacing for each:</p>
+
+  <blockquote>
+    div, p, li { //div,<strong>[space]</strong>p,<strong>[space]</strong>li<strong>[space]</strong>{
+      <em>property: value;</em> //property:<strong>[space]</strong>value;
+    }
+
+    div#container > ul, //one space should not only separate each item in the selector...
+    div#menu > p + ol { //...but a space should also separate a combinator from an element name;
+      <em>property: value;</em>
+      <em>property: value;</em>
+      <em>property: value;</em> //each declaration (property/value pair) should be indented two spaces, be on its own line and end with a semi-colon;
+    }
+  </blockquote>
+
+<p>Note that the opening bracket appears on the same line as the last selector, and the closing bracket appears on its own line and lined up with the beginning of the selector grouping.</p>
+<p>Declarations should be listed alphabetically, except when an element is positioned. In that case, it is acceptable to put the locations immediately after the <code>position</code> declaration.</p>
+
+  <blockquote>
+    div#shingle {
+      background: #CCC;
+      border: 1px solid #000;
+      padding: 17px 10px 0 5px;
+      position: absolute;
+      top: 25px;
+      right: 100px;
+      width: 400px;
+      z-index: 100;
+    }
+  </blockquote>
+
+<p>Use <a href="http://www.456bereastreet.com/archive/200502/efficient_css_with_shorthand_properties/">shorthand properties</a> and <a href="http://www.websiteoptimization.com/speed/tweak/hex/">shorthand hex properties</a>.</p>
+
+<h3>Hacks and Bug Fixes</h3>
+<p>All IE-specific hacks and bug fixes should be exported to their own style sheet and referenced by a <a href="http://www.quirksmode.org/css/condcom.html">conditional comment</a>. For example:</p>
+
+  <blockquote>
+    &lt;!--[if lt IE 7]&gt;
+      &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen&quot; href=&quot;http://www.benjamintoll.com/lib/fix-ie6.css&quot; /&gt;
+    &lt;![endif]--&gt;
+  </blockquote>
+
+<p>Any other hacks or complex fixes should be commented.</p>
+
+<h3>The <code>!important</code> Declaration</h3>
+<p>Use of the <code>!important</code> declaration is generally considered a hack and should be avoided. It masks errors. It is always better to investigate why a particular declaration or rule is being overidden rather than resorting to this heavy-handed &quot;solution&quot; (hint, it's always specificity).</p>
+<p>There are only a few justifiable uses of the <code>!important</code> declaration, such as the following, and even this is debatable:</p>
+
+  <blockquote>
+    .hide { /*ensure that all classed elements are hidden*/
+      display: none !important;
+    }
+  </blockquote>
+
+<h3>Specificity</h3>
+<p>The <a href="http://www.w3.org/Style/CSS/">rules governing CSS</a> are not whimsical nor are they voodoo, and those who claim they are don't understand specificity and the cascade (and other things, actually). Unfortunately, a quick Google search revealed that many of the top-ranked explanations of specificity are wrong. The best source out there is <a href="http://meyerweb.com/eric/books/css-tdg/">Eric Meyer's O'Reilly book</a>, which thankfully dispels much, if not all, of the anxiety and hand-wringing surrounding CSS.</p>
+
+<h3>Inline Styles</h3>
+<p>Do not use inline styles, as they cannot be overidden.</p>
+
+</body>
+</html>

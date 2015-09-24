@@ -1,0 +1,37 @@
+Q.  How do I create an archive of my files?
+
+A.  You create a tarball.
+
+	How to tar up a directory.
+
+	-start in directory i want
+
+		tar -cvzf foo.tgz *
+
+		* = whatever i want to tar up
+		c = create
+		v = verbose
+		z = gzip files before tarring them up
+		f = the name of the file i'm creating
+
+
+Q.  How do i unpack the tarball?
+
+              -issue the following command at the shell:
+
+                                tar zxvf foo.tgz
+
+                                z = unzip
+                                x = extract
+                                v = verbose
+                                f = filename
+
+
+Here is the tar template:
+
+              tar [options] [tarfile] [other-files]
+
+Note that these are just some of the many options you may use with
+tar.  For more search the tar man page.
+
+

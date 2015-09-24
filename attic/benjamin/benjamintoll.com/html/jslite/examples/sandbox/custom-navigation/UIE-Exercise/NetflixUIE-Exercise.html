@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>Netflix UIE Exercise</title>
+	<style type="text/css" media="screen">
+        body {
+            font-family: arial,sans-serif;
+            color: #000;
+            font-size: 11pt;
+            line-height: 120%;
+        }
+        
+        h1, h2, h3, h4 {
+           font-family: tahoma,georgia,serif;
+           color: rgb(79, 129, 189);
+           font-size: 11pt;
+        }
+	    
+	    h2, h3, h4 {
+	        margin-bottom: 0.5em;
+        }
+        
+	    h2 + p, h3 + p, h4 + p {
+	        margin-top: 0;
+	    }
+	    
+        h1 {
+           color: rgb(23, 54, 93);
+           font-size: 26pt;
+           padding-bottom: 0.5em;
+           border-bottom: 1px solid rgb(79, 129, 189);
+        }
+
+        h2 {
+           color: rgb(54, 95, 145);
+           font-size: 14pt;
+        }
+
+        h3 {
+           font-size: 13pt;
+        }
+	</style>
+</head>
+<body>
+    <h1 id="netflixuieapplicantexercise">Netflix UIE Applicant Exercise</h1> <h2 id="overview">Overview</h2> 
+    <p>
+    	This UI Engineer exercise is designed to help us get a better sense of your front-end engineering skills and general approach to application architecture. Please consider one of these two options for the exercise:
+    	<ol>
+    	<li>Implement the user interface defined by the below specification (see Interaction Specification) and submit it electronically (see Submission). Be prepared to discuss your submission.
+    	<li>Write a description / design document of how you would architect and approach a solution for the below specification (see Interaction Specification) and submit it electronically (see Submission). Be prepared to discuss your submission.
+    	</ol>
+    </p>
+    <h3 id="evaluation">Evaluation</h3> 
+    <p>
+    	Your submission&rsquo;s functionality should satisfy the specification as well as possible. If some behavior is unspecified, draw upon your sense of user experience to fill in the blanks. Consider performance. Most Netflix streaming devices have a fraction of the CPU power and memory your computer has, and applications on the Netflix website compete with other applications for CPU time and memory.
+    </p>
+    <p>
+    	Consider extensibility and maintainability. How easy is it to add a new component to the UI, or change the order of the navigation items? Could someone else easily understand your code and make these changes?
+    </p>
+    <p>
+    	For purposes of this exercise, we don&rsquo;t care about the visual style, animations, or pixel-perfect layout, but your product should closely resemble the wire frames (see Wire Frames).
+    </p>
+    <p>
+    	We will test your submission in the latest production version of Google Chrome.
+    </p>
+    <h3 id="rdpartycode">3rd party code</h3> 
+    <p>
+    	You should be able to achieve the desired effects without any 3rd party code, but you may find it convenient to use a library for DOM traversal and manipulation. Use your discretion in how much 3rd party code to use; we&rsquo;re trying to figure out whether to hire you, not the library/framework author, so consider every component an opportunity to show off your chops.
+    </p>
+    <p>
+    	Be clear about what code is and isn&rsquo;t yours.
+    </p>
+    <h3 id="submission">Submission</h3> 
+    <p>
+    	Submit your finished work by email to the hiring manager or recruiter who provided you with this exercise. It can be an archive file attached to your email or a URL to your solution on the web.
+    </p>
+    <h2 id="wireframes">Wire Frames</h2> <h3 id="figure1.">Figure 1.</h3> 
+    <p>
+    	&#8220;Suggestions For You&#8221; nav item focused
+    </p>
+    <p>
+    	<img id="suggestionsforyou" src="assets/doc/01-figure.png" alt="Suggestions For You" title="" />
+    </p>
+    <h3 id="figure2.">Figure 2.</h3> 
+    <p>
+    	&#8220;Recently Watched&#8221; nav item focused; content area changed to reflect nav item focus
+    </p>
+    <p>
+    	<img id="recentlywatched-navfocused" src="assets/doc/02-figure.png" alt="Recently Watched - nav focused" title="" />
+    </p>
+    <h3 id="figure3.">Figure 3.</h3> 
+    <p>
+    	&#8220;Recently Watched&#8221; content area item at row 0, col 0 focused; nav item is selected but not focused
+    </p>
+    <p>
+    	<img id="recentlywatched-contentfocused" src="assets/doc/03-figure.png" alt="Recently Watched - content focused" title="" />
+    </p>
+    <h2 id="interactionspecification">Interaction Specification</h2> 
+    <p>
+    	This TV user interface responds only to the four arrow keys and Enter. There&rsquo;s no mouse/cursor interaction. Generally, the arrow keys shift focus from one UI component to another, and Enter activates the focused component.
+    </p>
+    <p>
+    	When the application starts, focus should be on the first navigation item in the main navigation.
+    </p>
+    <h3 id="mainnavigation">Main navigation</h3> 
+    <p>
+    	The navigation bar on the left governs the content area. When focus lands on a navigation item, the content area should change to show the corresponding content.
+    </p>
+    <h4 id="navigationitems">Navigation items</h4> 
+    <ol>
+    	<li>
+    		Suggestions For You
+    	</li>
+    	<li>
+    		Recently Watched
+    	</li>
+    	<li>
+    		New Arrivals
+    	</li>
+    	<li>
+    		Instant Queue
+    	</li>
+    </ol>
+    <h4 id="navigationiteminput">Navigation item input</h4> 
+    <ul>
+    	<li>
+    		Up: Move focus to prior navigation item, and show the content area corresponding to the newly focused navigation item
+    	</li>
+    	<li>
+    		Left: Do nothing
+    	</li>
+    	<li>
+    		Right: Move focus to this navigation item&rsquo;s content area
+    	</li>
+    	<li>
+    		Down: Move focus to next navigation item, and show the content area corresponding to the newly focused navigation item
+    	</li>
+    	<li>
+    		Enter: Move focus to this navigation item&rsquo;s content area
+    	</li>
+    </ul>
+    <h3 id="contentarea">Content area</h3> 
+    <p>
+    	There&rsquo;s a separate content component corresponding to each navigation item, i.e. one for Suggestions For You, one for Recently Watched, etc. Each content area hosts up to eight pieces of movie box art, arranged in two rows of four columns. Focus can move between all eight, or move back to the navigation area.
+    </p>
+    <h4 id="contentareainput">Content area input</h4> 
+    <ul>
+    	<li>
+    		Up: Move focus to prior row
+    	</li>
+    	<li>
+    		Left: Move focus to prior column; if there&rsquo;s no prior column, move focus to the corresponding navigation item
+    	</li>
+    	<li>
+    		Right: Move focus to next column
+    	</li>
+    	<li>
+    		Down: Move focus to next row
+    	</li>
+    	<li>
+    		Enter: Alert the focused image&rsquo;s filename
+    	</li>
+    </ul>
+</body>
+</html>

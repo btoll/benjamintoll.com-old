@@ -1,0 +1,20 @@
+<?php
+
+#$unix_time = strtotime('2006-08-02');
+$unix_time = 1155943338;
+echo "<p>$unix_time</p>";
+echo "<p>The Date is " . date('Y-m-d H:i', $unix_time) . "</p>\n";
+echo "<p>Month: " . date('m', $unix_time) . "</p>\n";
+echo "<p>Date: " . date('d', $unix_time) . "</p>\n";
+echo "<p>Year: " . date('Y', $unix_time) . "</p>\n";
+
+
+$Counter = 0;
+echo $Counter;
+echo "<br />";
+echo $Counter += 1;
+echo "<br />";
+echo $Counter += 1;
+echo "<br />";
+echo $Counter += 1;
+?>

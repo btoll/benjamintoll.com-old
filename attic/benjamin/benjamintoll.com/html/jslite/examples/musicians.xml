@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<musicians>
+
+  <musician>
+    <firstname>Stevie Ray</firstname>
+    <lastname>Vaughan</lastname>
+    <instrument>Guitar</instrument>
+    <genre>Blues</genre>
+  </musician>
+
+  <musician>
+    <firstname>Jimmy</firstname>
+    <lastname>Page</lastname>
+    <instrument>Guitar</instrument>
+    <genre>Rock</genre>
+  </musician>
+
+  <musician>
+    <firstname>John</firstname>
+    <lastname>Scofield</lastname>
+    <instrument>Guitar</instrument>
+    <genre>Jazz</genre>
+  </musician>
+
+  <musician>
+    <firstname>Jimmy</firstname>
+    <lastname>Herring</lastname>
+    <instrument>Guitar</instrument>
+    <genre>Jazz</genre>
+  </musician>
+
+  <musician>
+    <firstname>Bill</firstname>
+    <lastname>Evans</lastname>
+    <instrument>Piano</instrument>
+    <genre>Jazz</genre>
+  </musician>
+
+  <musician>
+    <firstname>John</firstname>
+    <lastname>Coltrane</lastname>
+    <instrument>Saxophone</instrument>
+    <genre>Jazz</genre>
+  </musician>
+
+  <musician>
+    <firstname>Wes</firstname>
+    <lastname>Montgomery</lastname>
+    <instrument>Guitar</instrument>
+    <genre>Jazz</genre>
+  </musician>
+
+  <musician>
+    <firstname>Alex</firstname>
+    <lastname>Lifeson</lastname>
+    <instrument>Guitar</instrument>
+    <genre>Rock</genre>
+  </musician>
+
+  <musician>
+    <firstname>Miles</firstname>
+    <lastname>Davis</lastname>
+    <instrument>Trumpet</instrument>
+    <genre>Jazz</genre>
+  </musician>
+
+  <musician>
+    <firstname>Neil</firstname>
+    <lastname>Peart</lastname>
+    <instrument>Drums</instrument>
+    <genre>Rock</genre>
+  </musician>
+
+  <musician>
+    <firstname>Kendrick</firstname>
+    <lastname>Scott</lastname>
+    <instrument>Drums</instrument>
+    <genre>Drums</genre>
+  </musician>
+
+  <musician>
+    <firstname>Jaco</firstname>
+    <lastname>Pastorius</lastname>
+    <instrument>Bass</instrument>
+    <genre>Jazz</genre>
+  </musician>
+
+  <musician>
+    <firstname>Geddy</firstname>
+    <lastname>Lee</lastname>
+    <instrument>Bass</instrument>
+    <genre>Rock</genre>
+  </musician>
+
+  <musician>
+    <firstname>Muddy</firstname>
+    <lastname>Waters</lastname>
+    <instrument>Guitar</instrument>
+    <genre>Blues</genre>
+  </musician>
+
+</musicians>

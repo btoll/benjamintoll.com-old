@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+	<meta name="description" content=" This is a flat in-the-page calendar. It is displayed when the page loads rather than when the user clicks a button. Certain days that contain extra information are displayed differently. The following days have extra information. January 1 displays 'New Year.' May 5 displays 'Cinco de Mayo.' July 4 displays 'Fourth of July.' July 14 displays 'Quatorze Juillet.' Use CSS to control the style for displaying the extra information. ">
+	<meta name="keywords" content="dhtml tools,javascript,DHTML Tools,Javascript,ajax,AJAX,Ajax,ajax tools,AJAX Tools,tools controls,simple javascript tools">
+	<title>Zapatec DHTML Calendar Widget - Flat Calendar, Extra Information for Special Days.</title>
+
+	<!-- Common JS files -->
+	<script type='text/javascript' src='../utils/zapatec.js'></script>
+
+	<!-- Custom includes -->	
+		<!-- import the calendar script -->
+		<script type="text/javascript" src="../src/calendar.js"></script>
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+
+		<!-- other languages might be available in the lang directory; please check
+		your distribution archive. -->
+
+
+	<!-- ALL demos need these css -->
+	<link href="../website/css/zpcal.css" rel="stylesheet" type="text/css">
+	<link href="../website/css/template.css" rel="stylesheet" type="text/css">
+
+	<!-- Theme css -->
+	<link href="../themes/greengrass.css" rel="stylesheet" type="text/css">
+
+	<link rel="SHORTCUT ICON" href="http://www.zapatec.com/website/main/favicon.ico">
+	
+
+
+</head>
+<body>
+	<div class="zpStandard">
+
+	<div class="topMenuHeader">
+		<div class="logo">
+			<a href='http://www.zapatec.com'><img src='../website/images/logoNew.gif' alt='Zapatec logo' border='0'></a>
+		</div>
+		<div class="btn1">
+			<a href="https://www.zapatec.com/zadmin/buy.jsp">
+				<img src="../website/images/buttonBuy.png" alt='Buy Zapatec DHTML Calendar Widget' border ="0">
+			</a>
+		</div>
+
+		<div class="btn1">
+			<a href="http://www.zapatec.com/website/main/pricing.jsp">
+				<img src="../website/images/buttonPricing.png" alt='Pricing for Zapatec DHTML Calendar Widget' border="0">
+			</a>
+		</div>
+	</div>
+
+	<div class="pageMain">
+	<a href="example7.html" style="float:right; margin-right:2em; margin-top:.5em;" accesskey="N" title="Next Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/next.png" alt="Next Zapatec DHTML Calendar Widget Example"></a>
+	<a href="example5.html" style="float:left; margin-left:2em; margin-top:.5em;" accesskey="P" title="Previous Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/previous.png" alt="Previous Zapatec DHTML Calendar Widget Example"></a>
+	<div class='zpCalSubHeader' style='text-align:center;'>Flat Calendar, Extra Information for Special Days.</div>
+
+
+		<div class='zpCalDemoText'>
+		<ul>
+		<li>This demo uses the <b>greengrass theme</b>.</li>
+		
+	<div id="flatcal" style="float: right"></div>
+		<li> This is a flat in-the-page calendar. It is displayed when the page loads rather than when the user clicks a button.</li>
+
+		<li> Certain days that contain  <strong> extra information </strong> are  displayed differently.
+		The following days have extra information.
+
+		<br/>
+		<br/>
+		<ul>
+			<li> January 1 displays "New Year."
+			<li> May 5 displays "Cinco de Mayo."
+			<li> July 4 displays "Fourth of July."
+			<li> July 14  displays "Quatorze Juillet."
+		</ul>
+		</li>
+		<li>Use CSS to control the style for displaying the extra information.</li>
+
+		</ul>
+		</div>
+
+
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+
+
+	<script type="text/javascript">
+		<!--  to hide script contents from old browsers
+		// define info for dates in this table:
+		var dateInfo = {
+			"0101" : "New Year",
+			"0505" : "Cinco de Mayo",
+			"0704" : "Fourth of July",
+			"0714" : "Quatorze Juillet"
+		};
+
+		function getDateText(date, y, m, d) {
+			var inf = dateInfo[date.print("%m%d")];
+			if (!inf) {
+				return d + "<br/>&nbsp;";
+				} else {
+				return d + "<br/><span class='zpCalDayInfo'>" + inf + "<" + "/span>";
+			}
+		};
+		function flatCallback(cal) {
+			if (cal.dateClicked) {
+				// do something here
+				window.status = "Selected: " + cal.currentDate;
+				var inf = dateInfo[cal.currentDate.print("%Y%m%d")];
+				if (inf) {
+					window.status += ".  Additional info: " + inf;
+				}
+			}
+		};
+	// end hiding contents from old browsers  -->
+	</script>
+
+	<script type="text/javascript">
+		var cal = new Zapatec.Calendar.setup({
+		
+			flat: "flatcal",
+			dateText: getDateText,
+			flatCallback: flatCallback
+
+		});
+		
+	</script>
+
+
+	<noscript>
+		<br/>
+		This page uses a <a href='http://www.zapatec.com/website/main/products/prod1/'>
+		Zapatec DHTML Calendar Widget</a>, but your browser does not support Javascript.
+		<br/>
+		<br/>
+	</noscript>      
+		<br/><br/><br/>
+		<div id="divFooter" class="footer" style='text-align:center; margin-top:2em'>
+		&copy; 2004-2006 <strong> <a href='http://www.zapatec.com/'>Zapatec, Inc.</a> </strong>
+		</div>
+	</div>
+</body>
+</html>

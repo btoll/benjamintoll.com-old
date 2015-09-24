@@ -1,0 +1,31 @@
+/*
+a:link {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+a:visited {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+a:active {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+*/
+body {
+  text-align: center; /* workaround for IE */
+}
+table#addWord {
+  margin: 0 auto;
+  padding: 10px;
+}
+#addWord tr {
+  text-align: center;
+}
+#addWord td {
+  padding: 10px;
+}

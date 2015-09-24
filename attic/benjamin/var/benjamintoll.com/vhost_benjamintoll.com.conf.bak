@@ -1,0 +1,69 @@
+<VirtualHost 96.31.87.249:80>
+
+  SuexecUserGroup benjamin benjamin
+
+  DocumentRoot /home/benjamin/benjamintoll.com/html
+  ServerName benjamintoll.com
+
+  ServerAlias www.benjamintoll.com ftp.benjamintoll.com mail.benjamintoll.com italy.benjamintoll.com jslite.benjamintoll.com
+  ServerAlias code-buddy.benjamintoll.com
+  ServerAdmin webmaster@benjamintoll.com
+
+  # subdomain logic
+  RewriteEngine On
+  RewriteOptions inherit
+  RewriteCond %{HTTP_HOST} !^www\.benjamintoll\.com [NC]
+  RewriteCond %{HTTP_HOST} !^benjamintoll\.com [NC]
+  RewriteCond %{HTTP_HOST} ^([A-Z0-9a-z-.]+)\.benjamintoll\.com [NC]
+  RewriteCond %{DOCUMENT_ROOT}/%1 -d
+  RewriteRule ^(.+) %{HTTP_HOST}/$1 [C]
+  RewriteRule ^([0-9A-Za-z-.]+)\.benjamintoll\.com/?(.*)$ %{DOCUMENT_ROOT}/$1/$2 [L]
+
+  RewriteCond %{HTTP_HOST} ^www\.([A-Z0-9a-z-.]+)\.benjamintoll\.com [NC]
+  RewriteCond %{DOCUMENT_ROOT}/%1 -d
+  RewriteRule ^(.+) %{HTTP_HOST}/$1 [C]
+  RewriteRule ^www\.([0-9A-Za-z-.]+)\.benjamintoll\.com/?(.*)$ %{DOCUMENT_ROOT}/$1/$2 [L]
+  # end subdomain logic
+
+  ErrorLog /home/benjamin/var/benjamintoll.com/logs/error.log
+  CustomLog /home/benjamin/var/benjamintoll.com/logs/transfer.log combined
+
+  # php: default  don't edit between this and the "end php" comment below
+  <IfModule mod_suphp.c>
+    suPHP_Engine On
+    suPHP_UserGroup benjamin benjamin
+    AddHandler x-httpd-php .php
+    suPHP_AddHandler x-httpd-php .php
+    suPHP_ConfigPath /home/benjamin/etc
+  </IfModule>
+
+  <IfModule !mod_suphp.c>
+    <IfModule mod_php5.c>
+      php_admin_flag engine On
+    </IfModule>
+    <IfModule mod_php4.c>
+      php_admin_flag engine On
+    </IfModule>
+  </IfModule>
+  # end php
+
+  # cgi: 1 don't edit between this and the "end cgi" comment below
+  <Directory /home/benjamin/benjamintoll.com/html>
+    AllowOverride  All
+  </Directory>
+
+  <Location />
+    Options +ExecCGI
+  </Location>
+  ScriptAlias /cgi-bin/ /home/benjamin/benjamintoll.com/html/cgi-bin/
+  # end cgi
+
+  <IfModule mod_interworx_settings.c>
+    # InterWorx adds this dummy module section to store settings
+    # There is no mod_interworx_settings module
+    # DO NOT DELETE
+
+    last_update 2013-09-16 15:02:20
+    iworx_controlled_ips 96.31.87.249:80
+  </IfModule>
+</VirtualHost>

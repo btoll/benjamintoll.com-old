@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Code Conventions for the JavaScript Programming Language</title>
+<style type="text/css">
+h1 {
+  font-size: 22px;
+}
+h3 {
+  margin-bottom: 0;
+}
+h3 + p {
+  margin-top: 0;
+}
+blockquote {
+  font-family: monospace;
+  margin: 10px;
+  margin-left: 0;
+  white-space: pre;
+}
+a {
+  text-decoration: none;
+  white-space: nowrap;
+}
+[href*="http"]:after {
+  color: #999;
+  content: " {" attr(href) "} ";
+  font: 11px Verdana, serif;
+}
+h3 + p + ul,
+ul ul {
+  font-family: monospace;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Code Conventions for the JavaScript Programming Language</h1>
+<p>The following are coding conventions for the JavaScript programming language. They are not meant to be restrictive; rather, they are based upon best practices that have been developed over the years within the JavaScript community. The following are based upon suggestions by <a href="http://javascript.crockford.com/code.html">Douglas Crockford</a> and <a href="http://www.nczonline.net/">Nicholas Zakas</a>. Both are front-end engineers for Yahoo!.  Crockford is the discoverer of <a href="http://www.json.org/">JSON</a> as well as other widely-distributed and useful tools such as <a href="http://www.jslint.com/">JSLint</a> and a published author (O'Reilly).  Zakas is a contributor to the <a href="http://developer.yahoo.com/yui/">YUI JavaScript library</a>, having written the Cookie Utility, Profiler, and YUI Test packages and is also a published author (Wrox).</p>
+
+<h3>Quotes</h3>
+<p>Strings should be double-quoted.</p>
+
+<h3>Files</h3>
+<p>All JavaScript should be housed in its own location and linked to externally.  When embedded within (X)HTML, JavaScript has no chance to be either cached or compressed and maintainability increases as scalability decreases.  For example, HTML events, i.e. inline JavaScript that binds a handler to an event (onload, onclick, onchange, etc.), should be scrupulously avoided as this can be especially time-consuming to maintain and/or to transition to a library or to the W3C recommended event listener pattern based upon the publish-subscribe design pattern.  Scripts should always have the .js file extension. When linking to an external resource, use the following HTML:</p>
+
+  <blockquote>
+    &lt;script type=&quot;text/javascript&quot; src=&quot;filename.js&quot;&gt;&lt;/script&gt;
+  </blockquote>
+
+<p>The <code>type</code> attribute should always go before the <code>src</code> attribute. The <code>charset</code> attribute <a href="http://reference.sitepoint.com/html/script/charset">is not needed unless</a> character encoding employed by the external JavaScript file differs from that of the main document. If used, it should come between the <code>type</code> and <code>src</code> attributes. The <code>language</code> attribute is deprecated and should not be used.  Incidentally, though needed for page validation, the <code>type</code> attribute is not technically needed as the MIME type is always determined by the server.</p>
+
+<h3>Indentation</h3>
+<p>Use two spaces. Since JavaScript tends to be nested more than traditional OO languages, using more than two spaces for indentation can quickly lead to code that is indented off the page and thus harder to read.  Do not use tabs.</p>
+
+<h3>Comments</h3>
+<p>Comments in JavaScript should be used copiously, especially when a tricky or non-intuitive solution is used. Only use <code>//</code> for single-line quotes, otherwise use <code>/* ... */</code> for multi-line quotes (as when documenting or commenting out large blocks of text).</p>
+
+<h3>Variable Declarations</h3>
+<p>All variables should be declared using the <code>var</code> keyword, otherwise they become global and are properties of the global <code>window</code> object. Neglecting to precede a variable declaration with the <code>var</code> keyword will make the variable global even when nested within a function. All variables, including functions, should be declared at the beginning of the function body. When declaring multiple variables, do so using only one statement.  This is done for optimization reasons. When declaring one or two variables, do so on the same line.  For more than two variable declarations, each variable should be placed on its own line and indented two spaces to enhance readibility:</p>
+
+  <blockquote>
+    var oDiv, sHtml; //one or two variable declarations;
+
+    var oDiv, //more than two variable declarations;
+      sHtml,
+      aPeople = ["Bill", "Tom", "Alice"];
+  </blockquote>
+
+<p>In addition, variable names should never include anything but alpha-numeric characters.  Variables preceded by an underscore (_) are sometimes interpreted as meaning that it should be treated as a private variable, but only true private variables can be created via the <a href="http://yuiblog.com/blog/2007/06/12/module-pattern/">module pattern</a> and thus the underscore should not be used.</p>
+<p>It is ok to declare and define a variable in one statement.</p>
+
+<h3>Function Declarations</h3>
+<p>Since <a href="http://en.wikipedia.org/wiki/First-class_object">functions are first-class objects</a> in JavaScript, they too can be declared using the <code>var</code> keyword, although this is functionally equivalent to declaring functions in the traditional manner. Please review the following function constructs and the proper spacing for each:</p>
+
+  <blockquote>
+    var fnFunctionName = function () { //var<strong>[space]</strong>fnFunctionName<strong>[space]</strong>=<strong>[space]</strong>function<strong>[space]</strong>()<strong>[space]</strong>{ 
+      ...
+    };
+
+    function fnFunctionName() { //function<strong>[space]</strong>fnFunctionName()<strong>[space]</strong>{
+      ...
+    }
+
+    //these are virtually equivalent;
+  </blockquote> 
+
+
+
+<p>Please note that the opening bracket is always on the same line as the function name. Note also the semi-colon after the first function declaration; this is proper as it's a variable definition. In addition, function parameters or arguments should only have a space after the comma (i.e., in a method signature with multiple parameters) and no spaces at all for a single parameter. For example:</p>
+
+  <blockquote>
+    var fnAverage = function (iHigh, iMiddle, iLow) {
+      ...
+    }; //multiple arguments;
+
+    var fnOne = function (oMyObject) {
+      ...
+    }; //one argument;
+  </blockquote>
+
+<p>It is recommended to use an object literal in the method signature. This makes moot the order of the variables, enhances readability and easily allows for default values.</p>
+<p>Lastly, it's recommended to declare functions as variables using the <code>var</code> keyword as this helps to enforce the notion that functions are simply variables in JavaScript and are treated thusly.</p>
+
+<h3>Anonymous Functions</h3>
+
+<p>Anonymous functions, sometimes referred to as lambda functions, are prevalent in JavaScript and are extremely useful as function arguments such as callbacks. Further, if a function is a one-off, it's best to use an anonymous function instead of littering the scope chain with another variable name. Another extremely important use of anonymous functions is that of creating block-level scope, which formally doesn't exist in JavaScript. Remember that JavaScript only formally support function-level scope. Here are some examples of common uses of an anonymous function:</p>
+
+  <blockquote>
+    //use an anonymous function or a named function variable with <code>setTimeout</code> and <code>setInterval</code> rather than a string (which is evaluated and inefficient);
+    setTimeout(function () {
+      ...
+    }, 500);
+
+    /**************************************************************************************************************************************/
+    /**************************************************************************************************************************************/
+
+    /**
+     * this anonymous function is defined and immediately executed creating a block-level scope that is inaccessible from the outside;
+     * note the added parenthesis wrapping the anonymous function;
+     * note that arguments can be passed when the anonymous function is executed;
+    */
+    (function ($) {
+      $(function () {
+        ...code executed on page load...
+      });
+    })(jQuery);
+
+    /**************************************************************************************************************************************/
+    /**************************************************************************************************************************************/
+
+    //module pattern;
+    var oMyModule = (function () {
+      //private vars (b/c of closure);
+      var bReturn = true,
+        fnHello = function (sMessage) {
+          alert("Hello, " + sMessage);
+        };
+
+      //return public API;
+      return {
+        init: function (sMessage) {
+          fnHello(sMessage);
+        },
+        isTrue: function () {
+          return bReturn;
+        }
+      };
+    })();
+
+    oMyModule.init("world!");
+  </blockquote>
+
+<p></p>
+
+<h3>Names</h3>
+<p>Since JavaScript is a weakly-typed language, the proper naming of variables is a key way to improving readibility. Verbose names are always better than non-sensical short names. Use a subset of <a href="http://en.wikipedia.org/wiki/Hungarian_notation">Hungarian notation</a> when naming variables. For example,</p>
+<ul>
+  <li>b = Boolean, ex. bReturn</li>
+  <li>i = Number, ex. iAverage</li>
+
+  <li>s = String, ex. sHtml</li>
+  <li>o = Object, ex. oModule</li>
+  <li>a = Array, ex. aCache</li>
+  <li>fn = Function, ex. fnHelloWorld</li>
+  <li>re = Regular Expression, ex. reTags</li>
+  <li>c = collection, ex. cDomElements</li>
+
+  <li>v = variant, ex. vMutable</li>
+
+</ul>
+<p>Use <code>vVariableName</code> (variant) as a name when the data type could change over the course of the variable's lifetime or when, as a function argument, it could expect different types of data as input. As mentioned earlier, names should only contain alpha-numeric characters, always beginning with a lower-case alphabetical character. In addition, words in variable names should employ <a href="http://en.wikipedia.org/wiki/Camel_case">camelCase</a> rather than underscores (_) or hypens (-).</p>
+<p>Note it's not necessary to use Hungarian notation with object properties.</p>
+
+<h3>Simple Statements</h3>
+
+<p>Though it's legal to leave off a trailing semi-colon after a statement, doing so can sometimes mask errors.  Always end statements with a semi-colon; this includes object, array and function literals.</p>
+
+  <blockquote>
+    //object literal;
+    var oDefaults = {
+      async: true,
+      type: "get",
+      data: "json",
+      success: function (sResponse) {
+        ...
+      }
+    };
+
+    //function literal;
+    var fnGetQuote = function (sStock) {
+      ...
+    };
+  </blockquote>
+
+<p>Both operands and operators should be separated by a space, i.e.:</p>
+
+  <blockquote>
+    var iTotal = 5 + 2;
+    var iMod = 5 % 2;
+  </blockquote>
+
+<h3>Compound Statements</h3>
+<p>Compound statements, that is multiple statements enclosed in curly braces or brackets <code>{ }</code>, should always have their opening bracket on the same line that begins the compound statement. The closing bracket should be on its own line and lined up with the first character of the statement that began it.</p>
+
+  <blockquote>
+    do {
+      ...
+    } while (<em>condition</em>); //also note the semi-colon (only for do-while compound statements);
+  </blockquote>
+
+<h3><code>if</code> Statements</h3>
+
+<p>The <code>if</code> statement should have all clauses bracketed, i.e.:</p>
+
+  <blockquote>
+    if (<em>condition</em>) {
+      ...
+    } else if (<em>condition</em>) {
+      ...
+    } else (<em>condition</em>) {
+      ...
+    }
+  </blockquote>
+
+<p>It is sometimes extremely useful to use the ternary operator instead:</p>
+  
+  <blockquote>
+    var bReturn = obj instanceof Person ? true : false;
+  </blockquote>
+
+<h3><code>switch</code> Statements</h3>
+<p>It is acceptable to allow for fall-throughs, but clarify this in a comment so the reader doesn't &quot;correct&quot; the code:</p>
+
+  <blockquote>
+    switch (true) {
+      case oElem.nodeName === "DIV":
+        break;
+
+      case oElem.nodeName === "INPUT": //falls through;
+        ...
+
+      case oElem.nodeName === "TEXTAREA":
+        ...
+        break;
+
+      default:
+        ...
+    }
+  </blockquote>
+
+<h3><code>with</code> Statements</h3>
+<p>It's best to <a href="http://yuiblog.com/blog/2006/04/11/with-statement-considered-harmful/">avoid <code>with</code> statements</a> as they can be very inefficient and confusing. Using this statement adds another object to the front of the scope chain and can lead to unintended consequences and poor performance as the interpreter traverses the scope chain when doing variable lookups.</p>
+
+<p>Most often this is used as a shorthand for object properties, but instead it's better to stuff the object into a variable. For example, instead of...</p>
+
+  <blockquote>
+    //JSLITE.state.manager.myObj.x;
+    //JSLITE.state.manager.myObj.y;
+    with (JSLITE.state.manager.myObj) {
+      var x = x,
+      y = y;
+    }
+  </blockquote>
+
+<p>...do...</p>
+
+  <blockquote>
+    var o = JSLITE.state.manager.myObj,
+      x = o.x,
+      y = o.y;
+  </blockquote>
+
+<h3>Optimization</h3>
+<ul>
+  <li>Use <a href="http://www.nczonline.net/blog/2009/06/30/event-delegation-in-javascript/">event delegation</a></li>
+  <li>Use <a href="http://ejohn.org/blog/dom-documentfragments/">document fragments</a></li>
+  <li>Avoid using <code>with</code> and <code>eval</code>. It's trite but bears repeating: &quot;If <code>eval</code> is the answer, you're asking the wrong question.&quot; Be aware that using the <code>Function</code> constructor and passing strings to <code>setTimeout</code> and <code>setInterval</code> all are evaluated, and their use should be scrupulously avoided. For the latter, pass either an anonymous function or a named variable as the function argument.</li>
+  <li>Limit each function to only one <code>var</code> and <code>return</code> statement.</li>
+  <li>Optimize loops, i.e.:
+    <blockquote>
+      //only evaluate the length of the collection once by creating a local variable 'iLen' instead of evaluating it each time through the loop;
+      for (var i = 0, iLen = cElems.length; i < iLen; i++) {
+        ...
+      }
+    </blockquote>
+  </li> 
+  <li>Use <code>innerHTML</code> when doing large DOM updates.</li>
+  <li>Use literals instead of constructors:
+    <ul>
+      <li>[] rather than new Array()</li>
+      <li>{} rather than new Object()</li>
+      <li>function () {} rather than new Function()</li>
+    </ul>
+  </li>
+</ul>
+
+</body>
+
+</html>

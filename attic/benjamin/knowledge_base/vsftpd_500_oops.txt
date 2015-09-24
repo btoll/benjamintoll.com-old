@@ -1,0 +1,18 @@
+Q. When first attempting to start the vsftpd binary from the shell, I get
+a '500 OOPS: could not bind listening IPv4 socket' error.  What am I doing wrong?
+
+A. vsftpd is most likely started through the xinetd service (this is the default setting).
+
+To check to see if this is indeed the case,
+cd to /etc/xinetd.d and look for vsftpd.
+If this file is present, use a text editor to change the value of disable to 'YES'.
+You must then restart the xinetd daemon for this change to be effected:
+
+/etc/rc.d/init.d/xinetd restart
+
+After this command, you can then start the vsftpd binary from the shell,
+and it should (hopefully) work.
+
+/usr/local/sbin/vsftpd &
+
+NOTE:  You must be logged as root to do this.

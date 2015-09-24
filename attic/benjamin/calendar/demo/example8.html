@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+	<meta name="description" content=" Click a button. Notice that you cannot choose days prior to today. You cannot choose a check-in date later then the check-out date. You cannot choose a check-out date prior to the check-in date. Clicking the Reset buttone clears the dates. The default date in the second calendar is the date chosen in the first calendar. This is useful when the check-in date is several months in the future, so the user doesn't need to scroll twice. ">
+	<meta name="keywords" content="dhtml tools,javascript,DHTML Tools,Javascript,ajax,AJAX,Ajax,ajax tools,AJAX Tools,tools controls,simple javascript tools">
+	<title>Zapatec DHTML Calendar Widget - Two Coordinated Dates</title>
+
+	<!-- Common JS files -->
+	<script type='text/javascript' src='../utils/zapatec.js'></script>
+
+	<!-- Custom includes -->	
+		<!-- import the calendar script -->
+		<script type="text/javascript" src="../src/calendar.js"></script>
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+
+		<!-- other languages might be available in the lang directory; please check
+		your distribution archive. -->
+
+
+	<!-- ALL demos need these css -->
+	<link href="../website/css/zpcal.css" rel="stylesheet" type="text/css">
+	<link href="../website/css/template.css" rel="stylesheet" type="text/css">
+
+	<!-- Theme css -->
+	<link href="../themes/system.css" rel="stylesheet" type="text/css">
+
+	<link rel="SHORTCUT ICON" href="http://www.zapatec.com/website/main/favicon.ico">
+	
+
+
+</head>
+<body>
+	<div class="zpStandard">
+
+	<div class="topMenuHeader">
+		<div class="logo">
+			<a href='http://www.zapatec.com'><img src='../website/images/logoNew.gif' alt='Zapatec logo' border='0'></a>
+		</div>
+		<div class="btn1">
+			<a href="https://www.zapatec.com/zadmin/buy.jsp">
+				<img src="../website/images/buttonBuy.png" alt='Buy Zapatec DHTML Calendar Widget' border ="0">
+			</a>
+		</div>
+
+		<div class="btn1">
+			<a href="http://www.zapatec.com/website/main/pricing.jsp">
+				<img src="../website/images/buttonPricing.png" alt='Pricing for Zapatec DHTML Calendar Widget' border="0">
+			</a>
+		</div>
+	</div>
+
+	<div class="pageMain">
+	<a href="example9.html" style="float:right; margin-right:2em; margin-top:.5em;" accesskey="N" title="Next Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/next.png" alt="Next Zapatec DHTML Calendar Widget Example"></a>
+	<a href="example7.html" style="float:left; margin-left:2em; margin-top:.5em;" accesskey="P" title="Previous Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/previous.png" alt="Previous Zapatec DHTML Calendar Widget Example"></a>
+	<div class='zpCalSubHeader' style='text-align:center;'>Two Coordinated Dates</div>
+
+
+		<div class='zpCalDemoText'>
+		<ul>
+		<li>This demo uses the <b>system theme</b>.</li>
+		
+		<li> Click a button. </li>
+		<li> Notice that you cannot choose days prior to today. </li>
+		<li> You cannot choose a check-in date later then the check-out date. </li>
+		<li> You cannot choose a check-out date prior to the check-in date. </li>
+		<li> Clicking the Reset buttone clears the dates. </li>
+		<li> The default date in the second calendar is the date chosen in the first calendar. This is useful
+		when the check-in date is several months in the future, so the user doesn't need to scroll twice.</li>
+
+		</ul>
+		</div>
+
+
+
+	<form name="form1" action="#" method="POST" onReset='resetDates()'> 
+		<table>
+			<tr>
+				<td class='zpCalSubheader'> 
+					Location: 
+				</td>
+				<td>
+					<input type="text" name="location" id="location" />
+				</td>
+			</tr>
+			<tr>
+				<td class='zpCalSubheader'> 
+					Check-in Date:
+				</td>
+				<td>
+					<input type="text" name="date8a" id="departure_date" />
+					<input type="reset" value=" ... " id='button8a'>
+				</td>
+			</tr>
+			<tr>
+				<td class='zpCalSubheader'> 
+					Check-out Date:
+				</td>
+				<td>
+					<input type="text" name="date8b" id="arrivalDate" />
+					<input type="reset" value=" ... " id='button8b'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" name="Submit2" value="Check" class="button" onFocus="if(this.blur)this.blur()">
+				</td>
+				<td>
+
+					<input type="reset" name="Submit22" value="Reset" class="button" onFocus="if(this.blur)this.blur()"> 
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		<!--  to hide script contents from old browsers
+		var startDate;
+		var endDate;
+		var ONEDAY = 3600 * 24;
+
+		function resetDates() {
+			startDate = endDate = null;
+		}
+
+		function filterDates1(cal) {
+			startDate = cal.date.getTime();
+			/* If they haven't chosen an 
+			end date before we'll set it to the same date as the start date This
+			way if the user scrolls in the start date 5 months forward, they don't
+			need to do it again for the end date.
+			*/
+
+			if (endDate == null) { 
+				Zapatec.Calendar.setup({
+					inputField     :    "arrivalDate",
+					button         :    "button8b",  // What will trigger the popup of the calendar
+					ifFormat       :    "%b %d, %Y",
+					date           :     cal.date,
+					showsTime      :     false,          //no time
+					dateStatusFunc		:    disallowDateBefore, //the function to call
+					onUpdate       :    filterDates2
+				});
+			}
+		}
+
+		function filterDates2(cal) {
+			var date = cal.date;
+			endDate = date.getTime()
+		}
+
+		/*
+		* This functions return true to disallow a date
+		* and false to allow it.
+		*/
+
+
+		/* 
+		* Can't choose days before today or before the
+		* end date
+		*/
+		function disallowDateBefore(date) {
+			date = date.getTime();
+			if ((startDate != null) && (date < (startDate + ONEDAY))) {
+				//start date can't be prior to end date
+				return true; 
+			} 
+			var now = new Date().getTime();
+			if (date < (now - ONEDAY)) {
+				//start date can't be prior to today
+				return true;
+			}
+
+			return false;
+		}
+
+		/* 
+		* Can't choose days before today or before the
+		* start date
+		*/
+		function disallowDateAfter(date) {
+			date = date.getTime();
+			if ((endDate != null) && (date > (endDate - ONEDAY))) {
+				//end date can't be before start date
+				return true;
+			} 
+
+			var now = new Date().getTime();
+			if (date < (now - ONEDAY)) {
+				//end date can't be prior to today
+				return true;
+			}
+			return false;
+		}
+
+		// end hiding contents from old browsers  -->
+	</script>
+
+	<script type="text/javascript">
+		var cal = new Zapatec.Calendar.setup({
+		
+         inputField     :    "departure_date",   // id of the input field
+         button         :    "button8a",  // What will trigger the popup of the calendar
+         ifFormat       :    "%b %d, %Y",       // format of the input field: Mar 18, 2005
+         showsTime      :     false,          //no time
+         dateStatusFunc    :    disallowDateAfter, //the function to call
+         onUpdate       :    filterDates1
+
+		});
+		
+      Zapatec.Calendar.setup({
+         inputField     :    "arrivalDate",
+         button         :    "button8b",  // What will trigger the popup of the calendar
+         ifFormat       :    "%b %d, %Y",       // format of the input field: Mar 18, 2005
+         showsTime      :     false,          //no time
+         dateStatusFunc    :    disallowDateBefore, //the function to call
+         onUpdate       :    filterDates2
+      });
+
+	</script>
+
+
+	<noscript>
+		<br/>
+		This page uses a <a href='http://www.zapatec.com/website/main/products/prod1/'>
+		Zapatec DHTML Calendar Widget</a>, but your browser does not support Javascript.
+		<br/>
+		<br/>
+	</noscript>      
+		<br/><br/><br/>
+		<div id="divFooter" class="footer" style='text-align:center; margin-top:2em'>
+		&copy; 2004-2006 <strong> <a href='http://www.zapatec.com/'>Zapatec, Inc.</a> </strong>
+		</div>
+	</div>
+</body>
+</html>

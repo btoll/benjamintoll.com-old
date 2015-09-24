@@ -1,0 +1,4 @@
+Q.  How do I prevent a malicious user from entering HTML or 
+JavaScript into my website?
+
+A.  Use the htmlentities() function.

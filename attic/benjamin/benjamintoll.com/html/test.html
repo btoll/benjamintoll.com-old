@@ -1,0 +1,17 @@
+<html>
+<title>scripting iframes</title>
+<script>
+function iframePipe() {
+    //var pipe = document.getElementById('frame2');
+    //pipe.src = "http://192.168.1.8/sandbox/iframes/frame2.html#localhost";
+
+    var iframe = document.createElement("iframe");
+    iframe.src = "http://192.168.5.68/sandbox/iframes/frame2.html#localhost";
+    document.body.appendChild(iframe);
+}
+</script>
+<body onload="iframePipe()">
+<h1>I'm on the remote machine!</h1>
+<!--<iframe height="100%" width="100%" src="http://192.168.1.8/sandbox/iframes/frame2.html" id="frame2" name="frame2"></iframe>-->
+</body>
+</html>

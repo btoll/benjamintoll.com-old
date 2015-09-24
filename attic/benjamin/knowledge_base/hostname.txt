@@ -1,0 +1,14 @@
+Q.  How do I set/change the hostname of my machine?
+
+Solution:
+
+	As root (or as a member of the WHEEL group), enter the 
+	following at the shell:
+
+	cd /etc/sysconfig/ ; vi network
+
+	Change the value of HOSTNAME.
+
+Note: Simply editing the /etc/hosts file won't change the hostname.
+
+

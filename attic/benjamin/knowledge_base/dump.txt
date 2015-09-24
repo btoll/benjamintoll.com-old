@@ -1,0 +1,21 @@
+You want to either move or archive the structure and data of several of your
+database tables.
+
+Q.  How do you do this?
+
+Solution:
+
+At the shell type the following:
+
+mysqldump -h raffaello -u ben -p database_name table1 table2 table3 > my_db_dump.sql
+
+It will then ask you for your password, and God willing you've got that handy, and 
+you should be done.
+
+You can then view the file with your favorite text editor.
+
+-h = hostname 
+-u = user
+-p = prompt for password
+
+

@@ -1,0 +1,354 @@
+/************************* hrefs *************************/
+a {
+  color: #8FBC8F;
+  text-decoration: none;
+}
+a:link { color: #4682B4; }
+a:visited {color: #4682B4;}
+a:hover {
+  color: #4682B4;
+  text-decoration: overline underline;
+}
+a:active { color: #4682B4; }
+div#content a:hover {
+  background-color: #EED;
+}
+div#content ul#navbar a:hover {
+  background-color: #789;
+}
+div#content ul#navbar ul a:hover {
+  background-color: #FFF;
+}
+div#footer a {
+  color: #FFF;
+  font-weight: bold;
+}
+/************************* elements *************************/
+body {
+  background: #FFF url("http://www.benjamintoll.com/images/page_background.png") center repeat-y;
+  color: #999;
+  /*font-family: 'Trebuchet MS', Verdana, 'Times New Roman', serif;*/
+  text-align: center;
+}
+img { border: 0; }
+ul {
+  color: #000;
+  font-size: 13px;
+  list-style: none;
+}
+ul#aboutMe {
+  font-size: 14px;
+  list-style: circle;
+}
+ul#aboutMe li {
+  margin: 5px 0;
+}
+body#examples ul {
+  list-style: circle;
+}
+body#changelog ul#changelogRoot {
+  margin: 50px 0;
+  padding: 0;
+}
+body#changelog ul#changelogRoot ul {
+  list-style: circle;
+}
+body#changelog ul#changelogRoot ul ul {
+  list-style: disc;
+}
+body#changelog p.version {
+  background: #FFF;
+  border: 1px solid #CCC;
+  margin: 35px 0 10px;
+  padding: 4px;
+}
+ul ol {
+  margin-bottom: 15px;
+}
+p, dl {
+  font-size: 15px;
+  font-weight: normal;
+  margin-left: 10px;
+}
+dl {
+  margin: 30px 0 30px 10px;
+}
+dt {
+  color: #778899;
+}
+dd {
+  font-size: 13px;
+  margin-top: 5px;
+}
+div#shingle span { /* styles 'benjamintoll.com' in the shingle */
+  color: #789;
+  font-weight: bold;
+}
+div#logo span { /* styles the tagline under benjamintoll.com */
+  color: olive;
+  display: block;
+  font: 14px verdana;
+  margin: -10px 0 -10px 55px;
+}
+/************************* navbar **********************/
+#navbar {
+  clear: left;
+  margin: 0 auto;
+  padding: 0 0 0 8px;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 650px;
+  z-index: 1;
+}
+#navbar li {
+  background: #789;
+  border: 1px solid #CCC;
+  float: left;
+  font-size: 14px;
+  list-style: none;
+  margin: 5px 2px;
+  position: relative;
+  width: 100px;
+}
+#navbar li a {
+  color: #FFF;
+  display: block;
+  padding: 5px;
+  text-align: center;
+}
+#navbar ul {
+  display: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 25px;
+}
+#navbar ul ol {
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+#navbar ul ol li {
+  border: 0;
+  list-style: square;
+  margin: -2px 0;
+  width: auto;
+}
+#navbar ul ol li a {
+  font-size: 11px;
+}
+#navbar li:hover ul {
+  display: block;
+}
+#navbar ul li {
+  background: #FFF;
+  /*border-top-width: 0;*/
+  float: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 250px;
+}
+#navbar ul li a {
+  color: #789;
+  display: inline;
+  padding: 0;
+  text-align: left;
+}
+#navbar ul li a:hover {
+  text-decoration: underline;
+}
+#navbar ul li h5 {
+  font-size: 13px;
+  margin: 0;
+  padding: 10px;
+}
+#navbar ul li h5 a {
+  color: olive;
+}
+#navbar ul li div {
+  border: 0;
+  border-bottom: 1px dotted #999;
+  color: #000;
+  font-size: 12px;
+  margin: 0 10px;
+  padding: 0 15px 25px;
+}
+#navbar ul li div.last-child {
+  margin-bottom: 10px;
+  border: 0;
+}
+#home #navbar a#homeHref,
+#library #navbar a#softwareHref,
+#library #navbar a#libraryHref,
+#changelog #navbar a#softwareHref,
+#changelog #navbar a#libraryHref,
+#changelog #navbar a#changelogHref,
+#examples #navbar a#softwareHref,
+#examples #navbar a#libraryHref,
+#examples #navbar a#examplesHref,
+#download #navbar a#softwareHref,
+#download #navbar a#libraryHref,
+#download #navbar a#downloadHref,
+#tutoring #navbar a#tutoringHref,
+#about #navbar a#aboutHref,
+#contact #navbar a#contactHref {
+  color: #DEB887;
+  text-decoration: none;
+}
+/************************* contact page **********************/
+body#contact p {
+  color: red;
+}
+form {
+  margin: -10px 0 0 -120px;
+  padding: 0;
+}
+fieldset {
+  border: 0;
+  margin: 20px 0;
+}
+form ol {
+  list-style: none;
+}
+form ol li {
+  margin: 5px 0;
+}
+form ol li span {
+  color: red;
+}
+form label {
+  display: inline-block;
+  margin-right: 10px;
+  text-align: right;
+  vertical-align: top;
+  width: 150px;
+}
+form ol input[type="submit"] {
+  margin-left: 180px;
+}
+.JSLITE_errorBox {
+  position: absolute;
+  top: 120px;
+  right: 5px;
+}
+div#content .JSLITE_errorBox p {
+  color: #789;
+}
+.JSLITE_errorBox em {
+  display: block;
+}
+/************************* tutoring page **********************/
+#tutoring #subjects {
+  padding: 0;
+}
+#tutoring #subjects li {
+  margin-left: 20px;
+}
+#tutoring #subjects div p {
+  margin-left: 30px;
+  text-decoration: underline;
+}
+#tutoring #subjects li div {
+  background: none;
+  border: 0;
+  float: left;
+  margin: 0 0 0 20px;
+  padding: 0;
+  width: 40%;
+}
+#tutoring #subjects p.technology {
+  background: #FFF;
+  border: 1px solid #CCC;
+  clear: left;
+  padding: 5px;
+}
+#tutoring #subjects ol li {
+  list-style: circle;
+  margin-bottom: 10px;
+}
+#tutoring #subjects ol li li {
+  list-style: disc;
+  margin: 0 0 0 -20px;
+  padding: 0;
+}
+/************************* linux cotd page **********************/
+#cotd form {
+  background: #FFF;
+  border: 1px solid #789;
+  margin: 0;
+  padding: 5px;
+}
+#cotd form label {
+  width: auto;
+}
+/************************* divs **********************/
+div#branding {
+  margin: 0 auto;
+  width: 650px;
+}
+div#logo {
+  float: left;
+  margin: 40px 0 20px 30px;
+}
+div#bigBen {
+  float: left;
+  margin: 20px 0 60px 120px;
+}
+div#shingle {
+  background-color: #f5f5f5;
+  border: 2px solid #556b2f;
+  color: #808080;
+  font-size: 16px;
+  margin: 6px;
+  padding: 6px 0;
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  text-align: center;
+  width: 200px;
+}
+div#content, div#footer {
+  background-color: #EED;
+  border: 2px solid #CCC;
+  clear: both;
+  font-size: 15px;
+  margin: 10px auto;
+  padding: 10px;
+  position: relative;
+  text-align: left;
+  width: 650px;
+}
+div#content div {
+  background: #FFF;
+  border: 2px solid #CCC;
+  padding: 15px;
+}
+div#content div p {
+  margin: 5px;
+}
+/********************* footer ********************/
+div#footer { min-height: 0; }
+div#lastUpdated {
+  /*background-color: #8fbc8f;*/
+  background-color: #789;
+  border: 1px solid #CCC;
+  clear: left;
+  color: #fff;
+  font-size: 12px;
+  height: 14px;
+  padding: 6px;
+}
+.copyright {
+  float: left;
+}
+.lastModified {
+  float: right;
+}
+/*********************** classes **************************/
+.pageHeader {
+  color: #789;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 5px;
+}

@@ -1,0 +1,192 @@
+<html>
+	<head>
+	<!--comment("UTF-8 is the recommended encoding for your pages");-->
+	<script>
+		var c = window.opener.calendarConfig;
+		var path = window.opener.document.getElementById('f_path').value;
+		path = path.replace(/\/*$/, '/');
+		/**/
+	</script>
+	<meta http-equiv="content-type" content="text/xml; charset=utf-8" />
+	<title>Zapatec DHTML Calendar</title>
+
+
+	<!-- Loading Calendar JavaScript files -->
+	<script>
+		document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'utils/zapatec.js"><\/script>');
+	</script>
+	<script>
+		Zapatec.include(path + 'src/calendar.js');
+	</script>
+
+	<!-- Loading language definition file -->
+	<script>
+		Zapatec.include(path + 'lang/calendar-' + c.lang + '.js');
+	</script>
+
+	<!-- Loading Theme file(s) -->
+	<script>
+		Zapatec.Transport.loadCss({url : path + "themes/" + c.theme + ".css"});
+		if (c.size) {
+			Zapatec.Transport.loadCss({url : path + "themes/layouts/" + c.size + ".css"});
+		}
+	</script>
+
+</head>
+<body>
+	<!-- CUT THIS LINE --><h1>Test your calendar</h1>
+	<!-- CUT THIS LINE --><blockquote>
+	<script>
+		if (window.opener.document.getElementById("r_popup").checked) {
+			var html = "";
+			if (c.inputField)
+				html += '    <input type="' + (c.displayArea ? "hidden" : "text") + '"' +
+					' id="' + c.inputField + '" name="' + c.inputField + '" />\n';
+			if (c.displayArea)
+				if (c.button)
+					html += '    <div style="border: 1px solid #000; padding: 2px 5px;" id="' +
+						c.displayArea + '">Select date</div>\n';
+				else
+					html += '    <a href="#" id="' + c.displayArea + '">Select date</a>\n';
+			if (c.button)
+				html += '    <button id="' + c.button + '">...</button>\n';
+			document.write(html);
+		}
+	</script>
+	<script>
+		if (!window.opener.document.getElementById("r_popup").checked) {
+			html = '<div style="float: right; margin: 0 0 1em 1em" id="' + c.flat + '"></div>\n\n';
+			document.write(html);
+		}
+	</script>
+    <script type="text/javascript">
+		html = "";
+		function beginCommonCalendarSetup() {
+			html += '     Zapatec.Calendar.setup({\n';
+			if (c.firstDay != 0) { 
+				html += '        firstDay          : ' + c.firstDay + ',\n';
+			}
+			if (c.weekNumbers != true) { 
+				html += '        weekNumbers       : ' + c.weekNumbers + ',\n';
+			}
+			if (c.showOthers != false) { 
+				html += '        showOthers        : ' + c.showOthers + ',\n';
+			}
+			if (c.showsTime != false) { 
+				html += '        showsTime         : ' + c.showsTime + ',\n';
+			}
+			if (c.timeFormat != "24") { 
+				html += '        timeFormat        : "' + c.timeFormat + '",\n';
+			}
+			if (c.step != 2) { 
+				html += '        step              : ' + c.step + ',\n';
+			}
+			if (c.range != "1900.01, 2999.12") {
+				html += '        range             : [' + c.range + '],\n';
+			}
+		};
+	
+		function endCommonCalendarSetup() {
+			html += '      });\n';
+		};
+	
+		if (window.opener.document.getElementById("r_popup").checked) {
+			// generating a popup calendar
+			if (!c.inputField && !c.displayArea && !c.button) {
+				alert("ERROR: none of the input field, display area or trigger button\n" +
+					"properties are defined. Please go back to step 1 (“Type”)\n" +
+					"and define at least one of them.");
+			} else {
+				beginCommonCalendarSetup();
+				if (c.electric != true) {
+					html += '        electric          : ' + c.electric + ',\n';
+				}
+				if (c.singleClick != true) {
+					html += '        singleClick       : ' + c.singleClick + ',\n';
+				}
+				if (c.inputField)
+					html += '        inputField        : "' + c.inputField + '",\n';
+				if (c.displayArea)
+					html += '        displayArea       : "' + c.displayArea + '",\n';
+				if (c.button)
+					html += '        button            : "' + c.button + '",\n';
+				if (c.ifFormat)
+					html += '        ifFormat          : "' + c.ifFormat + '",\n';
+				if (c.daFormat)
+					html += '        daFormat          : "' + c.daFormat + '",\n';
+				if (c.timeInterval > 1) {
+					html += '        timeInterval          : ' + c.timeInterval + ',\n';
+				}
+	
+				//multiple months
+				if (c.numberMonths > 1) {
+					html += '        numberMonths          : ' + c.numberMonths + ',\n';
+					if (c.controlMonth > 1) {
+						html += '        controlMonth          : ' + c.controlMonth + ',\n';
+					}
+					if (c.monthsInRow != "") {
+						html += '        monthsInRow          : ' + c.monthsInRow + ',\n';
+					}
+					if (c.vertical != false) {
+						html += '        vertical          : ' + c.vertical + ',\n';
+					}
+				}
+				if (c.align != "Br") {
+					html += '        align             : "' + c.align + '"\n';
+				}
+	
+				// trim any trailing comma with optional white space
+				// fixes error with empty object contents if just a trailing comma
+				html=html.replace(/,(\s?)+$/,"\n");
+	
+				endCommonCalendarSetup();
+			}
+		} else {
+			// generating a flat calendar
+			if (!c.flat || !c.flatCallback) {
+				alert("ERROR: you did not specify the container ID and/or\n" +
+					"the flat callback function name.  Please go back to\n" +
+					"step 1 (“Type”) and make sure they are defined.");
+			} else {
+				// generating the flat callback function
+				html += '      function ' + c.flatCallback + '(cal) {\n';
+				html += '        if (cal.dateClicked) {\n';
+				html += '          var url = "http://www.mydomain.com/" + cal.date.print("%Y/%m/%d/");\n';
+				html += '          alert("Jumping to: “" + url + "” (not really).");\n';
+				html += '          // uncomment the following line to actually jump:\n';
+				html += '          // window.location = url;\n';
+				html += '        }\n';
+				html += '      };\n';
+	
+				html += "\n";
+	
+				beginCommonCalendarSetup();
+				html += '        flat              : "' + c.flat + '",\n';
+				html += '        flatCallback      : ' + c.flatCallback + '\n';
+				endCommonCalendarSetup();
+			}
+		}
+		Zapatec.Utils.addEvent(window, "load", function() {eval(html);});
+	</script>
+	<noscript>
+		<br/>
+		This page uses a <a href="http://www.zapatec.com/website/main/products/prod1/"> Javascript Calendar </a>, but
+		your browser does not support Javascript.
+		<br/>
+		Either enable Javascript in your Browser or upgrade to a newer version.
+	</noscript>
+	<br><a href="http://www.zapatec.com/website/main/products/prod1/">Zapatec Javascript Calendar</a><br>
+
+
+	</blockquote>
+
+	<blockquote>
+		If you are not happy with the result, go back to the
+		wizard and configure more options.  Otherwise, go back to the wizard, copy the code
+		displayed in the “Generate” tab and insert it into your own application.
+	</blockquote>
+
+	<p><a href="javascript:window.close()">close this window</a></p>
+
+</body>
+</html>

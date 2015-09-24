@@ -1,0 +1,39 @@
+Q.  How do I mount a Windows (vfat) partition/filesystem?
+
+A.  You must edit the file that contains the mount information
+and then create the mount point.
+
+
+Do the following from the shell as the root user:
+
+	vi /etc/fstab
+
+	You must enter the info in the following order:
+
+	(This is what my entry looks like to mount my Windows filesystem.)
+
+		/dev/hda1   /mnt/win   vfat   noauto   0 0 
+
+		
+		DESCRIPTION:
+
+		/dev/hda1 = the name of the device representing the filesystem
+		/mnt/win  = the mount point in the file system
+		vfat 	  = the files system type
+		noauto    = an option to the mount command
+		0	  = indicates whether or not the file system will be dumped
+		0	  = indicates whether or not the file system needs to be checked with fsck
+
+
+Next, you must create the mount point.
+
+Simply do the following as root at the shell.
+
+	mkdir /mnt/win
+
+	You can then mount the vfat file system by typing
+
+		mount /mnt/win
+
+(For more information please see the fstab and mount man pages.)
+

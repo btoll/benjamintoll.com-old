@@ -1,0 +1,22 @@
+How do I create a link to a file?
+
+According to O'Reilly Unix Power Tools (Article 19.04), 
+hard links "point to the same inode and the same set of 
+data blocks". Hard links point only to files (no directories)
+and must reside in the same file system. 
+
+Since a symbolic link is a separate inode from the object
+it points to, it can point to other objects such as directories.
+Also, a soft link can cross file systems. Use the ln command,
+to create a soft link called "nptr" to the "/usr/eds/was" directory: 
+
+ln -s /usr/eds/was nptr 
+
+A broken link happens if the /usr/eds/was directory is deleted. 
+
+Finally, according to the ln description in Unix in a Nutshell,
+you can see a soft link with ls -l, but use find -inum to find
+ a hard link.
+
+
+Thanks to http://www.unixreview.com/ for this article.

@@ -1,0 +1,707 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+	<meta name="description" content=" Click a special day in the calendar to display the date and the special day on top of calendar. Special days have a distinctive look and feel in the calendar. If the special day text is longer than 8 characters, a + appears indicating that there is additional text. This calendar displays six months (numberMonths option). There are two months in each row (monthsInRow option). The months are displayed vertically (vertical option). The allowed months range from Jan 2005 to Dec 2006 (range option). The second calendar in the first row is the control month (controlMonth option). The title changes based on the control month (titleHtml option). ">
+	<meta name="keywords" content="dhtml tools,javascript,DHTML Tools,Javascript,ajax,AJAX,Ajax,ajax tools,AJAX Tools,tools controls,simple javascript tools">
+	<title>Zapatec DHTML Calendar Widget - Special Days</title>
+
+	<!-- Common JS files -->
+	<script type='text/javascript' src='../utils/zapatec.js'></script>
+
+	<!-- Custom includes -->	
+		<!-- import the calendar script -->
+		<script type="text/javascript" src="../src/calendar.js"></script>
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+
+		<!-- other languages might be available in the lang directory; please check
+		your distribution archive. -->
+
+
+	<!-- ALL demos need these css -->
+	<link href="../website/css/zpcal.css" rel="stylesheet" type="text/css">
+	<link href="../website/css/template.css" rel="stylesheet" type="text/css">
+
+	<!-- Theme css -->
+	<link href="../themes/bluexp.css" rel="stylesheet" type="text/css">
+
+	<link rel="SHORTCUT ICON" href="http://www.zapatec.com/website/main/favicon.ico">
+	
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+		<!-- Define style for calendar borders -->
+		<style type="text/css">
+			.calendar .month-left-border {border-left:1px solid black;}
+			.calendar .month-bottom-border {border-bottom:1px solid black;}
+
+			/* set each calendar cell to a fixed size */
+			/* NOTE: special day text is truncated to 10 letters */
+			.calendar table {
+				/* fills the full div container with table so multipleMonths aligned */
+				width:100%;
+			}
+
+			/* class for the calendar if it is a special day */
+			.zpCalSpecialDay {
+				background-color: lightcyan;
+				color:red;
+			}
+
+			/* class for text in special day */
+			.zpCal-no-DayInfo, .zpCalDayInfo {
+				color:blue;
+				width:50px;
+				font-size: 9px;
+				text-align:right;
+				white-space:nowrap;
+				/* override bold, which causes slight flicker when selected */
+				font-weight:normal;
+			}
+			.zpCalDayInfo {
+				background-color: yellow;
+			}
+
+			/* Style for the special event preview table */
+			/* Id for date value */
+			#tdDate {
+			}
+			/* Id for special event value */
+			#tdEvent {
+			}
+
+			/* table class */
+			.table_special-date, .table_special-date td{
+				font-weight:bold;
+				font-size: 12px;
+			}
+			.table_special-date-header-left { height: 31; background: #6F8DB9 url(images/specialdays/left-bg.gif) no-repeat top left;}
+			.table_special-date-header-right { height: 31; background: #6F8DB9 url(images/specialdays/right-bg.gif) no-repeat top right; color: white; font-weight: bold;}
+			.table_special-date-date { width: 140; background-color:#E8E8E8; border-left: 1px solid gray; border-bottom: 1px solid gray; border-right: 1px solid gray;}
+			.table_special-date-event { width: 460; background-color:#E8E8E8; border-right: 1px solid gray; border-bottom: 1px solid gray; border-left: 1px solid white;}
+		</style>
+
+
+
+</head>
+<body>
+	<div class="zpStandard">
+
+	<div class="topMenuHeader">
+		<div class="logo">
+			<a href='http://www.zapatec.com'><img src='../website/images/logoNew.gif' alt='Zapatec logo' border='0'></a>
+		</div>
+		<div class="btn1">
+			<a href="https://www.zapatec.com/zadmin/buy.jsp">
+				<img src="../website/images/buttonBuy.png" alt='Buy Zapatec DHTML Calendar Widget' border ="0">
+			</a>
+		</div>
+
+		<div class="btn1">
+			<a href="http://www.zapatec.com/website/main/pricing.jsp">
+				<img src="../website/images/buttonPricing.png" alt='Pricing for Zapatec DHTML Calendar Widget' border="0">
+			</a>
+		</div>
+	</div>
+
+	<div class="pageMain">
+	<a href="dow.html" style="float:right; margin-right:2em; margin-top:.5em;" accesskey="N" title="Next Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/next.png" alt="Next Zapatec DHTML Calendar Widget Example"></a>
+	<a href="example96.html" style="float:left; margin-left:2em; margin-top:.5em;" accesskey="P" title="Previous Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/previous.png" alt="Previous Zapatec DHTML Calendar Widget Example"></a>
+	<div class='zpCalSubHeader' style='text-align:center;'>Special Days</div>
+
+
+		<div class='zpCalDemoText'>
+		<ul>
+		<li>This demo uses the <b>bluexp theme</b>.</li>
+		
+		<li>Click a special day in the calendar to display the date and the special day on top of calendar.</li>
+		<li>Special days have a distinctive look and feel in the calendar.</li>
+		<li>If the special day text is longer than 8 characters, a +  appears indicating that there is additional text.</li>
+		<li>This calendar displays six months (numberMonths option).</li>
+		<li>There are two months in each row (monthsInRow option).</li>
+		<li>The months are displayed vertically (vertical option).</li>
+		<li>The allowed months range from Jan 2005 to Dec 2006 (range option). </li>
+		<li>The second calendar in the first row is the control month (controlMonth option).</li>
+		<li>The title changes based on the control month (titleHtml option).</li>
+
+		</ul>
+		</div>
+
+
+			
+	<div id="showSpecial" align="center">
+		<table width="600"  class='table_special-date' border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="10" class="table_special-date-header-left">&nbsp;</td>
+		<td width="199" valign="middle" bgcolor="#6F8DB9" class="table_special-date-header-right"><img src="images/specialdays/arrow.gif" width="16" height="15" align="middle">Date Selected</td>
+		<td width="9" class="table_special-date-header-left">&nbsp;</td>
+		<td width="282" valign="middle" class="table_special-date-header-right"><img src="images/specialdays/arrow.gif" width="16" height="15" align="middle">Special Event </td>
+	</tr>
+	<tr>
+		<td colspan="2" id='tdDate' class="table_special-date-date">&nbsp;</td>
+		<td colspan="2" id='tdEvent' class="table_special-date-event">&nbsp;</td>
+	</tr>
+	</table>
+	</div>
+
+	<div id="calendar-container">
+   </div>
+
+
+<script type="text/javascript">
+<!--  to hide script contents from old browsers
+
+// Define array of SpecialDays
+var arrSpecialDays=new Array();
+// Define the Name of the months
+var arrMonths=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+
+/* 
+Create the Key for the lookup of Special Days
+Convert this date string into Date object.
+Time is set to 0.
+Return Date object
+*/
+function setKey(strDateIn) {
+
+	var strDate=strDateIn
+
+	if (isNaN(Date.parse(strDate))) {
+		// see if we can fix any invalid chars
+		strDate=strDate.replace(/[^0-9A-Za-z ]/g, " ");
+	} else if (Zapatec.is_opera) {
+		if (typeof strDate == "string") strDate=strDate.replace(/[^0-9A-Za-z ]/g, " ");
+	}
+
+	if (isNaN(Date.parse(strDate)))
+	{
+		alert("ERR:"+strDate+" not a valid date")
+		return false;
+	}
+	var d=new Date(strDate)
+
+	// Make sure TIME is zero.  We just want the dates
+	d.setHours(0,0,0,0)
+
+	return d
+}
+
+/*
+strDate: Date for special day, DD-MMM-YY
+strDesc: Text for Special Day
+return string where each line is Date,Special Day Text
+*/
+function add_SpecialDay(strDate, strDesc) {
+	arrSpecialDays[setKey(strDate)]=strDesc
+}
+
+/* return a string of all special days */
+function dump_SpecialDays() {
+	var strDump=""
+	var i
+	for (i in arrSpecialDays)
+		strDump+= (strDump ? "\n" : "") + i + " is " + arrSpecialDays[i]
+	return strDump
+}
+
+
+/* 
+Function to check if this date is a Special Day 
+return true special day date is defined via add_SpecialDays calls
+*/
+function isSpecialDay(strDate) {
+	return typeof(getSpecialDay(strDate)) != "undefined"
+}
+
+/* return string for the special day */
+function getSpecialDay(strDate) {
+	return arrSpecialDays[setKey(strDate)]
+}
+
+
+/* 
+The date has changed, show the date in the HTML tag whose ID is preview
+Also, display the text in a window
+*/
+function dateChanged(calendar) {
+	var strDate=calendar.date.print('%a %b %d, %Y');
+	var strSpecialDay=getSpecialDay(strDate)
+
+	var div=document.getElementById("showSpecial")
+	var tdDate=document.getElementById("tdDate")
+	var tdEvent=document.getElementById("tdEvent")
+
+	if (strSpecialDay)
+		window.status=strDate + " - " + strSpecialDay
+	else
+		window.status=strDate
+
+	//div.innerHTML=""
+	div.style.visibility="visible";
+	tdDate.innerHTML="&nbsp;" + strDate;
+	tdEvent.innerHTML="&nbsp;"
+
+	if (!strSpecialDay)
+		// this is NOT a special day
+		return;
+	
+	tdDate.innerHTML="&nbsp;" + strDate
+	tdEvent.innerHTML="&nbsp;" + strSpecialDay
+
+	// Display Window with Special Day information
+	/* Show in a window
+	var strHtml=""
+	strHtml+="<html><head>"
+	strHtml+="<title>Special Day - " + strSpecialDay + " on " + strDate + "</title>"
+	strHtml+="</head>"
+	strHtml+="<body>"
+	strHtml+="<table border=1 ><tr style='background-color:lightcyan;'><td>Date</td><td>Special Event</td></tr>"
+	strHtml+="<tr><td>" + strDate + "</td><td>" + strSpecialDay + "</td></tr>"
+	strHtml+="</table>"
+	strHtml+="</body></html>"
+	var win = window.open("", "ZAPATEC_CAL",
+		"width=400,height=150,left=0,top=0,toolbar=no,menubar=no,directories=no,channelmode=no,resizable=yes,scrollbars=yes");
+	win.focus();
+	var doc = win.document;
+	doc.open();
+	doc.write(strHtml)
+	doc.close();
+	*/
+
+}
+
+/*
+Option: dateText
+Use this function to set the Text in the calendar.
+This function is called for each DAY cell.
+You need to define the 
+-Use this function to display special day text.
+NOTE:When you use this function you MUST define the contents of the cell for the day.  For example, if the day
+is NOT a special day then you still need to return the day number
+*/
+function getDateText(date) {
+	var strInfo=getSpecialDay(date);
+	if (!strInfo)
+		// No special day, just return the Day of Month
+		return date.getDate() + "<br/><div class='zpCal-no-DayInfo'>&nbsp;<" + "/div>";
+
+	var strText=new String(strInfo)
+	// Use special class zpCalDayInfo to visually show special day in calendar using CSS
+
+	// Use this code to display the SpecialDay text in calendar
+		if (strText.length > 8)
+	{
+		strText=strText.substring(0, 8)
+		strText+="+"
+	}
+	return date.getDate() + "<br/><div class='zpCalDayInfo'>" + strText + "<" + "/div>";
+	//return date.getDate() + "<br/><pre style='width:8em;'>" + strText + "<" + "/pre>";
+
+	// Just show day number with special CSS, NO TEXT
+	//return "<span class='zpCalDayInfo'>" + date.getDate() + "<" + "/span>";
+}
+
+/*
+Option: dateStatusFunc
+A function that receives a JS Date object and returns a boolean or a string. This function allows one to set a certain CSS 
+class to some date, therefore making it look different. 
+If it returns true then the date will be disabled. 
+If it returns false nothing special happens with the given date. 
+If it returns a string then that will be taken as a CSS class and appended to the date element. 
+If this string contains disabled then the date is also disabled (therefore is like returning true) but with your own custom style.
+*/
+function check_special(strDate) {
+	if (isSpecialDay(strDate)) 
+		return "zpCalSpecialDay";
+
+	return false; // ALL other dates are enabled
+	// NOTE:return true to disable a specific date
+}
+
+// end hiding contents from old browsers  -->
+</script>
+<script type="text/javascript">
+
+/*
+Use this function to add the special days
+Add the DD-MMM-YYYY, Text for the special day
+*/
+function load_SpecialDays() {
+add_SpecialDay("01-Jan-2005", "New Year's Day")
+add_SpecialDay("4/Jan/2005", "Trivia Day")
+add_SpecialDay("5-Jan-2005", "Twelfth Night")
+add_SpecialDay("8-Jan-2005", "Jackson Day")
+add_SpecialDay("8-Jan-2005", "The King's Birthday (ELVIS)")
+add_SpecialDay("9-Jan-2005", "Balloon Ascension Day")
+add_SpecialDay("10-Jan-2005", "National Clean Off Your Desk Day")
+add_SpecialDay("12-Jan-2005", "National Pharmacist Day")
+add_SpecialDay("12-Jan-2005", "Stephen Foster Memorial Day")
+add_SpecialDay("14-Jan-2005", "Ratification Day")
+add_SpecialDay("16-Jan-2005", "Prohibition Remembrance Day")
+add_SpecialDay("16-Jan-2005", "Religious Freedom Day")
+add_SpecialDay("17-Jan-2005", "Martin Luther King Jr. (1929-1968)")
+add_SpecialDay("18-Jan-2005", "Maintenance Day")
+add_SpecialDay("20-Jan-2005", "Inauguration Day")
+add_SpecialDay("27-Jan-2005", "National Activity Professionals Day")
+add_SpecialDay("2-Feb-2005", "Groundhog Day")
+add_SpecialDay("3-Feb-2005", "Patient Recognition Day")
+add_SpecialDay("8-Feb-2005", "Boy Scout Day")
+add_SpecialDay("8-Feb-2005", "Mardi Gras / Carnival")
+add_SpecialDay("12-Feb-2005", "Lincoln's Birthday")
+add_SpecialDay("14-Feb-2005", "St. Valentine's Day")
+add_SpecialDay("17-Feb-2005", "National Public Science Day")
+add_SpecialDay("17-Feb-2005", "Random Acts of Kindness Day")
+add_SpecialDay("21-Feb-2005", "President's Day")
+add_SpecialDay("22-Feb-2005", "George Washington's Birthday")
+add_SpecialDay("1-Mar-2005", "National Pig Day")
+add_SpecialDay("2-Mar-2005", "Casimir Pulaski's Birthday (Illinois)")
+add_SpecialDay("2-Mar-2005", "Texas Independence Day (Texas)")
+add_SpecialDay("3-Mar-2005", "National Anthem Day")
+add_SpecialDay("4-Mar-2005", "Town Meeting Day (Vermont)")
+add_SpecialDay("6-Mar-2005", "Alamo Day")
+add_SpecialDay("7-Mar-2005", "Peace Corps Day")
+add_SpecialDay("10-Mar-2005", "Harriet Tubman Day")
+add_SpecialDay("12-Mar-2005", "Employee Day")
+add_SpecialDay("12-Mar-2005", "Girl Scout Day")
+add_SpecialDay("14-Mar-2005", "Pi Day")
+add_SpecialDay("16-Mar-2005", "Black Press Day")
+add_SpecialDay("16-Mar-2005", "Freedom of Information Day")
+add_SpecialDay("16-Mar-2005", "Liberty Day")
+add_SpecialDay("17-Mar-2005", "Camp Fire Boys and Girls Founders Day")
+add_SpecialDay("17-Mar-2005", "Evacuation Day (Boston only)")
+add_SpecialDay("17-Mar-2005", "St. Patrick's Day")
+add_SpecialDay("19-Mar-2005", "National Quilting Day")
+add_SpecialDay("22-Mar-2005", "North American Wildlife Celebration")
+add_SpecialDay("25-Mar-2005", "Good Friday")
+add_SpecialDay("25-Mar-2005", "Maryland Day")
+add_SpecialDay("26-Mar-2005", "Prince Jonah Kuhio Kalanianaole Day (Hawaii)")
+add_SpecialDay("27-Mar-2005", "Easter Sunday")
+add_SpecialDay("30-Mar-2005", "Doctor's Day")
+add_SpecialDay("30-Mar-2005", "Seward Day")
+add_SpecialDay("31-Mar-2005", "Cesar Chavez Day (California)")
+add_SpecialDay("1-Apr-2005", "April Fool's Day")
+add_SpecialDay("3-Apr-2005", "Daylight Saving Time begins")
+add_SpecialDay("6-Apr-2005", "National Tartan Day")
+add_SpecialDay("10-Apr-2005", "Salvation Army Founders Day")
+add_SpecialDay("13-Apr-2005", "Thomas Jefferson's Birthday")
+add_SpecialDay("15-Apr-2005", "Income Tax Day (also Accountant's Day)")
+add_SpecialDay("15-Apr-2005", "Rubber Eraser Day")
+add_SpecialDay("16-Apr-2005", "Astronomy Day")
+add_SpecialDay("16-Apr-2005", "Librarian Day (School)")
+add_SpecialDay("18-Apr-2005", "Paul Revere Day")
+add_SpecialDay("21-Apr-2005", "John Muir Day")
+add_SpecialDay("21-Apr-2005", "San Jacinto Day (Texas)")
+add_SpecialDay("22-Apr-2005", "Earth Day")
+add_SpecialDay("22-Apr-2005", "Oklahoma Day")
+add_SpecialDay("25-Apr-2005", "National Arbor Day")
+add_SpecialDay("26-Apr-2005", "Confederate Memorial Day")
+add_SpecialDay("27-Apr-2005", "Administrative Professionals Day (formerly Secretaries Day)")
+add_SpecialDay("28-Apr-2005", "Take Our Daughters and Sons to Work Day")
+add_SpecialDay("1-May-2005", "Law Day")
+add_SpecialDay("1-May-2005", "Lei Day")
+add_SpecialDay("1-May-2005", "Loyalty Day")
+add_SpecialDay("1-May-2005", "May Day")
+add_SpecialDay("1-May-2005", "Save the Rhino Day")
+add_SpecialDay("3-May-2005", "National Teacher Day")
+add_SpecialDay("5-May-2005", "Cinco de Mayo")
+add_SpecialDay("5-May-2005", "National Day of Prayer")
+add_SpecialDay("6-May-2005", "National Nurses Day")
+add_SpecialDay("6-May-2005", "Provider Appreciation Day")
+add_SpecialDay("8-May-2005", "Mother's Day")
+add_SpecialDay("8-May-2005", "V-E Day")
+add_SpecialDay("10-May-2005", "National Receptionist Day")
+add_SpecialDay("11-May-2005", "National School Nurse Day")
+add_SpecialDay("15-May-2005", "Peace Officer Memorial Day")
+add_SpecialDay("16-May-2005", "National Bike to Work Day")
+add_SpecialDay("18-May-2005", "National Play Day for Health")
+add_SpecialDay("19-May-2005", "Malcolm X Day")
+add_SpecialDay("20-May-2005", "NASCAR Day")
+add_SpecialDay("21-May-2005", "Armed Forces Day")
+add_SpecialDay("21-May-2005", "National Waiter/Waitress Day")
+add_SpecialDay("22-May-2005", "National Maritime Day")
+add_SpecialDay("25-May-2005", "National Missing Children's Day")
+add_SpecialDay("25-May-2005", "National Tap Dance Day")
+add_SpecialDay("25-May-2005", "Towel Day")
+add_SpecialDay("30-May-2005", "Memorial Day")
+add_SpecialDay("5-Jun-2005", "Boone Day")
+add_SpecialDay("6-Jun-2005", "Child Health Day")
+add_SpecialDay("6-Jun-2005", "D-Day")
+add_SpecialDay("8-Jun-2005", "Best Friend's Day")
+add_SpecialDay("11-Jun-2005", "King Kamehameha Day (Hawaii)")
+add_SpecialDay("14-Jun-2005", "Flag Day")
+add_SpecialDay("17-Jun-2005", "Bunker Hill Day")
+add_SpecialDay("19-Jun-2005", "Father's Day")
+add_SpecialDay("19-Jun-2005", "Juneteenth (Milwaukee, Wisconsin and Texas)")
+add_SpecialDay("28-Jun-2005", "World War 1 Day")
+add_SpecialDay("4-Jul-2005", "Independence Day")
+add_SpecialDay("20-Jul-2005", "Moon Day")
+add_SpecialDay("22-Jul-2005", "Pi Approximation Day (not to be confused with Pi Day, Mar 14)")
+add_SpecialDay("23-Jul-2005", "National Hot Dog Day")
+add_SpecialDay("25-Jul-2005", "Parent's Day")
+add_SpecialDay("27-Jul-2005", "Cross Atlantic Communication Day")
+add_SpecialDay("29-Jul-2005", "System Administrator Appreciation Day")
+add_SpecialDay("30-Jul-2005", "Father-in-Law Day")
+add_SpecialDay("4-Aug-2005", "Coast Guard Day")
+add_SpecialDay("5-Aug-2005", "Atomic Bomb Day")
+add_SpecialDay("8-Aug-2005", "V.J. Day / Victory Day (Rhode Island only)")
+add_SpecialDay("16-Aug-2005", "King's Death (Elvis)")
+add_SpecialDay("19-Aug-2005", "National Aviation Day")
+add_SpecialDay("20-Aug-2005", "National Homeless Animals Day")
+add_SpecialDay("26-Aug-2005", "Women's Equality Day")
+add_SpecialDay("27-Aug-2005", "Petroleum Day (Texas)")
+add_SpecialDay("2-Sep-2005", "College Colors Day")
+add_SpecialDay("5-Sep-2005", "Labor Day")
+add_SpecialDay("6-Sep-2005", "National 401(k) Day")
+add_SpecialDay("11-Sep-2005", "National Grandparent's Day")
+add_SpecialDay("11-Sep-2005", "Patriot Day")
+add_SpecialDay("16-Sep-2005", "Mayflower Day")
+add_SpecialDay("16-Sep-2005", "Stepfamily Day")
+add_SpecialDay("17-Sep-2005", "Citizenship Day")
+add_SpecialDay("18-Sep-2005", "National Women's Friendship Day")
+add_SpecialDay("19-Sep-2005", "Talk Like a Pirate Day")
+add_SpecialDay("22-Sep-2005", "American Business Women's Day")
+add_SpecialDay("24-Sep-2005", "National Hunting and Fishing Day")
+add_SpecialDay("6-Oct-2005", "National German-American Day")
+add_SpecialDay("6-Oct-2005", "Physician Assistant Day")
+add_SpecialDay("10-Oct-2005", "Columbus Day")
+add_SpecialDay("11-Oct-2005", "National Coming Out Day")
+add_SpecialDay("14-Oct-2005", "Peace Corps Birthday")
+add_SpecialDay("15-Oct-2005", "Pregnancy and Infant Loss Remembrance Day")
+add_SpecialDay("16-Oct-2005", "Boss Day")
+add_SpecialDay("16-Oct-2005", "Dictionary Day")
+add_SpecialDay("17-Oct-2005", "Black Poetry Day")
+add_SpecialDay("18-Oct-2005", "Alaska Day")
+add_SpecialDay("23-Oct-2005", "National Mole Day (Avogadro's number)")
+add_SpecialDay("24-Oct-2005", "United Nations Day")
+add_SpecialDay("27-Oct-2005", "Navy Day")
+add_SpecialDay("30-Oct-2005", "Daylight Saving Time ends")
+add_SpecialDay("31-Oct-2005", "Hallowe'en")
+add_SpecialDay("31-Oct-2005", "National Magic Day (for Houdini)")
+add_SpecialDay("31-Oct-2005", "Reformation Day")
+add_SpecialDay("1-Nov-2005", "All Saint's Day")
+add_SpecialDay("1-Nov-2005", "Sadie Hawkins Day")
+add_SpecialDay("2-Nov-2005", "All Soul's Day")
+add_SpecialDay("3-Nov-2005", "Sandwich Day")
+add_SpecialDay("8-Nov-2005", "Election Day")
+add_SpecialDay("10-Nov-2005", "Marine Corps Birthday")
+add_SpecialDay("11-Nov-2005", "Veterans Day")
+add_SpecialDay("15-Nov-2005", "America Recycles Day")
+add_SpecialDay("18-Nov-2005", "Mickey Mouse's Birthday")
+add_SpecialDay("19-Nov-2005", "US Marine Corps Day")
+add_SpecialDay("20-Nov-2005", "Children's Day")
+add_SpecialDay("22-Nov-2005", "John F. Kennedy's Assassination")
+add_SpecialDay("22-Nov-2005", "National Stop the Violence Day")
+add_SpecialDay("24-Nov-2005", "Thanksgiving Day")
+add_SpecialDay("25-Nov-2005", "Sinkie Day")
+add_SpecialDay("7-Dec-2005", "Pearl Harbor Day")
+add_SpecialDay("10-Dec-2005", "Human Rights Day")
+add_SpecialDay("10-Dec-2005", "Nobel Prize Day")
+add_SpecialDay("12-Dec-2005", "Poinsettia Day")
+add_SpecialDay("16-Dec-2005", "Boston Tea Party")
+add_SpecialDay("20-Dec-2005", "Louisiana Purchase Day")
+add_SpecialDay("21-Dec-2005", "Forefather's Day")
+add_SpecialDay("25-Dec-2005", "Christmas Day")
+add_SpecialDay("26-Dec-2005", "Kwanzaa")
+add_SpecialDay("31-Dec-2005", "New Year's Eve")
+
+// 2006
+add_SpecialDay("1-Jan-2006", "New Year's Day")
+add_SpecialDay("4-Jan-2006", "Trivia Day")
+add_SpecialDay("5-Jan-2006", "Twelfth Night")
+add_SpecialDay("8-Jan-2006", "Jackson Day")
+add_SpecialDay("8-Jan-2006", "The King's Birthday (ELVIS)")
+add_SpecialDay("9-Jan-2006", "Balloon Ascension Day")
+add_SpecialDay("12-Jan-2006", "National Pharmacist Day")
+add_SpecialDay("12-Jan-2006", "Stephen Foster Memorial Day")
+add_SpecialDay("14-Jan-2006", "Ratification Day")
+add_SpecialDay("16-Jan-2006", "Martin Luther King Jr. (1929-1968)")
+add_SpecialDay("16-Jan-2006", "Prohibition Remembrance Day")
+add_SpecialDay("16-Jan-2006", "Religious Freedom Day")
+add_SpecialDay("18-Jan-2006", "Maintenance Day")
+add_SpecialDay("20-Jan-2006", "Inauguration Day")
+add_SpecialDay("27-Jan-2006", "National Activity Professionals Day")
+add_SpecialDay("2-Feb-2006", "Groundhog Day")
+add_SpecialDay("3-Feb-2006", "Patient Recognition Day")
+add_SpecialDay("8-Feb-2006", "Boy Scout Day")
+add_SpecialDay("12-Feb-2006", "Lincoln's Birthday")
+add_SpecialDay("14-Feb-2006", "St. Valentine's Day")
+add_SpecialDay("17-Feb-2006", "National Public Science Day")
+add_SpecialDay("17-Feb-2006", "Random Acts of Kindness Day")
+add_SpecialDay("20-Feb-2006", "President's Day")
+add_SpecialDay("22-Feb-2006", "George Washington's Birthday")
+add_SpecialDay("1-Mar-2006", "National Pig Day")
+add_SpecialDay("2-Mar-2006", "Casimir Pulaski's Birthday (Illinois)")
+add_SpecialDay("2-Mar-2006", "Texas Independence Day (Texas)")
+add_SpecialDay("3-Mar-2006", "National Anthem Day")
+add_SpecialDay("4-Mar-2006", "Town Meeting Day (Vermont)")
+add_SpecialDay("6-Mar-2006", "Alamo Day")
+add_SpecialDay("7-Mar-2006", "Peace Corps Day")
+add_SpecialDay("10-Mar-2006", "Harriet Tubman Day")
+add_SpecialDay("12-Mar-2006", "Employee Day")
+add_SpecialDay("12-Mar-2006", "Girl Scout Day")
+add_SpecialDay("14-Mar-2006", "Pi Day")
+add_SpecialDay("16-Mar-2006", "Black Press Day")
+add_SpecialDay("16-Mar-2006", "Freedom of Information Day")
+add_SpecialDay("16-Mar-2006", "Liberty Day")
+add_SpecialDay("17-Mar-2006", "Camp Fire Boys & Girls Founders Day")
+add_SpecialDay("17-Mar-2006", "Evacuation Day (Boston only)")
+add_SpecialDay("17-Mar-2006", "St. Patrick's Day")
+add_SpecialDay("22-Mar-2006", "North American Wildlife Celebration")
+add_SpecialDay("25-Mar-2006", "Maryland Day")
+add_SpecialDay("26-Mar-2006", "Prince Jonah Kuhio Kalanianaole Day (Hawaii)")
+add_SpecialDay("30-Mar-2006", "Doctor's Day")
+add_SpecialDay("30-Mar-2006", "Seward Day")
+add_SpecialDay("31-Mar-2006", "Cesar Chavez Day (California)")
+add_SpecialDay("1-Apr-2006", "April Fool's Day")
+add_SpecialDay("6-Apr-2006", "National Tartan Day")
+add_SpecialDay("10-Apr-2006", "Salvation Army Founders Day")
+add_SpecialDay("13-Apr-2006", "Thomas Jefferson's Birthday")
+add_SpecialDay("15-Apr-2006", "Income Tax Day (also Accountant's Day)")
+add_SpecialDay("15-Apr-2006", "Rubber Eraser Day")
+add_SpecialDay("16-Apr-2006", "Librarian Day (School)")
+add_SpecialDay("18-Apr-2006", "Paul Revere Day")
+add_SpecialDay("21-Apr-2006", "John Muir Day")
+add_SpecialDay("21-Apr-2006", "San Jacinto Day (Texas)")
+add_SpecialDay("22-Apr-2006", "Earth Day")
+add_SpecialDay("22-Apr-2006", "Oklahoma Day")
+add_SpecialDay("26-Apr-2006", "Administrative Professionals Day (formerly Secretaries Day)")
+add_SpecialDay("26-Apr-2006", "Confederate Memorial Day")
+add_SpecialDay("1-May-2006", "Law Day")
+add_SpecialDay("1-May-2006", "Lei Day")
+add_SpecialDay("1-May-2006", "Loyalty Day")
+add_SpecialDay("1-May-2006", "May Day")
+add_SpecialDay("1-May-2006", "Save the Rhino Day")
+add_SpecialDay("5-May-2006", "Cinco de Mayo")
+add_SpecialDay("6-May-2006", "Astronomy Day")
+add_SpecialDay("6-May-2006", "National Nurses Day")
+add_SpecialDay("8-May-2006", "V-E Day")
+add_SpecialDay("10-May-2006", "National Receptionist Day")
+add_SpecialDay("14-May-2006", "Mother's Day")
+add_SpecialDay("15-May-2006", "Peace Officer Memorial Day")
+add_SpecialDay("16-May-2006", "National Bike to Work Day")
+add_SpecialDay("19-May-2006", "Malcolm X Day")
+add_SpecialDay("21-May-2006", "National Waiter/Waitress Day")
+add_SpecialDay("22-May-2006", "National Maritime Day")
+add_SpecialDay("25-May-2006", "National Missing Children's Day")
+add_SpecialDay("25-May-2006", "National Tap Dance Day")
+add_SpecialDay("25-May-2006", "Towel Day")
+add_SpecialDay("29-May-2006", "Memorial Day")
+add_SpecialDay("5-Jun-2006", "Boone Day")
+add_SpecialDay("6-Jun-2006", "Child Health Day")
+add_SpecialDay("6-Jun-2006", "D-Day")
+add_SpecialDay("8-Jun-2006", "Best Friend's Day")
+add_SpecialDay("11-Jun-2006", "King Kamehameha Day (Hawaii)")
+add_SpecialDay("14-Jun-2006", "Flag Day")
+add_SpecialDay("17-Jun-2006", "Bunker Hill Day")
+add_SpecialDay("18-Jun-2006", "Father's Day")
+add_SpecialDay("19-Jun-2006", "Juneteenth (Milwaukee, Wisconsin & Texas)")
+add_SpecialDay("28-Jun-2006", "World War 1 Day")
+add_SpecialDay("4-Jul-2006", "Independence Day")
+add_SpecialDay("20-Jul-2006", "Moon Day")
+add_SpecialDay("22-Jul-2006", "Pi Approximation Day (not to be confused with Pi Day, Mar 14)")
+add_SpecialDay("23-Jul-2006", "National Hot Dog Day")
+add_SpecialDay("27-Jul-2006", "Cross Atlantic Communication Day")
+add_SpecialDay("30-Jul-2006", "Father-in-Law Day")
+add_SpecialDay("4-Aug-2006", "Coast Guard Day")
+add_SpecialDay("5-Aug-2006", "Atomic Bomb Day")
+add_SpecialDay("16-Aug-2006", "King's Death (Elvis)")
+add_SpecialDay("19-Aug-2006", "National Aviation Day")
+add_SpecialDay("20-Aug-2006", "National Homeless Animals Day")
+add_SpecialDay("26-Aug-2006", "Women's Equality Day")
+add_SpecialDay("27-Aug-2006", "Petroleum Day (Texas)")
+add_SpecialDay("4-Sep-2006", "Labor Day")
+add_SpecialDay("11-Sep-2006", "Patriot Day")
+add_SpecialDay("16-Sep-2006", "Mayflower Day")
+add_SpecialDay("16-Sep-2006", "Stepfamily Day")
+add_SpecialDay("17-Sep-2006", "Citizenship Day")
+add_SpecialDay("19-Sep-2006", "Talk Like a Pirate Day")
+add_SpecialDay("22-Sep-2006", "American Business Women's Day")
+add_SpecialDay("6-Oct-2006", "National German-American Day")
+add_SpecialDay("6-Oct-2006", "Physician Assistant Day")
+add_SpecialDay("9-Oct-2006", "Columbus Day")
+add_SpecialDay("11-Oct-2006", "National Coming Out Day")
+add_SpecialDay("14-Oct-2006", "Peace Corps Birthday")
+add_SpecialDay("15-Oct-2006", "Pregnancy and Infant Loss Remembrance Day")
+add_SpecialDay("16-Oct-2006", "Boss Day")
+add_SpecialDay("16-Oct-2006", "Dictionary Day")
+add_SpecialDay("17-Oct-2006", "Black Poetry Day")
+add_SpecialDay("18-Oct-2006", "Alaska Day")
+add_SpecialDay("23-Oct-2006", "National Mole Day (Avogadro's number)")
+add_SpecialDay("24-Oct-2006", "United Nations Day")
+add_SpecialDay("27-Oct-2006", "Navy Day")
+add_SpecialDay("31-Oct-2006", "Hallowe'en")
+add_SpecialDay("31-Oct-2006", "National Magic Day (for Houdini)")
+add_SpecialDay("31-Oct-2006", "Reformation Day")
+add_SpecialDay("1-Nov-2006", "All Saint's Day")
+add_SpecialDay("1-Nov-2006", "Sadie Hawkins Day")
+add_SpecialDay("2-Nov-2006", "All Soul's Day")
+add_SpecialDay("3-Nov-2006", "Sandwich Day")
+add_SpecialDay("10-Nov-2006", "Marine Corps Birthday")
+add_SpecialDay("11-Nov-2006", "Veterans Day")
+add_SpecialDay("15-Nov-2006", "America Recycles Day")
+add_SpecialDay("18-Nov-2006", "Mickey Mouse's Birthday")
+add_SpecialDay("19-Nov-2006", "US Marine Corps Day")
+add_SpecialDay("20-Nov-2006", "Children's Day")
+add_SpecialDay("22-Nov-2006", "John F. Kennedy's Assassination")
+add_SpecialDay("22-Nov-2006", "National Stop the Violence Day")
+add_SpecialDay("23-Nov-2006", "Thanksgiving Day")
+add_SpecialDay("7-Dec-2006", "Pearl Harbor Day")
+add_SpecialDay("10-Dec-2006", "Human Rights Day")
+add_SpecialDay("10-Dec-2006", "Nobel Prize Day")
+add_SpecialDay("12-Dec-2006", "Poinsettia Day")
+add_SpecialDay("16-Dec-2006", "Boston Tea Party")
+add_SpecialDay("20-Dec-2006", "Louisiana Purchase Day")
+add_SpecialDay("21-Dec-2006", "Forefather's Day")
+add_SpecialDay("25-Dec-2006", "Christmas Day")
+add_SpecialDay("26-Dec-2006", "Kwanzaa")
+add_SpecialDay("31-Dec-2006", "New Year's Eve")
+}
+
+// Call function to load all the special days
+load_SpecialDays()
+
+</script>
+
+	<script type="text/javascript">
+		var cal = new Zapatec.Calendar.setup({
+		
+		flat         : "calendar-container", // ID of the parent element
+		flatCallback : dateChanged,          // our callback function
+		weekNumbers : false,
+		dateStatusFunc : check_special,
+		dateText: getDateText,
+		vertical:true,
+		numberMonths : 6,
+		monthsInRow  : 2,
+		controlMonth : 2,
+		titleHtml     : function(strTitle, month, year) { 
+			return "Control Month is " +  Zapatec.Calendar.i18n(month, "mn")
+			},
+
+		// range : array with 2 elements.  Default: [1900.0, 2999.12] -- the range of years available
+		range: [2005.0, 2006.12]
+
+		});
+		
+	</script>
+
+
+	<noscript>
+		<br/>
+		This page uses a <a href='http://www.zapatec.com/website/main/products/prod1/'>
+		Zapatec DHTML Calendar Widget</a>, but your browser does not support Javascript.
+		<br/>
+		<br/>
+	</noscript>      
+		<br/><br/><br/>
+		<div id="divFooter" class="footer" style='text-align:center; margin-top:2em'>
+		&copy; 2004-2006 <strong> <a href='http://www.zapatec.com/'>Zapatec, Inc.</a> </strong>
+		</div>
+	</div>
+</body>
+</html>

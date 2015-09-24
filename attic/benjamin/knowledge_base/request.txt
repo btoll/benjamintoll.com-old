@@ -1,0 +1,11 @@
+$_REQUEST is "an associative array consisting of the contents of 
+$_GET, $_POST, and $_COOKIE. 
+
+This is a 'superglobal', or automatic global, variable. This simply 
+means that it is available in all scopes throughout a script."
+
+        -- authors at www.php.net
+
+For more information please see the official documentation at:
+ 
+http://www.php.net/manual/en/reserved.variables.php#reserved.variables.request

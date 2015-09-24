@@ -1,0 +1,12 @@
+-- MySQL dump 9.11
+--
+-- Host: localhost    Database: iworx_horde
+-- ------------------------------------------------------
+-- Server version	4.0.21
+
+--
+-- Dumping data for table `horde_prefs`
+--
+-- WHERE:  pref_name="identities" AND pref_uid="postmaster@benjamintoll.com"
+
+

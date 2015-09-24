@@ -1,0 +1,36 @@
+<?php
+
+$title = "benjamintoll.com - Web Application Development";
+$id = "home";
+$styles = "";
+$scripts = "";
+
+    require_once("lib/includes/header.php");
+    require_once("lib/includes/branding.php");
+  ?>
+
+      <hr />
+      <span class="pageHeader">Welcome</span>
+      <hr />
+
+      <p>Welcome to <strong>benjamintoll.com</strong>!</p>
+      <p>I do JavaScript application development in the San Francisco Bay Area.</p>
+      <p>This is my personal site. I have a passion for languages, both computer and human. For whatever reason, if you're interested you can find a bit more about me on the obligatory <a href="about/" title="About me">About</a> page.</p>
+
+      <div>
+        <p>I have a <a href="http://jslite.benjamintoll.com/" title="JavaScript library (beta)">lightweight JavaScript library</a>.</p>
+        <p>I have a <a href="http://code-buddy.benjamintoll.com/" title="UI knowledge base">UI knowledge base/learning center</a>.</p>
+        <p>I have an <a href="http://italy.benjamintoll.com/" title="Online Italian dictionary">online Italian-English dictionary</a>. Sign up for the <a href="http://italy.benjamintoll.com/wotd/" title="Sign up for our Word of the Day">Word of the Day</a>.</p>
+        <p>I run a <a href="software/cotd.php" title="Linux Command of the Day">Linux Command of the Day</a> mailing list.</p>
+        <p>While you're here, <a href="software/music-theory/" title="Music Theory Quiz">take a quiz</a> or <a href="software/memory_game.php" title="Memory Game">play a game</a>.</p>
+        <!--<p>I offer <a href="tutoring/" title="benjamintoll.com Tutoring Services">tutoring services</a>.</p>-->
+      </div>
+
+      <p>Got questions? Just <a href="contact/">ask</a>.</p>
+
+    </div><!--end div#content-->
+
+  <?php require_once("lib/includes/footer.php"); ?>
+
+</body>
+</html>

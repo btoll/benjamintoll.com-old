@@ -1,0 +1,13 @@
+Q.  How do I determine what is dependent upon a particular RPM?
+
+A.  Use the command --whatrequires.
+
+Syntax:
+
+	rpm -q --whatrequires [rpm]
+
+       	[rpm] = the RPM you're wanting to remove
+
+If you need to uninstall a particular RPM, first uninstall
+whatever RPM(s) was unearthed by this query.
+

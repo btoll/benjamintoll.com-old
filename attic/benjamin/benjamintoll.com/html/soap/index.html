@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SOAP calls</title>
+<style type="text/css">
+fieldset {
+  margin-bottom: 20px;
+}
+#theForm ol {
+  list-style: none;
+}
+#theForm li {
+  margin: 10px 0;
+}
+label {
+  clear: left;
+  float: left;
+  margin-right: 10px;
+  text-align: right;
+  width: 150px;
+}
+input#submit {
+  margin-left: 160px;
+}
+.backgroundError {
+  background: #FFC;
+}
+.textError {
+  color: #F00;
+}
+#errorBox {
+  background: #FFC;
+  border: 1px solid #000;
+  margin: 10px;
+  padding: 10px;
+  width: 500px;
+}
+#errorBox li {
+  margin: 5px 0 5px 40px;
+  padding: 0;
+}
+#errorBox p {
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+</style>
+<script type="text/javascript" src="jquery-1.2.6.js"></script>
+<script type="text/javascript" src="jqXMLUtils.js"></script>
+<script type="text/javascript" src="jqSOAPClient.js"></script>
+<script type="text/javascript">
+var soap = function (oOptions) {
+
+  var soapBody = new SOAPObject(oOptions.object);
+  soapBody.ns = oOptions.ns;
+  soapBody.appendChild(new SOAPObject(oOptions.method)).val(oOptions.value); //Here I set the value of the zip code
+
+  //Create a new SOAP Request pass SOAPAction and Body content parameters
+  var sr = new SOAPRequest(oOptions.action, soapBody);
+
+  //Lets send it
+  SOAPClient.Proxy = oOptions.proxy; //Specify local proxy file
+  SOAPClient.SOAPServer = oOptions.server; //My proxy uses SOAPServer header to redirect my requests
+  SOAPClient.SendRequest(sr, oOptions.callback); //Send request to server and assign callback function
+
+};
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  var fnDisabled = function (bState) {
+    bState = bState === false ? false : true;
+    document.getElementById("cities").disabled = document.getElementById("zip").disabled = document.getElementById("submit").disabled = bState;
+  };
+
+  soap({
+    ns: "http://www.webserviceX.NET",
+    object: "GetInfoByCity",
+    method: "USCity",
+    value: "Harrisburg",
+    action: "http://www.webserviceX.NET/GetInfoByCity",
+    proxy: "proxy.php",
+    server: "http://www.webservicex.net/uszip.asmx",
+    callback: function (oResponse) {
+      try {
+        var oSelect = $("#cities");
+        var oSelect = document.getElementById("cities");
+        var aCities = oResponse.Body[0].GetInfoByCityResponse[0].GetInfoByCityResult[0].NewDataSet[0].Table;
+        for (var i = 0, iLength = aCities.length; i < iLength; i++) {
+          var aCity = aCities[i];
+          var aText = [];
+          aText[0] = aCity.CITY[0].Text;
+          aText[1] = ", ";
+          aText[2] = aCity.STATE[0].Text;
+          aText[3] = ", ";
+          aText[4] = aCity.ZIP[0].Text;
+          oSelect.options[oSelect.options.length] = new Option(aText.join(""), aCity.ZIP[0].Text);
+        }
+      } catch(e) {
+        alert("Unable to resolve request for cities.");
+      }
+    }
+  });
+
+  $("#submit").click(function () {
+    fnDisabled();
+    soap({
+      ns: "http://www.webserviceX.NET",
+      object: "GetInfoByZIP",
+      method: "USZip",
+      value: $("#zip").val(),
+      action: "http://www.webserviceX.NET/GetInfoByZIP",
+      proxy: "proxy.php",
+      server: "http://www.webservicex.net/uszip.asmx",
+      callback: function (oResponse) {
+        try {
+        //Notice how I set references to the returned values. SOAP Response node names are kept the same, and become arrays
+          var responseMessage = oResponse.Body[0].GetInfoByZIPResponse[0].GetInfoByZIPResult[0].NewDataSet[0].Table[0];
+          //Let's set those textbox values (using jQuery)
+          $("#city").val(responseMessage.CITY[0].Text);
+          $("#state").val(responseMessage.STATE[0].Text);
+          $("#zip").val(responseMessage.ZIP[0].Text);
+          $("#areaCode").val(responseMessage.AREA_CODE[0].Text);
+          $("#timeZone").val(responseMessage.TIME_ZONE[0].Text);
+        } catch(e) {
+          alert("Unable to resolve ZIP Code");
+        } finally {
+          fnDisabled(false);
+        }
+      } 
+    });
+  });
+
+  $("#cities").change(function () {
+    fnDisabled();
+    soap({
+      ns: "http://www.webserviceX.NET",
+      object: "GetInfoByZIP",
+      method: "USZip",
+      value: $("#cities").val(),
+      action: "http://www.webserviceX.NET/GetInfoByZIP",
+      proxy: "proxy.php",
+      server: "http://www.webservicex.net/uszip.asmx",
+      callback: function (oResponse) {
+        try {
+        //Notice how I set references to the returned values. SOAP Response node names are kept the same, and become arrays
+          var responseMessage = oResponse.Body[0].GetInfoByZIPResponse[0].GetInfoByZIPResult[0].NewDataSet[0].Table[0];
+          //Let's set those textbox values (using jQuery)
+          $("#city").val(responseMessage.CITY[0].Text);
+          $("#state").val(responseMessage.STATE[0].Text);
+          $("#zip").val(responseMessage.ZIP[0].Text);
+          $("#areaCode").val(responseMessage.AREA_CODE[0].Text);
+          $("#timeZone").val(responseMessage.TIME_ZONE[0].Text);
+        } catch(e) {
+          alert("Unable to resolve ZIP Code");
+        } finally {
+          fnDisabled(false);
+        }
+      } 
+    });
+  });
+
+});
+</script>
+</head>
+
+<body>
+
+<form id="theForm" action="" onsubmit="return false;">
+
+  <fieldset>
+  <legend>Please select a City from the list or enter a Zip Code in the provided text box</legend>
+  <ol>
+    <li>
+      <label for="cities">City</label>
+      <select id="cities">
+        <option value="">Select a City</option>
+      </select>
+    </li>
+    <li>
+      <label for="zip">Zip</label>
+      <input type="text" id="zip" class="required-zip" name="zip" />
+    </li>
+    <li>
+      <input type="submit" id="submit" name="submit" value="Submit" />
+    </li>
+  </ol>
+  </fieldset>
+
+  <fieldset>
+  <legend>The results returned from the SOAP call</legend>
+  <ol>
+    <li>
+      <label for="city">City</label>
+      <input type="text" id="city" class="required" name="city" />
+    </li>
+    <li>
+      <label for="state">State</label>
+      <input type="text" id="state" class="required" name="state" />
+    </li>
+    <li>
+      <label for="areaCode">Area Code</label>
+      <input type="text" id="areaCode" class="required" name="areaCode" />
+    </li>
+    <li>
+      <label for="timeZone">Time Zone</label>
+      <input type="text" id="timeZone" class="required" name="timeZone" />
+    </li>
+  </ol>
+  </fieldset>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,351 @@
+/***************************************************************/
+/************************** hrefs *************************/
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #FFF;
+  text-decoration: none;
+}
+div#footer a {
+  font-weight: bold;
+}
+div#footer a:hover {
+  text-decoration: underline;
+}
+body#dictionary #text a:hover {
+  background: #FFF;
+  color: #FFA500;
+  text-decoration: overline underline;
+}
+body#dictionary p a strong {
+  color: navy;
+}
+body#dictionary p a.italianWord {
+  color: #FFA500;
+  text-decoration: underline;
+}
+body#dictionary p a.italianWord strong {
+  color: brown;
+  font-weight: normal;
+}
+body#dictionary p a.pronunciation strong {
+  color: olive;
+  font-size: 12px;
+  font-weight: normal;
+}
+body#links div#text a {
+  color: #FFA500;
+  display: block;
+  font-weight: bold;
+  margin-left: 15px;
+}
+body#links div#text a:hover {
+  color: red;
+  text-decoration: underline;
+}
+div#pagination a {
+  color: #4682B4;
+}
+body#dictionary a#dictionaryHref,
+body#pronunciation a#pronunciationHref,
+body#grammar a#grammarHref,
+body#wotd a#wotdHref,
+body#links a#linksHref,
+body#contact a#contactHref {
+  color: #FFA500;
+}
+/************************** individual tags ************************/
+body {
+  background-color: #996;
+  behavior: url(/csshover.htc); /* WinIE behavior call */
+  cursor: crosshair;
+  font-family: Verdana, "Times New Roman", serif;
+  text-align: center; /* workaround for IE */
+}
+div {
+  font-family: "Trebuchet MS", Verdana, "Times New Roman", serif;
+}
+input {
+  cursor: auto;
+}
+input.submit,
+input.clear {
+  background-color: #4682B4;
+  border: solid 1px #808000;
+  color: #fff;
+  font: bold 12pt "Trebuchet MS", Verdana, "Times New Roman", serif;
+  margin: 5px 0px;
+}
+input.clear {
+  margin: 0;
+  font-size: 9px;
+}
+input.text {
+  background-color: #999966;
+  /*background-color: #8fBC8F;*/
+  border: solid 1px #00F;
+  color: #FFF;
+  font: bold 10pt "Trebuchet MS", Verdana, "Times New Roman", serif;
+  padding: 4px;
+}
+select {
+  background: #708090;
+  color: #FFF;
+  font-weight: normal;
+}
+table.border {
+  font-family: "Trebuchet MS", Verdana, "Times New Roman", serif;
+}
+th {
+  text-align: center;
+}
+td {
+  border-top: solid 1px #FFA500;
+  font-size: 12px;
+  padding: 3px;
+  text-align: left;
+  vertical-align: top;
+}
+td.dictStyle {
+  border-top: none;
+  text-align: left;
+}
+body#error_page p {
+  font-weight: bold;
+  text-align: left;
+}
+/************************** pages ************************/
+/************* dictionary ****************/
+form#dictionaryForm h4 {
+  margin: 0
+}
+form#dictionaryForm p b {
+  color: blue;
+}
+form#dictionaryForm label {
+  display: block;
+}
+form#dictionaryForm p label { /*the Search and Clear buttons should be on the same line*/
+  display: inline;
+}
+div#displayWords p { /*displayWords is the container for the ajax response*/
+  border-top: none;
+  color: navy;
+  font-size: 14px;
+  margin: 2px 0;
+  padding: 3px;
+  text-align: left;
+}
+/************* grammar ****************/
+body#grammar h3 {
+  margin-top: 0;
+}
+#verbTypesForm p strong {
+  display: block;
+}
+/************* pronunciation ****************/
+body#pronunciation div#text p {
+  font-weight: bold;
+  margin-top: 0;
+}
+body#pronunciation h4 {
+  text-decoration: underline;
+}
+body#pronunciation ul {
+  list-style: none;
+  margin: 0;
+  margin-left: 22px;
+  padding: 0;
+}
+body#pronunciation ol {
+  margin: 0;
+}
+/************* wotd ****************/
+body#wotd form#wotdForm label {
+  display: block;
+}
+div#response {
+  height: 40px;
+  margin: 20px 0;
+}
+/************************** page setup ************************/
+div#conjugatedVerb {
+  color: #000;
+  font-weight: normal;
+}
+div#footer {
+  background: url(/images/blue.gif);
+  clear: both;
+  color: #FFA500;
+  height: 15px;
+  padding: 10px 0;
+  width: 800px;
+}
+div#imageContainer {
+  filter: alpha(opacity=100);
+  height: 380px;
+  opacity: 1;
+  width: 285px;
+}
+div#imageContainer, div#text {
+  float: left;
+  text-align: left;
+}
+p#imageDescription {
+  font: 11px arial;
+  margin: 0 0 0 3px;
+  width: 265px;
+}
+input#imageController {
+  position: absolute;
+  top: 380px;
+  left: 60px;
+}
+div#main {
+  background: #eed;
+  border-left: 2px solid #000080;
+  border-right: 2px solid #000080;
+  font-size: 10pt;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  width: 800px;
+}
+div#message {
+  margin: 10px 0;
+}
+div#miniGuide {
+  text-align: left;
+}
+div#pagination {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  font-size: 11pt;
+  font-weight: bold;
+  margin: 10px 0 0 5px;
+  padding: 5px 0;
+}
+div#redirect { /* for the error-pages directory */
+  background-color: white;
+  border: 1px solid silver;
+  padding: 10px;
+}
+div#text {
+  padding: 20px 4px 20px 8px;
+  width: 450px;
+}
+/************************** menu ************************/
+div#nav {
+  background: url(/images/blue.gif);
+  float: left;
+  width: 800px;
+}
+div#nav ul {
+  margin: 0;
+  padding: 0;
+}
+div#nav li {
+  float: left;
+  line-height: 1.5em;
+  list-style: none;
+  margin: 0;
+  padding: 0 6px;
+  position: relative;
+  width: 8.5em;
+}
+div#nav li.submenu {
+  background: url(/images/dropmenu.gif) 95% 50% no-repeat;
+}
+div#nav ul ul {
+  background: #FFF;
+  border: 1px solid navy;
+  display: none;
+  margin-top: -1px;
+  position: absolute;
+  width: 9.4em;
+}
+div#nav ul ul li {
+  border-bottom: 1px solid #CCC;
+}
+div#nav ul.level1 li.submenu:hover ul.level2 {
+  display:block;
+}
+div#nav ul.level2 {
+  top: 2em;
+  left: -1px;
+}
+div#nav ul li a:hover {
+  color: #FFF;
+}
+div#nav ul ul li a:hover {
+  color: #F4A460;
+}
+div#nav li a {
+  color: #C0C0C0;
+  display: block;
+  font-weight: bold;
+  padding: 0.25em 0 0.25em 0.5em;
+  text-decoration: none;
+  width: 8.5em;
+}
+div#nav>ul a {
+  width: auto;
+}
+div#nav ul ul a {
+  color: navy;
+}
+/************************** classes ************************/
+.ajaxWait {
+  background: orange;
+  border: 2px solid silver;
+  padding: 4px;
+}
+.conjVerb,
+body#grammar h4,
+body#links h4 {
+  background: #BDB76B;
+  border: 2px solid #000;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 4px;
+}
+.conjVerb {
+  padding-left: 5px;
+  width: 150px;
+}
+.crosshair {
+  cursor: crosshair;
+}
+.error {
+  color: red;
+  font-weight: bold;
+}
+.footerCol1 {
+  float: left;
+  padding-left: 5px;
+}
+.footerCol2 {
+  float: right;
+  padding-right: 5px;
+}
+.pronoun {
+  background: orange;
+  border: 2px solid #000;
+  font-weight: bold;
+  text-align: center;
+  width: 20px;
+}
+.success {
+  color: #4682b4;
+  font-weight: bold;
+}
+.wider {
+  width: 9em;
+}
+.bold {
+  font-weight: bold;
+}
+.center {
+  text-align: center;
+}

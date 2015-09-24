@@ -1,0 +1,74 @@
+body {
+  background: red;
+  font-family: arial;
+}
+#nav {
+  background: #222;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 70%;
+  bottom: 0;
+}
+#content {
+  background: repeat scroll #666;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  right: 0;
+  bottom: 0;
+}
+#content h1 {
+  color: #BBB;
+  font: normal 22px arial;
+}
+#contentContainer {
+  height: 500px;
+  overflow: auto;
+  width: auto;
+}
+#navContainer {
+  margin: 30px auto 0;
+  width: 300px;
+}
+.navBox {
+  background: #666;
+  border: 1px solid #000;
+  color: #BBB;
+  float: left;
+  font-size: 12px;
+  margin: 5px 10px;
+  padding: 8px 0 8px 8px;
+  width: 200px;
+}
+.navBox.hasNavFocus {
+  background: #BBB;
+  color: #666;
+}
+.navBox.navKeepFocus {
+  background: #DDD;
+  color: #666;
+}
+.movieBox {
+  border: 3px solid transparent;
+  float: left;
+  margin: 0 20px 40px;
+}
+.movieBox.hasContentFocus {
+  background: #FFA;
+  border: 3px solid blue;
+}
+.movieBox.selected {
+  background: blue;
+}
+.testElement {
+  color: red;
+  display: block;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}

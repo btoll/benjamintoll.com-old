@@ -1,0 +1,36 @@
+The problem:
+<br><br> 
+I have a query that should return 1-3 values. I can access the first one, but no chance with the second 
+and so on.  I want to be able to print the result in a simple drop-down list.
+<br><br>
+exising code sample:
+<br>
+	$sql = mysql_query("SELECT category FROM categories ORDER BY category"); <br>
+	$result = mysql_fetch_assoc($sql); <br><br>
+ 
+	echo "<option value=\"$display[category]\">$display[category]</option>\n";<br><br>
+
+
+
+The solution:
+<br>
+Rewrite the code as this and I think you will understand better what is happening. 
+<br>
+	$sql = "SELECT category FROM categories ORDER BY category";<br>
+
+	$result = mysql_query($sql);<br>
+
+	while ( $row = mysql_fetch_assoc($result)) {  <br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "<option value=\"$display[category]\">$display[category]</option>\n";<br>
+
+	}<br><br>
+ 
+
+NOTE: mysql_fetch_assoc either returns an associative array corresponding to the fetched row or it will<br> 
+return FALSE if there are no more rows to fetch.<br>  
+while ($result = mysql_fetch_assoc($sql)) will do whatever you tell it to do with each row that is returned,<br> 
+once the end is reached (i.e. mysql_fetch_assoc($sql) returns FALSE) the next part of your script will be executed.
+
+
+

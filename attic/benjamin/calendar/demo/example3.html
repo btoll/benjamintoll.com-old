@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+	<meta name="description" content=" Click the icon in the 'Date:' field to display the calendar. We offer the following icons in the icons folder located in the themes folder. The results are inserted in the following format: Day of Week, Month Day, Year (i.e.: 'Monday, January 1, 2007') The calendar displays over the dropdown list. The weekend days (Saturday and Sunday) have been disabled ">
+	<meta name="keywords" content="dhtml tools,javascript,DHTML Tools,Javascript,ajax,AJAX,Ajax,ajax tools,AJAX Tools,tools controls,simple javascript tools">
+	<title>Zapatec DHTML Calendar Widget - Single Click, Use An Icon, Disable Weekend Days</title>
+
+	<!-- Common JS files -->
+	<script type='text/javascript' src='../utils/zapatec.js'></script>
+
+	<!-- Custom includes -->	
+		<!-- import the calendar script -->
+		<script type="text/javascript" src="../src/calendar.js"></script>
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+
+		<!-- other languages might be available in the lang directory; please check
+		your distribution archive. -->
+
+
+	<!-- ALL demos need these css -->
+	<link href="../website/css/zpcal.css" rel="stylesheet" type="text/css">
+	<link href="../website/css/template.css" rel="stylesheet" type="text/css">
+
+	<!-- Theme css -->
+	<link href="../themes/fancyblue.css" rel="stylesheet" type="text/css">
+
+	<link rel="SHORTCUT ICON" href="http://www.zapatec.com/website/main/favicon.ico">
+	
+
+
+</head>
+<body>
+	<div class="zpStandard">
+
+	<div class="topMenuHeader">
+		<div class="logo">
+			<a href='http://www.zapatec.com'><img src='../website/images/logoNew.gif' alt='Zapatec logo' border='0'></a>
+		</div>
+		<div class="btn1">
+			<a href="https://www.zapatec.com/zadmin/buy.jsp">
+				<img src="../website/images/buttonBuy.png" alt='Buy Zapatec DHTML Calendar Widget' border ="0">
+			</a>
+		</div>
+
+		<div class="btn1">
+			<a href="http://www.zapatec.com/website/main/pricing.jsp">
+				<img src="../website/images/buttonPricing.png" alt='Pricing for Zapatec DHTML Calendar Widget' border="0">
+			</a>
+		</div>
+	</div>
+
+	<div class="pageMain">
+	<a href="example4.html" style="float:right; margin-right:2em; margin-top:.5em;" accesskey="N" title="Next Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/next.png" alt="Next Zapatec DHTML Calendar Widget Example"></a>
+	<a href="example2.html" style="float:left; margin-left:2em; margin-top:.5em;" accesskey="P" title="Previous Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/previous.png" alt="Previous Zapatec DHTML Calendar Widget Example"></a>
+	<div class='zpCalSubHeader' style='text-align:center;'>Single Click, Use An Icon, Disable Weekend Days</div>
+
+
+		<div class='zpCalDemoText'>
+		<ul>
+		<li>This demo uses the <b>fancyblue theme</b>.</li>
+		
+		<li> Click the icon in the 'Date:' field to display the calendar. <br/>
+		We offer the following icons in the icons folder located in the themes folder.<br/> 
+		<table>
+			<tr>
+				<td>
+					<img alt=' Zapatec Calendar' src='http://www.zapatec.com/website/main/zpcal/themes/icons/calendar1.gif'>
+				</td>
+				<td>
+					<img alt=' Zapatec Calendar' src='http://www.zapatec.com/website/main/zpcal/themes/icons/calendar2.gif'>
+				</td>
+				<td>
+					<img alt=' Zapatec Calendar' src='http://www.zapatec.com/website/main/zpcal/themes/icons/calendar3.gif'>
+				</td>
+				<td>
+					<img alt=' Zapatec Calendar' src='http://www.zapatec.com/website/main/zpcal/themes/icons/calendar4.gif'>
+				</td>
+				<td>
+					<img alt=' Zapatec Calendar' src='http://www.zapatec.com/website/main/zpcal/themes/icons/calendar5.gif'>
+				</td>
+				<td>
+					<img alt=' Zapatec Calendar' src='http://www.zapatec.com/website/main/zpcal/themes/icons/calendar6.gif'>
+				</td>
+			</tr>
+		</table>
+		</li>
+
+		<li> The results are inserted in the following format: <br/>
+		Day of Week, Month Day, Year (i.e.: 'Monday, January 1, 2007')</li>
+		<li> The calendar displays over the dropdown list.  </li>
+		<li> The weekend days (Saturday and Sunday) have been disabled </li>
+
+		</ul>
+		</div>
+
+
+
+
+<b>Date:</b>
+<input type="text" name="date3" id="sel3" size="30" >
+<img alt=' Zapatec Calendar' src='http://www.zapatec.com/website/main/zpcal/themes/icons/calendar2.gif' border='0' id='icon3'  onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='default'">
+<br/>
+
+<select name="license_type" style='margin-left:200px; margin-top:20px'>
+	<option value="Calendar Single Server">--------------------</option>
+	<option value="Calendar Domain Wide">Zapatec DHTML Calendar</option>
+	<option value="Calendar Unlimited">Zapatec DHTML Tree</option>
+	<option value="Calendar Library">Zapatec DHTML Menu</option>
+</select>
+
+	<script type="text/javascript">
+		var cal = new Zapatec.Calendar.setup({
+		
+		inputField     :    "sel3",     // id of the input field
+		ifFormat       :    "%A, %B %e, %Y",     // format of the input field
+		button         :    "icon3",  // trigger button (well, IMG in our case)
+		showsTime      :     false,
+		dateStatusFunc :    function (date) { // disable weekend days (Saturdays == 6 and Sundays == 0)
+			return (date.getDay() == 6 || date.getDay() == 0) ? true : false;}
+
+		});
+		
+	</script>
+
+
+	<noscript>
+		<br/>
+		This page uses a <a href='http://www.zapatec.com/website/main/products/prod1/'>
+		Zapatec DHTML Calendar Widget</a>, but your browser does not support Javascript.
+		<br/>
+		<br/>
+	</noscript>      
+		<br/><br/><br/>
+		<div id="divFooter" class="footer" style='text-align:center; margin-top:2em'>
+		&copy; 2004-2006 <strong> <a href='http://www.zapatec.com/'>Zapatec, Inc.</a> </strong>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<artists>
+  <jazz>
+    <name>John Coltrane</name>
+    <name>Miles Davis</name>
+    <name>Wes Montgomery</name>
+    <name>Bill Evans</name>
+  </jazz>
+  <blues>
+    <name>Stevie Ray Vaughan</name>
+    <name>Robben Ford</name>
+    <name>Derek Trucks</name>
+    <name>Duane Allman</name>
+  </blues>
+</artists>
+

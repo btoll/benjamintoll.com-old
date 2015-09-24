@@ -1,0 +1,21 @@
+<html>
+<body>
+<iframe src="http://blueboy.dyndns-web.com/postMessage.html"></iframe>
+<script>
+function foobar(event) {
+    //if (event.origin !== 'http://blueboy.dyndns-web.com') return;
+    alert('Message received:  ' + event.data);
+}
+
+if (!('addEventListener' in window)) {
+    window.attachEvent('onmessage', foobar);
+} else {
+    window.addEventListener('message', foobar, false);
+}
+
+document.body.onload = function () {
+    document.getElementsByTagName('iframe')[0].contentWindow.postMessage('Hello, world! (This message is posted to the destination page.)', 'http://blueboy.dyndns-web.com');
+};
+</script>
+</body>
+</html>

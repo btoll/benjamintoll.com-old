@@ -1,0 +1,26 @@
+Q.  How do I verify that the source code I just downloaded hasn't been tampered with?
+
+A.  Check the key signature using either the MD5 algorithm or GnuPG.
+
+	
+	1. The simplest solution is to issue the following command at the shell:
+
+		md5sum [package]
+
+	The MD5 algorithm is usually included in most Linux distributions and is native
+	to some programming languages, such as PHP.
+
+
+	2. Another solution would be to use GnuPG (Gnu Privacy Guard) tool.  For example, 
+	to check the integrity of the Samba source tarball issue the following commands at 
+	the shell:
+
+		$ gpg --import samba-pubkey.asc
+     		$ gunzip samba-release.tar.gz
+     		$ gpg --verify samba-release.tar.asc
+     		gpg: Signature made Tue 26 Nov 2002 07:12:04 PM CST using DSA key ID 2F87AF6F
+     		gpg: Good signature from "Samba Distribution Verification Key "
+
+	
+		**Note** -- This assumes you have also downloaded both the public key and the
+			    key specific to your release. 

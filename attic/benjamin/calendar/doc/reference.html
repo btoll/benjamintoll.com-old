@@ -1,0 +1,1389 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!--
+
+Generated from reference.tex by tex2page, v 20051023
+(running on MzScheme 209, unix), 
+(c) Dorai Sitaram, 
+http://www.ccs.neu.edu/~dorai/tex2page/tex2page-doc.html
+
+-->
+<head>
+<title>
+Zapatec DHTML Calendar Manual
+</title>
+<link rel="stylesheet" type="text/css" href="reference-Z-S.css" title=default>
+<link rel="stylesheet" type="text/css" href="../website/css/docs.css" title=default>
+<meta name=robots content="index,follow">
+</head>
+<body>
+<div id=slidetitle>
+<p>
+</p>
+<p>
+
+
+
+</p>
+<p>
+
+
+
+</p>
+<p>
+
+</p>
+<p>
+</p>
+<p>
+</p>
+<h1 class=title>Zapatec DHTML Calendar Manual</h1>
+<p></p>
+<div align=center>
+<p></p>
+</div>
+<p></p>
+<p>
+</p>
+<a name="node_sec_Temp_1"></a>
+<h1><a href="#node_toc_node_sec_Temp_1">Contents</a></h1>
+<p><a name="node_toc_start"></a></p>
+<p><b>
+&nbsp; &nbsp; <a name="node_toc_node_sec_1"></a><a href="#node_sec_1">1&nbsp;&nbsp;Get the Zapatec DHTML Calendar files</a></b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_1.1"></a><a href="#node_sec_1.1">1.1&nbsp;&nbsp;Download the Zip file</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_1.2"></a><a href="#node_sec_1.2">1.2&nbsp;&nbsp;Unzip zpcal.zip</a><br>
+</p>
+<p><b>
+&nbsp; &nbsp; <a name="node_toc_node_sec_2"></a><a href="#node_sec_2">2&nbsp;&nbsp;Create a Calendar with the Wizard</a></b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.1"></a><a href="#node_sec_2.1">2.1&nbsp;&nbsp;What does the Wizard do?</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.2"></a><a href="#node_sec_2.2">2.2&nbsp;&nbsp;How to Start the Wizard</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.3"></a><a href="#node_sec_2.3">2.3&nbsp;&nbsp;Using the Wizard</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.4"></a><a href="#node_sec_2.4">2.4&nbsp;&nbsp;Theme and Language</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.5"></a><a href="#node_sec_2.5">2.5&nbsp;&nbsp;Basic Setup</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.5.1"></a><a href="#node_sec_2.5.1">2.5.1&nbsp;&nbsp;First day of week</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.5.2"></a><a href="#node_sec_2.5.2">2.5.2&nbsp;&nbsp;Show week numbers</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.5.3"></a><a href="#node_sec_2.5.3">2.5.3&nbsp;&nbsp;Show adjacent months</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.5.4"></a><a href="#node_sec_2.5.4">2.5.4&nbsp;&nbsp;Show Time</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.5.5"></a><a href="#node_sec_2.5.5">2.5.5&nbsp;&nbsp;Time Format</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.5.6"></a><a href="#node_sec_2.5.6">2.5.6&nbsp;&nbsp;Year Step</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.6"></a><a href="#node_sec_2.6">2.6&nbsp;&nbsp;Date and time formats</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.7"></a><a href="#node_sec_2.7">2.7&nbsp;&nbsp;Multiple Months</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.7.1"></a><a href="#node_sec_2.7.1">2.7.1&nbsp;&nbsp;Number of Months</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.7.2"></a><a href="#node_sec_2.7.2">2.7.2&nbsp;&nbsp;Control Month</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.7.3"></a><a href="#node_sec_2.7.3">2.7.3&nbsp;&nbsp;Months in a Row</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.7.4"></a><a href="#node_sec_2.7.4">2.7.4&nbsp;&nbsp;Vertical Months</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_2.8"></a><a href="#node_sec_2.8">2.8&nbsp;&nbsp;Test and Generate</a><br>
+</p>
+<p><b>
+&nbsp; &nbsp; <a name="node_toc_node_sec_3"></a><a href="#node_sec_3">3&nbsp;&nbsp;Quick Startup (Without Wizard)</a></b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.1"></a><a href="#node_sec_3.1">3.1&nbsp;&nbsp;Project Files</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.1.1"></a><a href="#node_sec_3.1.1">3.1.1&nbsp;&nbsp;The zpcal folder</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.1.2"></a><a href="#node_sec_3.1.2">3.1.2&nbsp;&nbsp;The src folder</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.1.3"></a><a href="#node_sec_3.1.3">3.1.3&nbsp;&nbsp;The demo folder</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.1.4"></a><a href="#node_sec_3.1.4">3.1.4&nbsp;&nbsp;The doc folder</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.1.5"></a><a href="#node_sec_3.1.5">3.1.5&nbsp;&nbsp;The lang folder</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.1.6"></a><a href="#node_sec_3.1.6">3.1.6&nbsp;&nbsp;The themes folder</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.2"></a><a href="#node_sec_3.2">3.2&nbsp;&nbsp;Set Up Your Calendar</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.2.1"></a><a href="#node_sec_3.2.1">3.2.1&nbsp;&nbsp;Insert the Headers</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.2.2"></a><a href="#node_sec_3.2.2">3.2.2&nbsp;&nbsp;Path Warning</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.2.3"></a><a href="#node_sec_3.2.3">3.2.3&nbsp;&nbsp;Upgrade Warning</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.3"></a><a href="#node_sec_3.3">3.3&nbsp;&nbsp;Create a Form with a Calendar</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.3.1"></a><a href="#node_sec_3.3.1">3.3.1&nbsp;&nbsp;Insert the Form Code</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.4"></a><a href="#node_sec_3.4">3.4&nbsp;&nbsp;Insert the Calendar Code</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.5"></a><a href="#node_sec_3.5">3.5&nbsp;&nbsp;Copy Files to your Web Server</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.6"></a><a href="#node_sec_3.6">3.6&nbsp;&nbsp;Test the Calendar Application</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.7"></a><a href="#node_sec_3.7">3.7&nbsp;&nbsp;Change Included Files</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.7.1"></a><a href="#node_sec_3.7.1">3.7.1&nbsp;&nbsp;Change Theme</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.7.2"></a><a href="#node_sec_3.7.2">3.7.2&nbsp;&nbsp;Change Language</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_3.8"></a><a href="#node_sec_3.8">3.8&nbsp;&nbsp;Events</a><br>
+</p>
+<p><b>
+&nbsp; &nbsp; <a name="node_toc_node_sec_4"></a><a href="#node_sec_4">4&nbsp;&nbsp;Configuration Options</a></b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.1"></a><a href="#node_sec_4.1">4.1&nbsp;&nbsp;align (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_Temp_2"></a><a href="#node_sec_Temp_2">Vertical alignment</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_Temp_3"></a><a href="#node_sec_Temp_3">Horizontal alignment</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.2"></a><a href="#node_sec_4.2">4.2&nbsp;&nbsp;button (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.3"></a><a href="#node_sec_4.3">4.3&nbsp;&nbsp;cache (boolean)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.4"></a><a href="#node_sec_4.4">4.4&nbsp;&nbsp;closeEventName (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.5"></a><a href="#node_sec_4.5">4.5&nbsp;&nbsp;controlMonth (integer)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.6"></a><a href="#node_sec_4.6">4.6&nbsp;&nbsp;daFormat (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.7"></a><a href="#node_sec_4.7">4.7&nbsp;&nbsp;date (date)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.8"></a><a href="#node_sec_4.8">4.8&nbsp;&nbsp;dateStatusFunc (function)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.9"></a><a href="#node_sec_4.9">4.9&nbsp;&nbsp;disableDrag (boolean)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.10"></a><a href="#node_sec_4.10">4.10&nbsp;&nbsp;disableFunc (function)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.11"></a><a href="#node_sec_4.11">4.11&nbsp;&nbsp;displayArea (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.12"></a><a href="#node_sec_4.12">4.12&nbsp;&nbsp;electric (boolean)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.13"></a><a href="#node_sec_4.13">4.13&nbsp;&nbsp;eventName (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.14"></a><a href="#node_sec_4.14">4.14&nbsp;&nbsp;fdowClick (boolean)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.15"></a><a href="#node_sec_4.15">4.15&nbsp;&nbsp;firstDay (integer)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.16"></a><a href="#node_sec_4.16">4.16&nbsp;&nbsp;flat (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.17"></a><a href="#node_sec_4.17">4.17&nbsp;&nbsp;flatCallback (function)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.18"></a><a href="#node_sec_4.18">4.18&nbsp;&nbsp;ifFormat (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.19"></a><a href="#node_sec_4.19">4.19&nbsp;&nbsp;inputField (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.20"></a><a href="#node_sec_4.20">4.20&nbsp;&nbsp;monthsInRow (integer)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.21"></a><a href="#node_sec_4.21">4.21&nbsp;&nbsp;multiple (date[])</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.22"></a><a href="#node_sec_4.22">4.22&nbsp;&nbsp;numberMonths (integer)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.23"></a><a href="#node_sec_4.23">4.23&nbsp;&nbsp;noHelp (boolean)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.24"></a><a href="#node_sec_4.24">4.24&nbsp;&nbsp;onClose (function)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.25"></a><a href="#node_sec_4.25">4.25&nbsp;&nbsp;onSelect (function)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.26"></a><a href="#node_sec_4.26">4.26&nbsp;&nbsp;onUpdate (function)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.27"></a><a href="#node_sec_4.27">4.27&nbsp;&nbsp;position (array)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.28"></a><a href="#node_sec_4.28">4.28&nbsp;&nbsp;range (integer[])</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.29"></a><a href="#node_sec_4.29">4.29&nbsp;&nbsp;saveDate(integer)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.30"></a><a href="#node_sec_4.30">4.30&nbsp;&nbsp;showOthers (boolean)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.31"></a><a href="#node_sec_4.31">4.31&nbsp;&nbsp;showsTime (boolean or string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.32"></a><a href="#node_sec_4.32">4.32&nbsp;&nbsp;singleClick (boolean)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.33"></a><a href="#node_sec_4.33">4.33&nbsp;&nbsp;sortOrder (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.34"></a><a href="#node_sec_4.34">4.34&nbsp;&nbsp;step (integer)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.35"></a><a href="#node_sec_4.35">4.35&nbsp;&nbsp;timeFormat (string)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.36"></a><a href="#node_sec_4.36">4.36&nbsp;&nbsp;timeInterval (integer)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.37"></a><a href="#node_sec_4.37">4.37&nbsp;&nbsp;titleHtml (string or function)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.38"></a><a href="#node_sec_4.38">4.38&nbsp;&nbsp;vertical (boolean)</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_4.39"></a><a href="#node_sec_4.39">4.39&nbsp;&nbsp;weekNumbers (boolean)</a><br>
+</p>
+<p><b>
+&nbsp; &nbsp; <a name="node_toc_node_sec_5"></a><a href="#node_sec_5">5&nbsp;&nbsp;Calendar API</a></b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1"></a><a href="#node_sec_5.1">5.1&nbsp;&nbsp;Public methods</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.1"></a><a href="#node_sec_5.1.1">5.1.1&nbsp;&nbsp;Calendar.create</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.2"></a><a href="#node_sec_5.1.2">5.1.2&nbsp;&nbsp;Calendar.callHandler</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.3"></a><a href="#node_sec_5.1.3">5.1.3&nbsp;&nbsp;Calendar.callCloseHandler</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.4"></a><a href="#node_sec_5.1.4">5.1.4&nbsp;&nbsp;Calendar.hide</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.5"></a><a href="#node_sec_5.1.5">5.1.5&nbsp;&nbsp;Calendar.setDateFormat</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.6"></a><a href="#node_sec_5.1.6">5.1.6&nbsp;&nbsp;Calendar.setTtDateFormat</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.7"></a><a href="#node_sec_5.1.7">5.1.7&nbsp;&nbsp;Calendar.setDateStatusHandler</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.8"></a><a href="#node_sec_5.1.8">5.1.8&nbsp;&nbsp;Calendar.setDateStatusHandler</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.9"></a><a href="#node_sec_5.1.9">5.1.9&nbsp;&nbsp;Calendar.show</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.10"></a><a href="#node_sec_5.1.10">5.1.10&nbsp;&nbsp;Calendar.showAt</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.11"></a><a href="#node_sec_5.1.11">5.1.11&nbsp;&nbsp;Calendar.showAtElement</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.12"></a><a href="#node_sec_5.1.12">5.1.12&nbsp;&nbsp;Calendar.setDate</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.13"></a><a href="#node_sec_5.1.13">5.1.13&nbsp;&nbsp;Calendar.setFirstDayOfWeek</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.14"></a><a href="#node_sec_5.1.14">5.1.14&nbsp;&nbsp;Calendar.parseDate</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_5.1.15"></a><a href="#node_sec_5.1.15">5.1.15&nbsp;&nbsp;Calendar.setRange</a><br>
+</p>
+<p><b>
+&nbsp; &nbsp; <a name="node_toc_node_sec_6"></a><a href="#node_sec_6">6&nbsp;&nbsp;Sample Calendar Configurations</a></b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_6.1"></a><a href="#node_sec_6.1">6.1&nbsp;&nbsp;Basic Single Click Calendar</a><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a name="node_toc_node_sec_6.2"></a><a href="#node_sec_6.2">6.2&nbsp;&nbsp;Double Click With Time Calendar</a><br>
+</p>
+<p><b>
+&nbsp; &nbsp; <a name="node_toc_node_sec_7"></a><a href="#node_sec_7">7&nbsp;&nbsp;Side effects</a></b><br>
+</p>
+<p>
+</p>
+<p>
+</p>
+<a name="node_sec_1"></a>
+<h1><a href="#node_toc_node_sec_1">1&nbsp;&nbsp;Get the Zapatec DHTML Calendar files</a></h1>
+<p></p>
+<a name="node_sec_1.1"></a>
+<h2><a href="#node_toc_node_sec_1.1">1.1&nbsp;&nbsp;Download the Zip file</a></h2>
+<p>
+The DHTML Calendar files are bundled in a zip file. Click the download link in
+the Calendar section of Zapatec&#8217;s web site and follow the instructions to
+download the file.</p>
+<p>
+</p>
+<p class=noindent>Save the file (zpcal.zip) to your website&#8217;s root folder on your computer or
+server.</p>
+<p>
+</p>
+<a name="node_sec_1.2"></a>
+<h2><a href="#node_toc_node_sec_1.2">1.2&nbsp;&nbsp;Unzip zpcal.zip</a></h2>
+<p></p>
+<ol> 
+<li><p>On your computer, go to the folder where you saved the zpcal.zip file.
+</p>
+<li><p>zpcal.zip contains a folder called zpcal that holds all of the files you  need to create your calendar.
+</p>
+<li><p>Open or double-click zpcal.zip to unzip or unpack it.
+</p>
+</ol><p></p>
+<p>
+</p>
+<a name="node_sec_2"></a>
+<h1><a href="#node_toc_node_sec_2">2&nbsp;&nbsp;Create a Calendar with the Wizard</a></h1>
+<p>You can create a Zapatec calendar with or without using the wizard.</p>
+<p>
+</p>
+<a name="node_sec_2.1"></a>
+<h2><a href="#node_toc_node_sec_2.1">2.1&nbsp;&nbsp;What does the Wizard do?</a></h2>
+<p>The wizard generates the code for exactly the kind of calendar you want! It&#8217;s a
+Graphic User Interface (GUI) that allows you to select the language,
+theme, size, style, etc. for the calendar visually.  After you have made your selections, the wizard
+generates the code you need to place the calendar in your HTML document, form, or application with the click of a button. </p>
+<p>
+</p>
+<a name="node_sec_2.2"></a>
+<h2><a href="#node_toc_node_sec_2.2">2.2&nbsp;&nbsp;How to Start the Wizard</a></h2>
+<p>If you haven&#8217;t done so, follow the instructions in section <a href="#node_sec_1.1">1.1</a>. 
+to download the Calendar files.
+</p>
+<ol> 
+<li><p>Navigate to your DHTML Calendar folder (zpcal).
+</p>
+<li><p>Open the Wizard directory (folder).
+</p>
+<li><p>Open index.html in your Web browser.
+</p>
+</ol><p></p>
+<p>
+</p>
+<a name="node_sec_2.3"></a>
+<h2><a href="#node_toc_node_sec_2.3">2.3&nbsp;&nbsp;Using the Wizard</a></h2>
+<p>The wizard page displays the calendar you are creating as you make your
+selections. It updates as you choose the features you want so that you can
+see what the end result will be. </p>
+<p>
+Click the Next and Previous buttons to move through the panes, or choose a specific
+pane from the menu on the left side of the screen.</p>
+<p>
+</p>
+<p class=noindent>Click <b>Next</b> to move to the Theme and Language page and start creating your
+calendar.</p>
+<p>
+</p>
+<a name="node_sec_2.4"></a>
+<h2><a href="#node_toc_node_sec_2.4">2.4&nbsp;&nbsp;Theme and Language</a></h2>
+<p></p>
+<ol> 
+<li><p>Choose the language in which you want to present your calendar. 
+</p>
+<li><p>Select the theme you want for your calendar. 
+</p>
+<li><p>If you want a smaller calendar, check the box labeled
+&quot;Use the small version.&quot; Keep in mind that certain options, such as showOthers, may affect the calendar size.</p>
+<p>
+</p>
+</ol><p></p>
+<p>
+Watch the calendar on the screen as it changes with your selections. You can change your selections to view different themes and languages. </p>
+<p>
+</p>
+<a name="node_sec_2.5"></a>
+<h2><a href="#node_toc_node_sec_2.5">2.5&nbsp;&nbsp;Basic Setup</a></h2>
+<p></p>
+<a name="node_sec_2.5.1"></a>
+<h3><a href="#node_toc_node_sec_2.5.1">2.5.1&nbsp;&nbsp;First day of week</a></h3>
+<p>Select the first day of week from the drop-down menu. </p>
+<p>
+</p>
+<a name="node_sec_2.5.2"></a>
+<h3><a href="#node_toc_node_sec_2.5.2">2.5.2&nbsp;&nbsp;Show week numbers</a></h3>
+<p>Check this box if you want the calendar to display week numbers.
+The calendar can calculate and display week numbers using the ISO 8601
+standard. </p>
+<p>
+</p>
+<a name="node_sec_2.5.3"></a>
+<h3><a href="#node_toc_node_sec_2.5.3">2.5.3&nbsp;&nbsp;Show adjacent months</a></h3>
+<p>Check this box if you want the calendar to display days from
+adjacent months to the current month. Calendars that display days from adjacent months are fixed-size.
+They always display six weeks. Calendars that do not display days from adjacent months
+sometimes display five weeks and sometimes six.</p>
+<p>
+</p>
+<a name="node_sec_2.5.4"></a>
+<h3><a href="#node_toc_node_sec_2.5.4">2.5.4&nbsp;&nbsp;Show Time</a></h3>
+<p>Check this box to prompt users to enter a time as well as a date.</p>
+<p>
+</p>
+<a name="node_sec_2.5.5"></a>
+<h3><a href="#node_toc_node_sec_2.5.5">2.5.5&nbsp;&nbsp;Time Format</a></h3>
+<p>If you checked &quot;Show Time&quot;, you can choose a 12-hour or 24-hour clock.</p>
+<p>
+</p>
+<a name="node_sec_2.5.6"></a>
+<h3><a href="#node_toc_node_sec_2.5.6">2.5.6&nbsp;&nbsp;Year Step</a></h3>
+<p>The years can be displayed with a
+certain interval the next or previous years. The next or previous year is
+always the first one displayed, no matter how many steps you choose between
+years.  This is useful for drop-down year menus. </p>
+<p>
+</p>
+<a name="node_sec_2.6"></a>
+<h2><a href="#node_toc_node_sec_2.6">2.6&nbsp;&nbsp;Date and time formats</a></h2>
+<p>To further customize your calendar, choose a date and time formats. Some examples of date formats are:
+</p>
+<pre class=verbatim>January 1, 2007
+01-01-07
+1/1/2007
+01-Jan-07
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_2.7"></a>
+<h2><a href="#node_toc_node_sec_2.7">2.7&nbsp;&nbsp;Multiple Months</a></h2>
+<p>You can configure a calendar to display multiple months simultaneously.</p>
+<p>
+</p>
+<a name="node_sec_2.7.1"></a>
+<h3><a href="#node_toc_node_sec_2.7.1">2.7.1&nbsp;&nbsp;Number of Months</a></h3>
+<p>Enter a number between one and twelve for the number of months of display in the calendar.</p>
+<p>
+</p>
+<a name="node_sec_2.7.2"></a>
+<h3><a href="#node_toc_node_sec_2.7.2">2.7.2&nbsp;&nbsp;Control Month</a></h3>
+<p>In a calendar that displays multiple months, the control month is the month in which the default date (usually today&#8217;s date) is highlighted.</p>
+<p>
+</p>
+<a name="node_sec_2.7.3"></a>
+<h3><a href="#node_toc_node_sec_2.7.3">2.7.3&nbsp;&nbsp;Months in a Row</a></h3>
+<p>This controls the layout of a calendar displaying multiple months. This value is the number of months to display in a single row. For example, for a calendar displaying six months, choosing three Months in a Row generates a calendar with two rows, three months in each row. However, choosing two Months in a Row generates a calendar with three rows, two months in each row.</p>
+<p>
+</p>
+<a name="node_sec_2.7.4"></a>
+<h3><a href="#node_toc_node_sec_2.7.4">2.7.4&nbsp;&nbsp;Vertical Months</a></h3>
+<p>This box applies only to calendars with more than one row and more than one column. If the box is checked, the months are incremented vertically (February appears below January). If the box is clear, the months are incremented horizontally (February appears to the right of January). </p>
+<p>
+</p>
+<a name="node_sec_2.8"></a>
+<h2><a href="#node_toc_node_sec_2.8">2.8&nbsp;&nbsp;Test and Generate</a></h2>
+<p>You can test the calendar until you are happy with its appearance and behavior. Click the Next button to generate the HTML for the calendar. Then copy and paste this code into  your HTML document for a quick-and-easy calendar setup!</p>
+<p>
+</p>
+<a name="node_sec_3"></a>
+<h1><a href="#node_toc_node_sec_3">3&nbsp;&nbsp;Quick Startup (Without Wizard)</a></h1>
+<p>This section describes how to create a calendar using HTML and Javascript.</p>
+<p>
+If you have not done so follow the instructions in section <a href="#node_sec_1.1">1.1</a>. 
+to download and unzip the Calendar files.</p>
+<p>
+</p>
+<a name="node_sec_3.1"></a>
+<h2><a href="#node_toc_node_sec_3.1">3.1&nbsp;&nbsp;Project Files</a></h2>
+<p>Here is a description of the project files, excluding documentation and example files.</p>
+<p>
+</p>
+<a name="node_sec_3.1.1"></a>
+<h3><a href="#node_toc_node_sec_3.1.1">3.1.1&nbsp;&nbsp;The zpcal folder</a></h3>
+<p>This is the main directory containing all of the other directories and files.</p>
+<p>
+</p>
+<a name="node_sec_3.1.2"></a>
+<h3><a href="#node_toc_node_sec_3.1.2">3.1.2&nbsp;&nbsp;The src folder</a></h3>
+<p>The src folder contains the JavaScript that makes the program work.
+</p>
+<ul>
+<li><p>calendar.js - the main program file that defines all the logic for the calendar
+</p>
+<li><p>calendar-setup.js - helper functions for quick setup
+</p>
+</ul><p></p>
+<p>
+</p>
+<a name="node_sec_3.1.3"></a>
+<h3><a href="#node_toc_node_sec_3.1.3">3.1.3&nbsp;&nbsp;The demo folder</a></h3>
+<p>The demo folder contains examples of different types of calendars. It is a great resource for examples of usage and the underlying code.
+To run the demos, see the <a href='../demo/demo.jsp'>Zapatec Calendar Demos</a>.<br/></p>
+<p>
+</p>
+<a name="node_sec_3.1.4"></a>
+<h3><a href="#node_toc_node_sec_3.1.4">3.1.4&nbsp;&nbsp;The doc folder</a></h3>
+<p>The doc folder contains all of the help and support files to assist you with the Calendar. Help is provided in HTML and PDF formats with and without screenshots for ease of use and display.</p>
+<p>
+</p>
+<a name="node_sec_3.1.5"></a>
+<h3><a href="#node_toc_node_sec_3.1.5">3.1.5&nbsp;&nbsp;The lang folder</a></h3>
+<p>The language folder contains up to twenty different languages to provide the greatest possible versatility and ease of use for your end-users. Supported languages include English, French, Spanish, Italian,Afrikaans, German, Finnish, Croatian, Hungarian, Italian, Romanian, Slovenian, and Turkish.</p>
+<p>
+</p>
+<a name="node_sec_3.1.6"></a>
+<h3><a href="#node_toc_node_sec_3.1.6">3.1.6&nbsp;&nbsp;The themes folder</a></h3>
+<p>The themes folder contains the CSS files that control the aesthetics of your calendar.</p>
+<p>
+</p>
+<a name="node_sec_3.2"></a>
+<h2><a href="#node_toc_node_sec_3.2">3.2&nbsp;&nbsp;Set Up Your Calendar</a></h2>
+<p></p>
+<a name="node_sec_3.2.1"></a>
+<h3><a href="#node_toc_node_sec_3.2.1">3.2.1&nbsp;&nbsp;Insert the Headers</a></h3>
+<p>
+In your web editor (Dreamweaver, UltraEdit, etc.), open the web page in which you
+want to place the calendar.  Insert your cursor before the ending <tt>&lt;/head&gt;</tt> tag.
+Paste the following style path and script paths before the ending <tt>&lt;/head&gt;</tt> tag:</p>
+<p>
+</p>
+<pre class=verbatim>&lt;!-- Javascript Zapatec utilities file --&gt;  
+&lt;script type=&quot;text/javascript&quot; src=&quot;utils/zapatec.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Javascript files to support calendar --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;src/calendar.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Javascript files to set the language for the calendar --&gt; 
+&lt;script type=&quot;text/javascript&quot; src=&quot;lang/calendar-en.js&quot;/&gt;&lt;/script&gt;
+&lt;!-- CSS file for specifiying the theme --&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;themes/winxp.css&quot;/&gt; 
+</pre><p></p>
+<p>
+You can substitute a different language for the calendar by choosing a different language file from the lang folder.</p>
+<p>
+You can substitute a different theme for the calendar by choosing a different CSS file from the themes folder. Specifying a CSS file int he headers is mandatory to support the Calendar.</p>
+<p>
+</p>
+<a name="node_sec_3.2.2"></a>
+<h3><a href="#node_toc_node_sec_3.2.2">3.2.2&nbsp;&nbsp;Path Warning</a></h3>
+<p>If your web page containing the calendar is saved in the calendar folder, these 
+lines work without any changes. If, however, you save your web page in
+another location (such as directly under your website&#8217;s root folder), you need to add the folder information to the front of the file path so that your
+web page can read these files. </p>
+<p>
+</p>
+<a name="node_sec_3.2.3"></a>
+<h3><a href="#node_toc_node_sec_3.2.3">3.2.3&nbsp;&nbsp;Upgrade Warning</a></h3>
+<p>If you have been using a version of Zapatec calendar that is older than version 2.0 and are now migrating to the current version, you need to adjust the header files. </p>
+<p>
+The older utils.js is no longer supported; it has been replaced by zapatec.js. In addition, calendar-setup.js is no longer required. To upgrade, replace the old lines:</p>
+<p>
+</p>
+<pre class=verbatim>&lt;script type=&quot;text/javascript&quot; src=&quot;src/utils.js&quot;/&gt; 
+&lt;script type=&quot;text/javascript&quot; src=&quot;src/calendar.js&quot;/&gt; 
+&lt;script type=&quot;text/javascript&quot; src=&quot;lang/calendar-en.js&quot;/&gt; 
+&lt;script type=&quot;text/javascript&quot; src=&quot;src/calendar-setup.js&quot;/&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;themes/winxp.css&quot;/&gt;
+</pre><p></p>
+<p>
+with</p>
+<p>
+</p>
+<pre class=verbatim>&lt;script type=&quot;text/javascript&quot; src=&quot;utils/zapatec.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;src/calendar.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;lang/calendar-en.js&quot;/&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;themes/winxp.css&quot;/&gt; 
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_3.3"></a>
+<h2><a href="#node_toc_node_sec_3.3">3.3&nbsp;&nbsp;Create a Form with a Calendar</a></h2>
+<p>Most web developers use the Zapatec HTML Calendar with forms. You can create a small form with a text box and a button to build a simple calendar application. </p>
+<p>
+</p>
+<a name="node_sec_3.3.1"></a>
+<h3><a href="#node_toc_node_sec_3.3.1">3.3.1&nbsp;&nbsp;Insert the Form Code</a></h3>
+<p>Name the text box &quot;data&quot; and give the button an id of &quot;trigger&quot;. </p>
+<p>
+</p>
+<pre class=verbatim>&lt;form action=&quot;#&quot; method=&quot;get&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;date&quot; id=&quot;f_date_b&quot; /&gt;
+&lt;button type=&quot;reset&quot; id=&quot;trigger&quot;&gt;...&lt;/button&gt;
+&lt;/form&gt;
+</pre><p></p>
+<p>
+Paste this code into the body of your document.</p>
+<p>
+</p>
+<a name="node_sec_3.4"></a>
+<h2><a href="#node_toc_node_sec_3.4">3.4&nbsp;&nbsp;Insert the Calendar Code</a></h2>
+<p>
+Insert the following code to make a calendar pop up when your form is used. Paste it directly after <tt>&lt;/form&gt;</tt> and before <tt>&lt;/body&gt;</tt>. </p>
+<p>
+</p>
+<pre class=verbatim>&lt;script type=&quot;text/javascript&quot;&gt;
+Zapatec.Calendar.setup(
+inputField  : &quot;data&quot;, // This is the ID of your form's text field
+ifFormat    : &quot;%m %d, %Y&quot;, // Format in which you want the date returned
+button      : &quot;trigger&quot; // &quot;trigger&quot; is the ID of the form's button
+}
+&lt;/script&gt;
+&lt;noscript&gt;
+&lt;br/&gt;
+This page uses a 
+&lt;a href='http://www.zapatec.com/products/prod1'&gt; Javascript Calendar &lt;/a&gt;, 
+but your browser does not support Javascript. 
+&lt;br/&gt;
+Either enable Javascript in your Browser or upgrade to a newer version.
+&lt;/noscript&gt;
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_3.5"></a>
+<h2><a href="#node_toc_node_sec_3.5">3.5&nbsp;&nbsp;Copy Files to your Web Server</a></h2>
+<p>Using your editing or FTP program, copy your web page and the entire
+calendar folder to the root of your website.</p>
+<p>
+</p>
+<a name="node_sec_3.6"></a>
+<h2><a href="#node_toc_node_sec_3.6">3.6&nbsp;&nbsp;Test the Calendar Application</a></h2>
+<p>Using your web browser, navigate to the web page that you created to include
+the Zapatec HTML Calendar. Click the &quot;trigger&quot; button  to see if the calendar
+pops up. Click a date to select it and make sure that the date displays in the
+empty box.  Congratulations! You have set up the most basic version of the
+Zapatec HTML Calendar! Now, on to the fun and exciting features you can change
+with this highly adaptable application!</p>
+<p>
+</p>
+<a name="node_sec_3.7"></a>
+<h2><a href="#node_toc_node_sec_3.7">3.7&nbsp;&nbsp;Change Included Files</a></h2>
+<p>You can change the theme or language of the calendar by including a different file in the header.</p>
+<p>
+</p>
+<a name="node_sec_3.7.1"></a>
+<h3><a href="#node_toc_node_sec_3.7.1">3.7.1&nbsp;&nbsp;Change Theme</a></h3>
+<p>One of the lines you inserted in Section <a href="#node_sec_3.2.1">3.2.1</a> includes the
+winxp.css file in the themes folder. WinXP is one of the themes that comes with
+the Zapatec DHTML Calendar. You can choose among several themes by changing
+the file called by the path. Look in the themes folder for more options.</p>
+<p>
+For example, to use the WinXP theme, insert this line:
+</p>
+<pre class=verbatim>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;themes/winxp.css&quot;/&gt;
+</pre><p></p>
+<p>
+This produces a calendar with the WinXP theme, like the one in the <a href='../demo/example91.html'>Saving Dates in Cookies Demo</a>.<br/></p>
+<p>
+Or to use the Green theme, insert:
+</p>
+<pre class=verbatim>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;themes/green.css&quot;/&gt;
+</pre><p></p>
+<p>
+for a calendar with the Green theme like the one in the <a href='../demo/example5.html'>Flat Calendar, Different Look for Special Days Demo</a>.<br/></p>
+<p>
+</p>
+<a name="node_sec_3.7.2"></a>
+<h3><a href="#node_toc_node_sec_3.7.2">3.7.2&nbsp;&nbsp;Change Language</a></h3>
+<p>One of the lines you inserted in Section <a href="#node_sec_3.2.1">3.2.1</a> was 
+</p>
+<pre class=verbatim>&lt;script type=&quot;text/javascript&quot; src=&quot;lang/calendar-en.js&quot;/&gt;
+</pre><p></p>
+<p>
+This line controls the language in which your calendar is displayed. The file
+called here is calendar-en.js, the English file. You can choose among several languages by changing
+the file called by the path. For example, for French use</p>
+<p>
+</p>
+<pre class=verbatim>&lt;script type=&quot;text/javascript&quot; src=&quot;lang/calendar-fr.js&quot;&gt;&lt;/script&gt;
+</pre><p></p>
+<p>
+or for Italian:</p>
+<p>
+</p>
+<pre class=verbatim>&lt;script type=&quot;text/javascript&quot; src=&quot;lang/calendar-it.js&quot;&gt;&lt;/script&gt;
+</pre><p></p>
+<p>
+Look in the lang folder for more language files.</p>
+<p>
+</p>
+<a name="node_sec_3.8"></a>
+<h2><a href="#node_toc_node_sec_3.8">3.8&nbsp;&nbsp;Events</a></h2>
+<p>Events cause the calendar perform a specific action based on the user&#8217;s
+actions. For example, you can have the calendar display a tip of the
+day tool tip when the user first clicks it. In this case, the event would
+be the onClick event.</p>
+<p>
+The following example sets up a handler called &quot;cal_submit_days&quot; for the onClick event:
+</p>
+<pre class=verbatim>&lt;input type='button' value='Submit Days' onclick='cal_submit_days()' 
+	title='Submit Button'&gt;
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_4"></a>
+<h1><a href="#node_toc_node_sec_4">4&nbsp;&nbsp;Configuration Options</a></h1>
+<p>In Section <a href="#node_sec_3.4">3.4</a>, you saw how to create a calendar by inserting 
+the Calendar.setup javascript code. You can customize the calendar by setting
+various options in the setup code. </p>
+<p>
+This section describes the calendar configuration options.</p>
+<p>
+One of the following options is required: inputField, displayArea or button.</p>
+<p>
+</p>
+<a name="node_sec_4.1"></a>
+<h2><a href="#node_toc_node_sec_4.1">4.1&nbsp;&nbsp;align (string)</a></h2>
+<p>
+This is the alignment of the calendar relative to its containing element. The string consists of two characters. The first specifies the veritcal alignment and the second the horizontal alignment. </p>
+<p>
+For example,
+</p>
+<pre class=verbatim>align : &quot;BR&quot;;
+</pre><p></p>
+<p>
+positions the calendar completely below and to the right of its containing element.</p>
+<p>
+The default is &quot;Bl&quot;.</p>
+<p>
+below are the letters used to specify alignment.</p>
+<p>
+</p>
+<a name="node_sec_Temp_2"></a>
+<h4><a href="#node_toc_node_sec_Temp_2">Vertical alignment</a></h4>
+<p>The first character in the align string is one of the following:</p>
+<p>
+</p>
+<ul>
+<li><p><tt>T</tt> &#8212; completely above the reference element; bottom margin of
+the calendar aligned to the top margin of the element
+</p>
+<li><p><tt>t</tt> &#8212; above the element but may overlap it; bottom margin of the calendar aligned to the bottom margin of the element
+</p>
+<li><p><tt>c</tt> &#8212; the calendar displays vertically centered to the reference
+element; might overlap it, depending on the horizontal alignment
+</p>
+<li><p><tt>b</tt> &#8212; below the element but may overlap it; top margin of the calendar aligned to
+the top margin of the element
+</p>
+<li><p><tt>B</tt> &#8212; completely below the element; top margin of the calendar
+aligned to the bottom margin of the element
+</p>
+</ul><p></p>
+<p>
+</p>
+<a name="node_sec_Temp_3"></a>
+<h4><a href="#node_toc_node_sec_Temp_3">Horizontal alignment</a></h4>
+<p>The second character in the align string is one of the following:
+</p>
+<ul>
+<li><p><tt>L</tt> &#8212; completely to the left of the reference element; right
+margin of the calendar aligned to the left margin of the element
+</p>
+<li><p><tt>l</tt> &#8212; to the left of the element but may overlap it; left margin
+of the calendar aligned to the left margin of the element
+</p>
+<li><p><tt>c</tt> &#8212; horizontally centered to the element; might overlap it,
+depending on the vertical alignment.
+</p>
+<li><p><tt>r</tt> &#8212; to the right of the element but may overlap it; right
+margin of the calendar aligned to the right margin of the element
+</p>
+<li><p><tt>R</tt> &#8212; completely to the right of the element; left margin of the
+calendar aligned to the right margin of the element
+</p>
+</ul><p></p>
+<p>
+</p>
+<a name="node_sec_4.2"></a>
+<h2><a href="#node_toc_node_sec_4.2">4.2&nbsp;&nbsp;button (string)</a></h2>
+<p>This is the ID of the button, image, or other element that triggers a popup calendar.</p>
+<p>
+</p>
+<a name="node_sec_4.3"></a>
+<h2><a href="#node_toc_node_sec_4.3">4.3&nbsp;&nbsp;cache (boolean)</a></h2>
+<p>If this option is true, the calendar object is re-used whenever possible. The default is false.</p>
+<p>
+</p>
+<a name="node_sec_4.4"></a>
+<h2><a href="#node_toc_node_sec_4.4">4.4&nbsp;&nbsp;closeEventName (string)</a></h2>
+<p>This is the name of the event that closes a calendar. </p>
+<p>
+By default, a calendar will close if one of the following happens: </p>
+<p>
+</p>
+<ul>
+<li><p>The user clicks a date once, if the singleClick option is true 
+</p>
+<li><p>The user clicks a date a second time, if the singleClick option is false
+</p>
+<li><p>The user clicks the close button of the calendar (the x in the upper right corner)
+</p>
+<li><p>The user clicks outside the calendar area
+</p>
+</ul><p></p>
+<p>
+</p>
+<a name="node_sec_4.5"></a>
+<h2><a href="#node_toc_node_sec_4.5">4.5&nbsp;&nbsp;controlMonth (integer)</a></h2>
+<p>In a calendar that displays multiple months, the control month is the month against which all controls are applied. Thus the default date (usually today&#8217;s date) is highlighted in the control month and the current year is the year of the control month. </p>
+<p>
+The argument is a value between one and twelve specfiying the control month. The default is 1.</p>
+<p>
+This option is used with the numberMonths option.</p>
+<p>
+</p>
+<a name="node_sec_4.6"></a>
+<h2><a href="#node_toc_node_sec_4.6">4.6&nbsp;&nbsp;daFormat (string)</a></h2>
+<p>This is the date format of a date stored in a display area. See the displayArea option. </p>
+<p>
+The characters used to define the format are the same as those listed for the ifFormat option.</p>
+<p>
+The default is &quot;%Y/%m/%d&quot;.</p>
+<p>
+</p>
+<a name="node_sec_4.7"></a>
+<h2><a href="#node_toc_node_sec_4.7">4.7&nbsp;&nbsp;date (date)</a></h2>
+<p>This is the date that the calendar displays initially. The default is today&#8217;s date.</p>
+<p>
+</p>
+<a name="node_sec_4.8"></a>
+<h2><a href="#node_toc_node_sec_4.8">4.8&nbsp;&nbsp;dateStatusFunc (function)</a></h2>
+<p>This is an optional function that can be used to change the appearacnce of a specific date.</p>
+<p>
+The function takes as input a Javascript date object and returns a boolean or a string. The returned value is interpreted as follows:</p>
+<p>
+</p>
+<ul>
+<li><p>true - The date is disabled.
+</p>
+<li><p>false - No action is taken.
+</p>
+<li><p>string - The string is assumed to be a CSS class, which is appended to the date element.
+</p>
+<li><p>string containing the substring &quot;disabled&quot; - The date is disabled and presented in the style specified by the CSS class.
+</p>
+</ul><p>  </p>
+<p>
+</p>
+<a name="node_sec_4.9"></a>
+<h2><a href="#node_toc_node_sec_4.9">4.9&nbsp;&nbsp;disableDrag (boolean)</a></h2>
+<p>If set to true, the user cannot drag the calendar. The default is false.</p>
+<p>
+</p>
+<a name="node_sec_4.10"></a>
+<h2><a href="#node_toc_node_sec_4.10">4.10&nbsp;&nbsp;disableFunc (function)</a></h2>
+<p>This is an optional function used to disable a date. It takes as input a Javascript data object and returns true if the date should be disabled.</p>
+<p>
+</p>
+<a name="node_sec_4.11"></a>
+<h2><a href="#node_toc_node_sec_4.11">4.11&nbsp;&nbsp;displayArea (string)</a></h2>
+<p>This is the ID of the area, such as &lt;span&gt; or &lt;div&gt;, that contains the date.</p>
+<p>
+</p>
+<a name="node_sec_4.12"></a>
+<h2><a href="#node_toc_node_sec_4.12">4.12&nbsp;&nbsp;electric (boolean)</a></h2>
+<p>If this option is true, when the singleClick option is false, date displays are updated for each click. Otherwise they are updated only on close. This setting is not valid if singleClick is true. </p>
+<p>
+The default is true.</p>
+<p>
+</p>
+<a name="node_sec_4.13"></a>
+<h2><a href="#node_toc_node_sec_4.13">4.13&nbsp;&nbsp;eventName (string)</a></h2>
+<p>This is the name of the event that triggers a popup calendar. The default is &quot;click&quot;.</p>
+<p>
+</p>
+<a name="node_sec_4.14"></a>
+<h2><a href="#node_toc_node_sec_4.14">4.14&nbsp;&nbsp;fdowClick (boolean)</a></h2>
+<p>If this option is true, the user can select any day of the week, including the first.  If this option is false, the first day of the week is not selectable. </p>
+<p>
+</p>
+<a name="node_sec_4.15"></a>
+<h2><a href="#node_toc_node_sec_4.15">4.15&nbsp;&nbsp;firstDay (integer)</a></h2>
+<p>This option specifies the day that the calendar displays as the first day of the week. The argument is a number between zero and six. Zero indicates Sunday, 1 Monday, etc. The default is zero.</p>
+<p>
+</p>
+<a name="node_sec_4.16"></a>
+<h2><a href="#node_toc_node_sec_4.16">4.16&nbsp;&nbsp;flat (string)</a></h2>
+<p>A flat calendar is one that is visible when the page loads, in contrast to the default popup calendar, which appears in response to a click event. </p>
+<p>
+The string passed to this option is the ID of the flat calendar&#8217;s container.
+The default is null. </p>
+<p>
+</p>
+<pre class=verbatim>&lt;div id=&quot;calendar-container&quot;&gt;&lt;/div&gt;
+
+Zapatec.Calendar.setup( {
+flat         : &quot;calendar-container&quot; 
+});
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_4.17"></a>
+<h2><a href="#node_toc_node_sec_4.17">4.17&nbsp;&nbsp;flatCallback (function)</a></h2>
+<p>This is the optional callback function for a flat calendar. It is invoked when the date in the calendar is changed with a reference to the calendar object. </p>
+<p>
+The callback takes as input a Javascript date object and returns a URL.</p>
+<p>
+</p>
+<a name="node_sec_4.18"></a>
+<h2><a href="#node_toc_node_sec_4.18">4.18&nbsp;&nbsp;ifFormat (string)</a></h2>
+<p>
+This is the date format of a date stored in an input field. See the inputField option. Combine the characters in the string passed to ifFormat to describe the date format. </p>
+<p>
+For example,
+</p>
+<pre class=verbatim>ifFormat : &quot;%a, %b %e, %Y&quot;;
+</pre><p></p>
+<p>
+formats the date as Mon, Apr 24, 2006.</p>
+<p>
+The following table lists the characters used to define a date format.
+</p>
+<table border=0><tr><td valign=top ></td></tr>
+<tr><td valign=top ><tt>%a</tt> </td><td valign=top >abbreviated weekday name </td></tr>
+<tr><td valign=top ><tt>%A</tt> </td><td valign=top >full weekday name </td></tr>
+<tr><td valign=top ><tt>%b</tt> </td><td valign=top >abbreviated month name </td></tr>
+<tr><td valign=top ><tt>%B</tt> </td><td valign=top >full month name </td></tr>
+<tr><td valign=top ><tt>%C</tt> </td><td valign=top >century number </td></tr>
+<tr><td valign=top ><tt>%d</tt> </td><td valign=top >the day of the month ( 00 .. 31 ) </td></tr>
+<tr><td valign=top ><tt>%e</tt> </td><td valign=top >the day of the month ( 0 .. 31 ) </td></tr>
+<tr><td valign=top ><tt>%H</tt> </td><td valign=top >hour ( 00 .. 23 ) </td></tr>
+<tr><td valign=top ><tt>%I</tt> </td><td valign=top >hour ( 01 .. 12 ) </td></tr>
+<tr><td valign=top ><tt>%j</tt> </td><td valign=top >day of the year ( 000 .. 366 ) </td></tr>
+<tr><td valign=top ><tt>%k</tt> </td><td valign=top >hour ( 0 .. 23 ) </td></tr>
+<tr><td valign=top ><tt>%l</tt> </td><td valign=top >hour ( 1 .. 12 ) </td></tr>
+<tr><td valign=top ><tt>%m</tt> </td><td valign=top >month ( 01 .. 12 ) </td></tr>
+<tr><td valign=top ><tt>%M</tt> </td><td valign=top >minute ( 00 .. 59 ) </td></tr>
+<tr><td valign=top ><tt>%n</tt> </td><td valign=top >a newline character </td></tr>
+<tr><td valign=top ><tt>%p</tt> </td><td valign=top >&quot;PM&quot; or &quot;AM&quot; </td></tr>
+<tr><td valign=top ><tt>%P</tt> </td><td valign=top >&quot;pm&quot; or &quot;am&quot; </td></tr>
+<tr><td valign=top ><tt>%S</tt> </td><td valign=top >second ( 00 .. 59 ) </td></tr>
+<tr><td valign=top ><tt>%s</tt> </td><td valign=top >number of seconds since Epoch (since Jan 01 1970 00:00:00 UTC) </td></tr>
+<tr><td valign=top ><tt>%t</tt> </td><td valign=top >a tab character </td></tr>
+<tr><td valign=top ><tt>%U, %W, %V</tt> </td><td valign=top >the week number</td></tr>
+<tr><td valign=top ><tt>%u</tt> </td><td valign=top >the day of the week ( 1 .. 7, 1 = MON )</td></tr>
+<tr><td valign=top ><tt>%w</tt> </td><td valign=top >the day of the week ( 0 .. 6, 0 = SUN )</td></tr>
+<tr><td valign=top ><tt>%y</tt> </td><td valign=top >year without the century ( 00 .. 99 )</td></tr>
+<tr><td valign=top ><tt>%Y</tt> </td><td valign=top >year including the century ( ex. 1979 )</td></tr>
+<tr><td valign=top ><tt>%%</tt> </td><td valign=top >a literal <tt>%</tt> character
+</td></tr></table><p>
+The am/pm and AM/PM formats designated by %p and %P are provided automatically only when the the English language file (calendar-en.js) is used. For other languages they are ignored by default. However, if you want to include this functionality for another language, add the following line to the language file you are using:</p>
+<p>
+</p>
+<pre class=verbatim>Zapatec.Calendar._TT._AMPM = {am : &quot;am&quot;, pm : &quot;pm&quot;};
+</pre><p></p>
+<p>
+You can also customize the string that is displayed for am and pm by editing the string; for example:</p>
+<p>
+</p>
+<pre class=verbatim>Zapatec.Calendar._TT._AMPM = {am : &quot;morning&quot;, pm : &quot;afternoon&quot;};
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_4.19"></a>
+<h2><a href="#node_toc_node_sec_4.19">4.19&nbsp;&nbsp;inputField (string)</a></h2>
+<p>This is the ID of the input field that contains the selected date.</p>
+<p>
+</p>
+<a name="node_sec_4.20"></a>
+<h2><a href="#node_toc_node_sec_4.20">4.20&nbsp;&nbsp;monthsInRow (integer)</a></h2>
+<p>In a calendar that displays multiple months, monthsInRow controls the calnedar&#8217;s layout. This argument is the number of months to display in a single row. For example, for a calendar displaying six months, choosing three generates a calendar with two rows, three months in each row. However, choosing two generates a calendar with three rows, two months in each row.</p>
+<p>
+</p>
+<a name="node_sec_4.21"></a>
+<h2><a href="#node_toc_node_sec_4.21">4.21&nbsp;&nbsp;multiple (date[])</a></h2>
+<p>This option allows users to select multiple days in a calendar. It also permits multiple dates to be selected programatically. The array of dates stores the selected dates.</p>
+<p>
+When a calendar is created with the multiple option, the user must explicitly close it by clicking its close button.</p>
+<p>
+The array of dates can be sorted. See the sortOrder option.</p>
+<p>
+</p>
+<a name="node_sec_4.22"></a>
+<h2><a href="#node_toc_node_sec_4.22">4.22&nbsp;&nbsp;numberMonths (integer)</a></h2>
+<p>This option specifies a calendar that displays multiple months. The argument is a value between one and twelve specfiying the number of months to display.</p>
+<p>
+See also the vertical option.</p>
+<p>
+</p>
+<a name="node_sec_4.23"></a>
+<h2><a href="#node_toc_node_sec_4.23">4.23&nbsp;&nbsp;noHelp (boolean)</a></h2>
+<p>This option turns off the Help question mark (?) that normally appears in the top left corner of a calendar. If noHelp is true, the question mark is not displayed. The default is false.</p>
+<p>
+</p>
+<a name="node_sec_4.24"></a>
+<h2><a href="#node_toc_node_sec_4.24">4.24&nbsp;&nbsp;onClose (function)</a></h2>
+<p>This is an optional function to invoke when the calendar is closed.</p>
+<p>
+</p>
+<a name="node_sec_4.25"></a>
+<h2><a href="#node_toc_node_sec_4.25">4.25&nbsp;&nbsp;onSelect (function)</a></h2>
+<p>This is an optional function to invoke when a date is selected. If this option is defined, the function must handle the &quot;click-on-date&quot; event. </p>
+<p>
+Usually the default handler works for most applications.</p>
+<p>
+</p>
+<a name="node_sec_4.26"></a>
+<h2><a href="#node_toc_node_sec_4.26">4.26&nbsp;&nbsp;onUpdate (function)</a></h2>
+<p>This is an optional function to invoke when the date is updated in the input field. </p>
+<p>
+As input, the function takes a reference to the calendar after the target field has been updated with a new date.</p>
+<p>
+This feature is useful for chaining two calendars. For example, you can set up a default date in the second calendar based on the date selected in the first.</p>
+<p>
+</p>
+<a name="node_sec_4.27"></a>
+<h2><a href="#node_toc_node_sec_4.27">4.27&nbsp;&nbsp;position (array)</a></h2>
+<p>This option specifies the [x, y] coordinates of the calendar&#8217;s position relative to the top-left corner of the page. If not used, the calendar is positioned based on the align option.</p>
+<p>
+This is the date that the calendar initially displays. The default is today&#8217;s date.</p>
+<p>
+</p>
+<a name="node_sec_4.28"></a>
+<h2><a href="#node_toc_node_sec_4.28">4.28&nbsp;&nbsp;range (integer[])</a></h2>
+<p>This option specifies the range of years covered by the calendar. </p>
+<p>
+The argument is an array of two integers. The first [0] is the first year allowed in the calendar, and the second [1] is the last year allowed. The default is [1900, 2999].</p>
+<p>
+</p>
+<a name="node_sec_4.29"></a>
+<h2><a href="#node_toc_node_sec_4.29">4.29&nbsp;&nbsp;saveDate(integer)</a></h2>
+<p>This option saves the current date in a cookie. The argument is the number of days that the date will be saved.</p>
+<p>
+When users return to the web site, this option allows the calendar to populate the date field with the saved date. </p>
+<p>
+</p>
+<a name="node_sec_4.30"></a>
+<h2><a href="#node_toc_node_sec_4.30">4.30&nbsp;&nbsp;showOthers (boolean)</a></h2>
+<p>If this option is true, the calendar displays days from months adjacent to the current month. Calendars that display days from other months always display six weeks. Calendars that do not display days from other months sometimes display five weeks and at other times six.</p>
+<p>
+</p>
+<a name="node_sec_4.31"></a>
+<h2><a href="#node_toc_node_sec_4.31">4.31&nbsp;&nbsp;showsTime (boolean or string)</a></h2>
+<p>
+Valid parameters are true, false, or &quot;seconds&quot;.</p>
+<p>
+If this option is true, the calendar displays the date and time to the nearest minute. </p>
+<p>
+If it is &quot;seconds&quot;, the calendar displays the date and time to the nearest second. </p>
+<p>
+If it is false, the calendar displays only the date. </p>
+<p>
+</p>
+<a name="node_sec_4.32"></a>
+<h2><a href="#node_toc_node_sec_4.32">4.32&nbsp;&nbsp;singleClick (boolean)</a></h2>
+<p>If this option is true, a single click submits an action in a calendar. </p>
+<p>
+If it is false, two clicks are required to submit. In this case, rather than submitting the data as soon as the user clicks a date, data is not submitted until the user clicks the same date a second time.</p>
+<p>
+The default is true.</p>
+<p>
+</p>
+<a name="node_sec_4.33"></a>
+<h2><a href="#node_toc_node_sec_4.33">4.33&nbsp;&nbsp;sortOrder (string)</a></h2>
+<p>This option determines the order in which multiple selected dates are stored. It is valid only for a flat calendar in which the multiple option is true. See the multiple option. </p>
+<p>
+Valid values are &quot;asc&quot; for ascending order,  &quot;desc&quot; for decending order, and &quot;none&quot; for no sorting..</p>
+<p>
+</p>
+<a name="node_sec_4.34"></a>
+<h2><a href="#node_toc_node_sec_4.34">4.34&nbsp;&nbsp;step (integer)</a></h2>
+<p>This is the interval between years that are displayed in the year drop-down menus. For example, a setting of 5 offers 1900, 1905, 1910, etc. The default is 2.</p>
+<p>
+</p>
+<a name="node_sec_4.35"></a>
+<h2><a href="#node_toc_node_sec_4.35">4.35&nbsp;&nbsp;timeFormat (string)</a></h2>
+<p>
+This is the time format. Valid values are &quot;12&quot; and &quot;24&quot;. The default is &quot;24&quot;.</p>
+<p>
+</p>
+<a name="node_sec_4.36"></a>
+<h2><a href="#node_toc_node_sec_4.36">4.36&nbsp;&nbsp;timeInterval (integer)</a></h2>
+<p>This option sets the interval, in minutes, by which the user can change the time. Allowed values are: 1, 2, 3, 4, 5, 6, 10, 15, 30, 60, 120, 180, 240, 300, 360.</p>
+<p>
+</p>
+<a name="node_sec_4.37"></a>
+<h2><a href="#node_toc_node_sec_4.37">4.37&nbsp;&nbsp;titleHtml (string or function)</a></h2>
+<p>This option displays a title in a single-month or multi-month calendar. The title can be a simple string or a function to allow the title to be set dynamically. </p>
+<p>
+The following example sets the title based on the current control month in a multi-month calendar.</p>
+<p>
+</p>
+<pre class=verbatim>titleHtml     : function(strTitle, month, year) {
+	return &quot;Control Month is &quot; +  Zapatec.Calendar.i18n(month, &quot;mn&quot;)
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_4.38"></a>
+<h2><a href="#node_toc_node_sec_4.38">4.38&nbsp;&nbsp;vertical (boolean)</a></h2>
+<p>If this option is true and multiple months are displayed, the calendar displays the next consecutive month in the next row, instead of in the next column
+Use with the numberMonths option.</p>
+<p>
+The default is false.</p>
+<p>
+</p>
+<a name="node_sec_4.39"></a>
+<h2><a href="#node_toc_node_sec_4.39">4.39&nbsp;&nbsp;weekNumbers (boolean)</a></h2>
+<p>If this option is true, the calendar displays the week numbers.
+The default is true.</p>
+<p>
+</p>
+<a name="node_sec_5"></a>
+<h1><a href="#node_toc_node_sec_5">5&nbsp;&nbsp;Calendar API</a></h1>
+<p></p>
+<a name="node_sec_5.1"></a>
+<h2><a href="#node_toc_node_sec_5.1">5.1&nbsp;&nbsp;Public methods</a></h2>
+<p></p>
+<a name="node_sec_5.1.1"></a>
+<h3><a href="#node_toc_node_sec_5.1.1">5.1.1&nbsp;&nbsp;Calendar.create</a></h3>
+<p></p>
+<p>
+This function creates the HTML elements that are needed to display the
+calendar.  Call it after setting the calendar properties.  
+</p>
+<pre class=verbatim>calendar.create(); // creates a popup calendar
+or
+calendar.create(document.getElementById(parent_id)); // creates a flat calendar
+</pre><p></p>
+<p>
+The function creates a popup or a flat calendar.  If the parent argument
+is present (it should be a reference, not an ID, to an HTML element),
+a flat calendar is created and it is inserted in the specified element.</p>
+<p>
+Given a reference to a calendar object, you can use the boolean
+member variable isPopup to see if it is  a popup or a flat calendar:</p>
+<p>
+</p>
+<pre class=verbatim>if (calendar.isPopup) {
+   // this is a popup calendar
+} else {
+   // this is a flat calendar
+}
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_5.1.2"></a>
+<h3><a href="#node_toc_node_sec_5.1.2">5.1.2&nbsp;&nbsp;Calendar.callHandler</a></h3>
+<p></p>
+<p>
+This function calls the  user-defined onSelect callback with the required parameters.</p>
+<p>
+</p>
+<a name="node_sec_5.1.3"></a>
+<h3><a href="#node_toc_node_sec_5.1.3">5.1.3&nbsp;&nbsp;Calendar.callCloseHandler</a></h3>
+<p></p>
+<p>
+This function calls the user-defined onClose callback.  It is useful for creating a &quot;single-click&quot; calendar that closes
+if a date is clicked.</p>
+<p>
+</p>
+<a name="node_sec_5.1.4"></a>
+<h3><a href="#node_toc_node_sec_5.1.4">5.1.4&nbsp;&nbsp;Calendar.hide</a></h3>
+<p></p>
+<p>
+Call this function to hide the calendar.  It does not destroy the calendar object and HTML elements.
+You can later call one of the show
+functions on the same element.</p>
+<p>
+</p>
+<a name="node_sec_5.1.5"></a>
+<h3><a href="#node_toc_node_sec_5.1.5">5.1.5&nbsp;&nbsp;Calendar.setDateFormat</a></h3>
+<p></p>
+<p>
+This function configures the format in which the calendar reports the date to
+the &quot;onSelect&quot; handler.  </p>
+<p>
+</p>
+<pre class=verbatim>calendar.setDateFormat(&quot;%y/%m/%d&quot;);
+</pre><p></p>
+<p>
+See the table in Section <a href="#node_sec_4.18">4.18</a> for details about specifying a date format.</p>
+<p>
+</p>
+<a name="node_sec_5.1.6"></a>
+<h3><a href="#node_toc_node_sec_5.1.6">5.1.6&nbsp;&nbsp;Calendar.setTtDateFormat</a></h3>
+<p>
+This function sets the
+format of the date displayed in the status bar when the mouse is hovering over a date.
+The format specification is similar to that of  <tt>Calendar.setDateFormat</tt>.</p>
+<p>
+</p>
+<a name="node_sec_5.1.7"></a>
+<h3><a href="#node_toc_node_sec_5.1.7">5.1.7&nbsp;&nbsp;Calendar.setDateStatusHandler</a></h3>
+<p></p>
+<p>
+This function sets the callback for disabling and customizing specific dates and times. The callback returns a boolean or a string.  If
+the return value is true, the date is disabled and the user cannot click
+it. If it is false, the date is enabled.</p>
+<p>
+If the returned value is a string, the date gets an additional
+CSS class, which is the returned value.  You can use this feature to highlight some dates. You are responsible for defining the CSS class that you
+return.  If you return  a string that contains &quot;disabled&quot;, the date will be
+disabled, just as if you returned true. This feature provides a 
+way to display disabled dates in a customized way.</p>
+<p>
+For example, you could define .special in some of your styles or in the document header in
+a STYLE tag. Place this definition after the the calendar styles are
+loaded:</p>
+<p>
+</p>
+<pre class=verbatim>.special { background-color: #000; color: #fff; }
+</pre><p></p>
+<p>
+Then you would insert the following code before calling Calendar.create(). It adds the &quot;special&quot; class name to dates that are defined
+in the SPECIAL_DAYS table.  Other dates will simply be displayed as default,
+enabled.</p>
+<p>
+</p>
+<pre class=verbatim>// this table holds your &quot;special&quot; days, so that we can automatize
+// things a bit:
+var SPECIAL_DAYS = {
+    0 : [ 13, 24 ],             // &quot;special days&quot; in January
+    2 : [ 1, 6, 8, 12, 18 ],    // &quot;special days&quot; in March
+    8 : [ 21, 11 ],             // &quot;special days&quot; in September
+   11 : [ 25, 28 ]              // &quot;special days&quot; in December
+};
+
+// this function returns true if the passed date is special
+function dateIsSpecial(year, month, day) {
+    var m = SPECIAL_DAYS[month];
+    if (!m) return false;
+    for (var i in m) if (m[i] == day) return true;
+    return false;
+}
+
+// this is the actual date status handler.  Note that it receives the
+// date object as well as separate values of year, month and date, for
+// your confort.
+function dateStatusHandler(date, y, m, d) {
+    if (dateIsSpecial(y, m, d)) return &quot;special&quot;;
+    else return false;
+    // return true above if you want to disable other dates
+}
+
+// configure it to the calendar
+calendar.setDateStatusHandler(dateStatusHandler);
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_5.1.8"></a>
+<h3><a href="#node_toc_node_sec_5.1.8">5.1.8&nbsp;&nbsp;Calendar.setDateStatusHandler</a></h3>
+<p>
+You can disable specific times as well as dates using the setDateStatusHandler.</p>
+<p>
+In the following example, the calendar calls the timeOutOfRange callback  on two events: when the date
+changes and when the time changes. To see which event it is, check if the hours
+variable is defined. Here the user is limited to 11AM - 5PM on
+Saturdays and 8AM to 9:45 PM on Fridays. </p>
+<p>
+</p>
+<pre class=verbatim>function timeOutOfRange(date, year, month, day, hours, minutes) {
+	if (date.getDay() == 0) { //No Sunday
+		return true;
+	}
+	if (typeof(hours) != &quot;undefined&quot;) {
+		if (date.getDay() == 6) {
+			//only allow 11AM to 5PM on Saturday
+			if (hours &lt; 17 &amp;&amp; hours &gt;= 11) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		//on saturdays allow
+		if (date.getDay() == 5) {
+			//only allow 8AM to 9:45PM on Friday
+			if (hours &gt; 21 || hours &lt; 8) {
+				return true; //not within the hours
+			}
+
+			if (hours != 21) {
+				return false; //within the hours
+			}
+
+			//hours = 21
+			if (minutes &lt;= 45) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+	}
+	return false;
+}
+
+Zapatec.Calendar.setup({
+inputField     :    &quot;sel9&quot;,     // id of the input field
+singleClick    :     false,     // require two clicks to submit
+ifFormat       :    '%a, %b %e, %Y [%H:%M]',     // format of the input field
+ampm           :     false,
+showsTime      :     true,     // show time as well as date
+button         :    &quot;button9&quot;,  // trigger button
+dateStatusFunc :    timeOutOfRange,
+floating       :    true
+});
+
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_5.1.9"></a>
+<h3><a href="#node_toc_node_sec_5.1.9">5.1.9&nbsp;&nbsp;Calendar.show</a></h3>
+<p></p>
+<p>
+Call this function to show the calendar.  It sets the CSS display
+property to &quot;block&quot;.  It does not modify the calendar position.</p>
+<p>
+This function is valid only for popup calendars.</p>
+<p>
+</p>
+<a name="node_sec_5.1.10"></a>
+<h3><a href="#node_toc_node_sec_5.1.10">5.1.10&nbsp;&nbsp;Calendar.showAt</a></h3>
+<p></p>
+<p>
+Call this function to show the calendar at the position specified by the passed [x, y] coordinates.</p>
+<p>
+</p>
+<pre class=verbatim>calendar.showAt(x, y);
+</pre><p></p>
+<p>
+</p>
+<p class=noindent>The parameters are the absolute coordinates relative to the top left
+corner of the page. They are page coordinates, not screen
+coordinates.</p>
+<p>
+After setting the given coordinates the function calls Calendar.show.  </p>
+<p>
+This function is valid only for popup calendars.</p>
+<p>
+</p>
+<a name="node_sec_5.1.11"></a>
+<h3><a href="#node_toc_node_sec_5.1.11">5.1.11&nbsp;&nbsp;Calendar.showAtElement</a></h3>
+<p></p>
+<p>
+This function is used to display the calendar near a specific element.</p>
+<p>
+</p>
+<pre class=verbatim>calendar.showAtElement(element, align);
+</pre><p></p>
+<p>
+</p>
+<p class=noindent>where element is a reference to your element, such as the input
+field that displays the date.  Align is an optional parameter, of type string,
+containing one or two characters. </p>
+<p>
+Align can contain one or two characters.  The first character dictates the
+vertical alignment relative to the element, and the second character dictates
+the horizontal alignment. See the description of the align option at <a href="#node_sec_4.1">4.1</a> for details about the valid values and defaults for this parameter.</p>
+<p>
+</p>
+<a name="node_sec_5.1.12"></a>
+<h3><a href="#node_toc_node_sec_5.1.12">5.1.12&nbsp;&nbsp;Calendar.setDate</a></h3>
+<p></p>
+<p>
+Sets the Calendar to the date passed in the parameter. This parameter needs to
+be a JavaScript Date object.  If the calendar is visible the new date
+is displayed immediately.</p>
+<p>
+</p>
+<pre class=verbatim>calendar.setDate(new Date()); // go today
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_5.1.13"></a>
+<h3><a href="#node_toc_node_sec_5.1.13">5.1.13&nbsp;&nbsp;Calendar.setFirstDayOfWeek</a></h3>
+<p></p>
+<p>
+This function changes the first day of week.  The parameter is a numeric value ranging
+from 0 to 6.  Pass 0 for Sunday, 1 for Monday, ..., 6 for Saturday.</p>
+<p>
+</p>
+<pre class=verbatim>calendar.setFirstDayOfWeek(5); // start weeks on Friday
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_5.1.14"></a>
+<h3><a href="#node_toc_node_sec_5.1.14">5.1.14&nbsp;&nbsp;Calendar.parseDate</a></h3>
+<p></p>
+<p>
+Use this function to parse a date given as string and to move the calendar to
+that date.</p>
+<p>
+The algorithm first tries to parse the date according to the format 
+previously set with Calendar.setDateFormat. If that fails, it uses other methods
+to get a valid date.</p>
+<p>
+</p>
+<pre class=verbatim>calendar.parseDate(&quot;2003/07/06&quot;);
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_5.1.15"></a>
+<h3><a href="#node_toc_node_sec_5.1.15">5.1.15&nbsp;&nbsp;Calendar.setRange</a></h3>
+<p></p>
+<p>
+This function sets the range of years allowed in the calendar.  </p>
+<p>
+</p>
+<pre class=verbatim>calendar.setRange(1970, 2050);
+</pre><p></p>
+<p>
+</p>
+<a name="node_sec_6"></a>
+<h1><a href="#node_toc_node_sec_6">6&nbsp;&nbsp;Sample Calendar Configurations</a></h1>
+<p>Here are two  of the many different ways in which you can present a calendar. </p>
+<p>
+</p>
+<a name="node_sec_6.1"></a>
+<h2><a href="#node_toc_node_sec_6.1">6.1&nbsp;&nbsp;Basic Single Click Calendar</a></h2>
+<p>Format: 2004-11-02 [45] </p>
+<p>
+</p>
+<pre class=verbatim>Zapatec.Calendar.setup({
+inputField     :    &quot;sel1&quot;,     // id of the input field
+ifFormat       :    &quot;%Y-%m-%d [%W] %H:%M&quot;,     // format of the input field
+button         :    &quot;button1&quot;,  // What will trigger popup of the calendar
+showsTime      :     false      //don't show time, only date
+});
+</pre><p></p>
+<p>
+Form elements include a label, text box, and button. </p>
+<p>
+In the <a href='../demo/example1.html'>Basic Calendar, Single Click Demo</a>, you can display the calendar by clicking the &quot;...&quot; button. You can select the year, month, and date with mouse button or keyboard commands. Click the date you want to display with your mouse button or press the &lt;Enter&gt; key to select it.</p>
+<p>
+</p>
+<a name="node_sec_6.2"></a>
+<h2><a href="#node_toc_node_sec_6.2">6.2&nbsp;&nbsp;Double Click With Time Calendar</a></h2>
+<p>Format: Tue, Nov 2, 2004 [03:12 PM])
+</p>
+<pre class=verbatim>Zapatec.Calendar.setup({
+inputField     :    &quot;sel2&quot;,     // id of the input field
+singleClick    :     false,     // require two clicks to submit
+ifFormat       :    '%a, %b %e, %Y [%I:%M %p]', // format of input field
+showsTime      :     true,     // show time as well as date
+button         :    &quot;button2&quot;  // trigger button 
+});
+</pre><p></p>
+<p>
+Form elements a text box and button set.</p>
+<p>
+See the <a href='../demo/example2.html'>Double Click, with Time Demo</a>. <br/></p>
+<p>
+</p>
+<a name="node_sec_7"></a>
+<h1><a href="#node_toc_node_sec_7">7&nbsp;&nbsp;Side effects</a></h1>
+<p>Here are some side effects that you may experience when the DHTML calendar code in embedded in an object:</p>
+<p>
+</p>
+<ol><p>
+</p>
+<li><p>The global variable window.calendar is initially set to null.
+This variable is used by the calendar code, especially when doing drag &amp; drop
+for moving the calendar.  </p>
+<p>
+</p>
+<li><p>The JavaScript Date object is modified.  We add some properties
+and functions that are useful to our calendar.  It made more sense to add them
+directly to the Date object than to the calendar itself. </p>
+<p>
+</p>
+<ol><p>
+</p>
+<li><p><tt>Date._MD    = new Array(31,28,31,30,31,30,31,31,30,31,30,31);</tt>
+</p>
+<li><p><tt>Date.SECOND = 1000 /* milliseconds */;</tt>
+</p>
+<li><p><tt>Date.MINUTE = 60 * Date.SECOND;</tt>
+</p>
+<li><p><tt>Date.HOUR   = 60 * Date.MINUTE;</tt>
+</p>
+<li><p><tt>Date.DAY    = 24 * Date.HOUR;</tt>
+</p>
+<li><p><tt>Date.WEEK   =  7 * Date.DAY;</tt></p>
+<p>
+</p>
+<li><p><tt>Date.prototype.getMonthDays</tt>(month) &#8212; returns the number of days
+of the given month, or of the current date object if no month was given.</p>
+<p>
+</p>
+<li><p><tt>Date.prototype.getWeekNumber</tt>() &#8212; returns the week number of the
+date in the current object.</p>
+<p>
+</p>
+<li><p><tt>Date.prototype.equalsTo</tt>(other_date) &#8212; compare the current date
+object with <tt>other_date</tt> and returns <tt>true</tt> if the dates are
+equal.  <em>It ignores time</em>.</p>
+<p>
+</p>
+<li><p><tt>Date.prototype.print</tt>(format) &#8212; returns a string with the
+current date object represented in the given format.  It implements the format
+specified in section <a href="#node_sec_5.1.5">5.1.5</a>.</p>
+<p>
+</p>
+</ol><p></p>
+<p>
+</p>
+</ol><p></p>
+<p>
+
+</p>
+<p></p>
+<div align=right class=colophon>Last modified: Friday, August 4th, 2006 1:01:17pm<br></div>
+</div>
+</body>
+</html>

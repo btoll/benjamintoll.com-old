@@ -1,0 +1,14 @@
+ErrorDocument 400 /lib/error-pages/400.php
+ErrorDocument 401 /lib/error-pages/401.php
+ErrorDocument 403 /lib/error-pages/403.php
+ErrorDocument 404 /lib/error-pages/404.php
+ErrorDocument 500 /lib/error-pages/500.php
+
+
+RewriteEngine On
+RewriteRule ^wotd/([^/\.]+)/?$ wotd.php [L]
+RewriteRule ^links/([^/\.]+)/?$ links.php [L]
+RewriteRule ^pronunciation/([^/\.]+)/?$ pronunciation.php [L]
+RewriteRule ^grammar/numbers/([^/\.]+)/?$ grammar/numbers.php [L]
+RewriteRule ^grammar/pronouns/([^/\.]+)/?$ grammar/pronouns.php [L]
+RewriteRule ^grammar/verbs/([^/\.]+)/?$ grammar/verbs.php [L]

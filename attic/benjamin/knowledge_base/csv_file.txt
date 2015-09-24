@@ -1,0 +1,16 @@
+  if ($_POST['type'] == 'csv') {
+    $DB = new DB();
+    $DB->connect();
+
+    $result = mysql_query($_SESSION['query']);
+    $all_records = '';
+    while ($display = mysql_fetch_row($result))
+      $all_records .= implode(",", $display) . "\n";
+
+    // give the user the option to save the files;
+    header("Content-type: text/csv");
+    header("Content-Length: ".strlen($all_records));
+    header("Content-Disposition: inline; filename=iv_".time().".csv");
+    echo $all_records;
+    exit();
+  }

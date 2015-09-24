@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+	<meta name="description" content=" Instead of displaying the date in a text box, this demo saves dates in drop-down menus. Click the '...' button to display the calendar. As you select dates in the calendar, the drop-down menus are updated. ">
+	<meta name="keywords" content="dhtml tools,javascript,DHTML Tools,Javascript,ajax,AJAX,Ajax,ajax tools,AJAX Tools,tools controls,simple javascript tools">
+	<title>Zapatec DHTML Calendar Widget - Update Drop-down Menus from a Calendar</title>
+
+	<!-- Common JS files -->
+	<script type='text/javascript' src='../utils/zapatec.js'></script>
+
+	<!-- Custom includes -->	
+		<!-- import the calendar script -->
+		<script type="text/javascript" src="../src/calendar.js"></script>
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+
+		<!-- other languages might be available in the lang directory; please check
+		your distribution archive. -->
+
+
+	<!-- ALL demos need these css -->
+	<link href="../website/css/zpcal.css" rel="stylesheet" type="text/css">
+	<link href="../website/css/template.css" rel="stylesheet" type="text/css">
+
+	<!-- Theme css -->
+	<link href="../themes/winter.css" rel="stylesheet" type="text/css">
+
+	<link rel="SHORTCUT ICON" href="http://www.zapatec.com/website/main/favicon.ico">
+	
+
+<script type="text/javascript">
+	function updateSelect(cal) {
+		var date = cal.date;
+		var selectMonth = document.getElementById("selectMonth");
+		selectMonth.selectedIndex = date.getMonth();
+		var selectDay = document.getElementById("selectDay");
+		selectDay.selectedIndex = (date.getDate() - 1);
+		var selectYear = document.getElementById("selectYear");
+		selectYear.selectedIndex = (date.getFullYear() - 2000);
+	}
+</script>
+
+
+</head>
+<body>
+	<div class="zpStandard">
+
+	<div class="topMenuHeader">
+		<div class="logo">
+			<a href='http://www.zapatec.com'><img src='../website/images/logoNew.gif' alt='Zapatec logo' border='0'></a>
+		</div>
+		<div class="btn1">
+			<a href="https://www.zapatec.com/zadmin/buy.jsp">
+				<img src="../website/images/buttonBuy.png" alt='Buy Zapatec DHTML Calendar Widget' border ="0">
+			</a>
+		</div>
+
+		<div class="btn1">
+			<a href="http://www.zapatec.com/website/main/pricing.jsp">
+				<img src="../website/images/buttonPricing.png" alt='Pricing for Zapatec DHTML Calendar Widget' border="0">
+			</a>
+		</div>
+	</div>
+
+	<div class="pageMain">
+	<a href="example81.html" style="float:right; margin-right:2em; margin-top:.5em;" accesskey="N" title="Next Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/next.png" alt="Next Zapatec DHTML Calendar Widget Example"></a>
+	<a href="example8.html" style="float:left; margin-left:2em; margin-top:.5em;" accesskey="P" title="Previous Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/previous.png" alt="Previous Zapatec DHTML Calendar Widget Example"></a>
+	<div class='zpCalSubHeader' style='text-align:center;'>Update Drop-down Menus from a Calendar</div>
+
+
+		<div class='zpCalDemoText'>
+		<ul>
+		<li>This demo uses the <b>winter theme</b>.</li>
+		
+		<li>Instead of displaying the date in a text box, this demo saves dates in drop-down menus.</li>
+		<li> Click the '...' button to display the calendar. </li>
+		<li> As you select dates in the calendar, the drop-down menus are updated.</li>
+
+		</ul>
+		</div>
+
+
+
+<form action="">
+	<SELECT name='month' id='selectMonth'>
+		<OPTION VALUE="0" SELECTED >January</OPTION>
+		<OPTION VALUE="1">February</OPTION>
+		<OPTION VALUE="2">March</OPTION>
+		<OPTION VALUE="3">April</OPTION>
+		<OPTION VALUE="4">May</OPTION>
+		<OPTION VALUE="5">June</OPTION>
+		<OPTION VALUE="6">July</OPTION>
+		<OPTION VALUE="7">August</OPTION>
+		<OPTION VALUE="8">September</OPTION>
+		<OPTION VALUE="9">October</OPTION>
+		<OPTION VALUE="10">November</OPTION>
+		<OPTION VALUE="11">December</OPTION>
+	</SELECT>
+
+	<SELECT name='day' id='selectDay'>
+		<OPTION VALUE="1" SELECTED >1</OPTION>
+		<OPTION VALUE="2">2</OPTION>
+		<OPTION VALUE="3">3</OPTION>
+		<OPTION VALUE="4">4</OPTION>
+		<OPTION VALUE="5">5</OPTION>
+		<OPTION VALUE="6">6</OPTION>
+		<OPTION VALUE="7">7</OPTION>
+		<OPTION VALUE="8">8</OPTION>
+		<OPTION VALUE="9">9</OPTION>
+		<OPTION VALUE="10">10</OPTION>
+		<OPTION VALUE="11" >11</OPTION>
+		<OPTION VALUE="12">12</OPTION>
+		<OPTION VALUE="13">13</OPTION>
+		<OPTION VALUE="14">14</OPTION>
+		<OPTION VALUE="15">15</OPTION>
+		<OPTION VALUE="16">16</OPTION>
+		<OPTION VALUE="17">17</OPTION>
+		<OPTION VALUE="18">18</OPTION>
+		<OPTION VALUE="19">19</OPTION>
+		<OPTION VALUE="20">20</OPTION>
+		<OPTION VALUE="21">21</OPTION>
+		<OPTION VALUE="22">22</OPTION>
+		<OPTION VALUE="23">23</OPTION>
+		<OPTION VALUE="24">24</OPTION>
+		<OPTION VALUE="25">25</OPTION>
+		<OPTION VALUE="26">26</OPTION>
+		<OPTION VALUE="27">27</OPTION>
+		<OPTION VALUE="28">28</OPTION>
+		<OPTION VALUE="29">29</OPTION>
+		<OPTION VALUE="30">30</OPTION>
+		<OPTION VALUE="31">31</OPTION>
+	</SELECT>
+
+	<SELECT name='year' id='selectYear'>
+		<OPTION VALUE="2000" SELECTED >2000</OPTION>
+		<OPTION VALUE="2001">2001</OPTION>
+		<OPTION VALUE="2002">2002</OPTION>
+		<OPTION VALUE="2003">2003</OPTION>
+		<OPTION VALUE="2004">2004</OPTION>
+		<OPTION VALUE="2005">2005</OPTION>
+		<OPTION VALUE="2006">2006</OPTION>
+		<OPTION VALUE="2007">2007</OPTION>
+		<OPTION VALUE="2008">2008</OPTION>
+	</SELECT>
+
+		<input type="reset" value=" ... " id='button10'>
+	</form>
+		<div id="sel10">
+		</div>
+
+	<script type="text/javascript">
+		var cal = new Zapatec.Calendar.setup({
+		
+				inputField     :    "sel10",     // id of the input field
+				ifFormat       :    "%Y-%m-%d",     // format of the input field
+				button         :    "button10",  // What will trigger the popup of the calendar
+				onUpdate       :     updateSelect,
+				showsTime      :     false      //don't show time, only date
+
+		});
+		
+	</script>
+
+
+	<noscript>
+		<br/>
+		This page uses a <a href='http://www.zapatec.com/website/main/products/prod1/'>
+		Zapatec DHTML Calendar Widget</a>, but your browser does not support Javascript.
+		<br/>
+		<br/>
+	</noscript>      
+		<br/><br/><br/>
+		<div id="divFooter" class="footer" style='text-align:center; margin-top:2em'>
+		&copy; 2004-2006 <strong> <a href='http://www.zapatec.com/'>Zapatec, Inc.</a> </strong>
+		</div>
+	</div>
+</body>
+</html>

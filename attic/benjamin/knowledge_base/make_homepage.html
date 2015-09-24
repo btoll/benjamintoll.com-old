@@ -1,0 +1,20 @@
+<font size="5">Q.</font>  How can I have a user click on a hyperlink and make my website their homepage?
+
+<br><br>
+
+<font size="5">Solution:</font>
+
+<br><br>
+
+You can copy and paste this code into your script:
+
+<br><br>
+	&lt;span id=hp style="behavior:url(#default#homepage)"&gt;&lt;/span&gt;<br>
+	&lt;script&gt;<br>
+	//&lt;!--<br>
+	if (!hp.isHomePage('http://www.benjamintoll.com/')) {document.write("&lt;p&gt;&lt;a href=\"/index.html\"<br>	 			onClick=\"style.behavior='url(#default#homepage)';setHomePage('http://www.benjamintoll.com/');\"&gt;Make benjamintoll.com Your Homepage!&lt;/a&gt;");}<br>
+	//--><br>
+	&lt;/script&gt;
+
+
+

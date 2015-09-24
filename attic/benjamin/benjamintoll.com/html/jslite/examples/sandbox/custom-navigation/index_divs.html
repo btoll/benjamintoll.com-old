@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Netflix exercise</title>
+<style type="text/css">
+body {
+  background: red;
+  font-family: arial;
+/*
+opera doesn't like these properties
+*/
+  height: 720px;
+  width: 1280px;
+}
+#nav {
+  background: #222;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 70%;
+  bottom: 0;
+}
+#content {
+  background: repeat scroll #666;
+  margin: 0;
+  overflow: auto;
+  padding: 10px;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  right: 0;
+  bottom: 0;
+}
+#content h1 {
+  color: #BBB;
+  font: normal 22px arial;
+}
+#contentContainer {
+  height: 300px;
+  overflow: auto;
+  width: 800px;
+}
+#navContainer {
+  margin: 30px 0 0;
+}
+.navBox {
+  background: #666;
+  border: 1px solid #000;
+  color: #BBB;
+  float: left;
+  font-size: 12px;
+  margin: 5px 10px;
+  padding: 8px 0 8px 8px;
+  width: 200px;
+}
+.navBox.hasNavFocus {
+  background: #CCC;
+  color: #666;
+}
+.movieBox {
+  border: 3px solid transparent;
+  float: left;
+  height: 100px;
+  margin: 0 40px 40px;
+  width: 100px;
+}
+.movieBox.hasContentFocus {
+  background: #FFA;
+  border: 3px solid blue;
+}
+.movieBox.selected {
+  background: blue;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../lib/css/jslite.css" />
+<script type="text/javascript" src="../../../lib/js/JSLITE.prototype.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.Element.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.Composite.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.Observer.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.Rules.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.Template.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.util.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.dom.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.domQuery.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.ajax.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.log.js"></script>
+<script type="text/javascript" src="../../../lib/js/JSLITE.ux.js"></script>
+<script type="text/javascript">
+var aItems = [
+  {
+    label: "Suggestions For You",
+    assets: [
+      "14546619.jpg",
+      "408939.jpg",
+      "443317.jpg",
+      "445522.jpg",
+      "528009.jpg",
+      "541027.jpg"
+    ]
+  },
+  {
+    label: "Recently Watched",
+    assets: [
+      "60000890.jpg",
+      "60002556.jpg",
+      "60020435.jpg",
+      "60022048.jpg",
+      "60022922.jpg",
+      "60023619.jpg"
+    ]
+  },
+  {
+    label: "New Arrivals",
+    assets: [
+      "60028202.jpg",
+      "60030359.jpg",
+      "60030529.jpg",
+      "60030653.jpg",
+      "60034311.jpg",
+      "60035214.jpg",
+      "70112730.jpg",
+      "70113005.jpg",
+      "70117293.jpg",
+      "70117370.jpg"
+    ]
+  },
+  {
+    label: "Instant Queue",
+    assets: [
+      "70003040.jpg",
+      "70011274.jpg",
+      "70018715.jpg",
+      "70019981.jpg",
+      "70019994.jpg",
+      "70020062.jpg",
+      "70023522.jpg",
+      "806456.jpg"
+    ]
+  }
+];
+
+var Netflix = (function () {
+  var create = JSLITE.dom.create,
+    get = JSLITE.dom.get,
+    iColPerRow = 4,
+    oNavContainer = null,
+    oContentContainer = null,
+    sAssetDir = "box_art/",
+    oCache = {},
+    fnMakeNavArea = function () {
+      for (var n = 0, len = oNav.items.length; n < len; n++) {
+        oNavContainer.dom.appendChild(create({tag: "div",
+          attr: {
+            id: "navBox" + n,
+            className: "navBox",
+            innerHTML: oNav.items[n].label,
+            row: n
+          }
+        }).dom);
+      }
+    },
+    fnSelect = function (e) {
+      if (get(".movieBox.selected").dom) { //if a dom element already has been selected then first remove the "selected" class;
+        get(".movieBox.selected").removeClass("selected");
+      }
+      this.addClass("selected");
+    },
+    fnMakeContent = function (sNavItem) {
+      var oItem,
+        arr = [];
+
+      for (var i = 0, len = oNav.items.length; i < len; i++) {
+        oItem = oNav.items[i];
+        if (oItem.label === sNavItem) {
+          if (!oCache[sNavItem]) {
+            oItem.assets.forEach(function (src, n) {
+              var iRow = Math.floor(n / iColPerRow);
+              arr.push(create({tag: "img",
+                attr: {
+                  src: sAssetDir + src,
+                  id: "contentBox" + iRow + (n % iColPerRow), //since the concatenation begins w/ a string everything will be concatenated as such;
+                  className: "movieBox",
+                  col: n % iColPerRow,
+                  row: iRow
+                }
+              }));
+            });
+            oCache[sNavItem] = arr;
+            oContentContainer.append(arr);
+          } else {
+            oContentContainer.append(oCache[sNavItem]);
+          }
+        }
+      }
+      return oContentContainer;
+    },
+    oNav = {
+      items: [] //this will be a array of objects that will tell the app how to build the nav bar and which assets are mapped to each nav item;
+    };
+
+  return {
+    init: function () {
+      if (this.getRows() === 0) {
+        throw new Error("There are no nav items to build!");
+      }
+
+      var oNav = get("nav"),
+        oContent = get("content");
+
+      if ($("navContainer")) {
+        $("navContainer").innerHTML = "";
+        $("contentContainer").innerHTML = "";
+      } else {
+        oNavContainer = create({tag: "div", attr: { id: "navContainer" }});
+        oContentContainer = create({tag: "div", attr: { id: "contentContainer" }});
+      }
+
+      fnMakeNavArea();
+      oNav.append(oNavContainer);
+      oContent.append(Netflix.makeContentArea(get(".navBox").value()));
+      get(".navBox").addClass("hasNavFocus").dom.focus(); //give focus to the first nav item;
+    },
+    //get getRows () {
+    getRows: function () {
+      return oNav.items.length;
+    },
+    makeContentArea: function (sNavItem) {
+      get("#content h1").value(sNavItem); //set the title in the content area;
+      return fnMakeContent(sNavItem);
+    },
+    setNavItem: function (vItem, bRefresh) {
+      var aItems = oNav.items;
+
+      if (!(vItem instanceof Array)) { 
+        aItems.push(vItem);
+      } else {
+        vItem.forEach(function (v) {
+          aItems.push(v);
+        }); 
+      }
+      if (bRefresh) { //should the new nav items be added now?;
+        this.init();
+      }
+    },
+    sort: function (v, bRefresh) {
+      switch (true) {
+        case typeof v === "undefined":
+          oNav.items.sort();
+          break;
+        case typeof v === "string" && v === "reverse":
+          oNav.items.reverse();
+          break;
+        case typeof v === "function":
+          oNav.items.sort(v);
+          break;
+      }
+      if (bRefresh) { //should the nav items be resorted now?;
+        this.init();
+      }
+    }
+  };
+
+}());
+  
+JSLITE.ready(function () {
+  var create = JSLITE.dom.create,
+    get = JSLITE.dom.get,
+    bNavNavigation = true,
+    bContentNavigation = false;
+
+  Netflix.setNavItem(aItems);
+
+  Netflix.init();
+
+/*
+  Netflix.sort(function (a, b) {
+    return a.label > b.label;
+  });
+
+  Netflix.setNavItem({
+    label: "testy",
+    assets: []
+  }, true);
+*/
+
+  get(document).on("keydown", function (e) {
+    var oFocusedElement = null,
+      oTemp = null,
+      bRemoveNavFocus = false,
+      bRemoveContentFocus = false,
+      iRow;
+
+    if (bNavNavigation) {
+      oFocusedElement = get(".hasNavFocus");
+      iRow = oFocusedElement.dom.row;
+      switch (e.keyCode) {
+        case 13: //enter;
+          fnSelect.call(oFocusedElement, e);
+          break;
+        case 38: //up;
+          if (get("navBox" + (iRow - 1))) {
+            get("navBox" + (iRow - 1)).addClass("hasNavFocus");
+            $("contentContainer").innerHTML = "";
+            bRemoveNavFocus = true;
+          }
+          break;
+        case 39: //right;
+          get(".movieBox").addClass("hasContentFocus").dom.focus();
+          bNavNavigation = false;
+          bContentNavigation = true;
+          break;
+        case 40: //down;
+          if (get("navBox" + (iRow + 1))) {
+            get("navBox" + (iRow + 1)).addClass("hasNavFocus");
+            $("contentContainer").innerHTML = "";
+            bRemoveNavFocus = true;
+          }
+          break;
+        case 37: //left;
+          //there will never be a left navigation move from the nav menu;
+          break;
+      }
+
+      if (bRemoveNavFocus) {
+        oFocusedElement.removeClass("hasNavFocus");
+        Netflix.makeContentArea(get(".hasNavFocus").value());
+      }
+
+    } else if (bContentNavigation) {
+      oFocusedElement = get(".hasContentFocus");
+      iRow = oFocusedElement.dom.row;
+
+      switch (e.keyCode) {
+        case 13: //enter;
+          alert(oFocusedElement.dom.src);
+          break;
+        case 38: //up;
+          if (iRow) {
+            $("contentContainer").scrollTop -= 50;
+            get("contentBox" + (iRow - 1) + oFocusedElement.dom.col).addClass("hasContentFocus");
+            bRemoveContentFocus = true;
+          }
+          break;
+        case 39: //right;
+          if (oFocusedElement.dom.nextSibling) {
+            oTemp = get("contentBox" + iRow + (oFocusedElement.dom.col + 1));
+            if (oTemp) { //same thing with the string concatenation as above;
+              oTemp.addClass("hasContentFocus");
+              bRemoveContentFocus = true;
+            }
+          }
+          break;
+        case 40: //down;
+          if (iRow < Netflix.getRows()) {
+            oTemp = get("contentBox" + (iRow + 1) + oFocusedElement.dom.col);
+            if (oTemp) {
+              $("contentContainer").scrollTop += 50;
+              oTemp.addClass("hasContentFocus");
+              bRemoveContentFocus = true;
+            }
+          }
+          break;
+        case 37: //left;
+          if (oFocusedElement.dom.previousSibling && oFocusedElement.dom.previousSibling.row === iRow) {
+            get("contentBox" + iRow + (oFocusedElement.dom.col - 1)).addClass("hasContentFocus");
+            bRemoveContentFocus = true;
+          } else {
+            bNavNavigation = true;
+            bContentNavigation = false;
+            bRemoveContentFocus = true;
+          }
+          break;
+      }
+
+      if (bRemoveContentFocus) {
+        oFocusedElement.removeClass("hasContentFocus");
+      }
+
+    }
+
+    e.preventDefault();
+  });
+
+});
+</script>
+</head>
+
+<body>
+  <div id="nav"></div>
+  <div id="content">
+    <h1></h1>
+  </div>
+</body>
+</html>

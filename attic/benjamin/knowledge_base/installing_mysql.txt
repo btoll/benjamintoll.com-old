@@ -1,0 +1,31 @@
+RPMs needed for a standard minimal installation:
+
+-MySQL-server-VERSION.i386.rpm The MySQL server. You will need this unless you only want to connect to a MySQL server running on another machine.
+MySQL-client-VERSION.i386.rpm The standard MySQL client programs. You probably always want to install this package.
+
+Step 1:
+
+2.2.2 Verifying Package Integrity Using MD5 Checksums or GnuPG
+After you have downloaded the MySQL package that suits your needs and before you attempt to install it, you should make sure it is intact and has not been tampered with. 
+
+MySQL AB offers two means of integrity checking: MD5 checksums and cryptographic signatures using GnuPG, the GNU Privacy Guard. 
+
+2.2.3 Verifying the MD5 Checksum
+After you have downloaded the package, you should check, if the MD5 checksum matches the one provided on the MySQL download pages. Each package has an individual checksum, that you can verify with the following command: 
+
+shell> md5sum <package>
+Note, that not all operating systems support the md5sum command - on some it is simply called md5, others do not ship it at all. On Linux, it is part of the GNU Text Utilities package, which is available for a wide range of platforms. You can download the source code from http://www.gnu.org/software/textutils/ as well. If you have OpenSSL installed, you can also use the command openssl md5 <package> instead. A DOS/Windows implementation of the md5 command is available from http://www.fourmilab.ch/md5/. 
+
+Example: 
+
+shell> md5sum mysql-standard-4.0.10-gamma-pc-linux-i686.tar.gz
+155836a7ed8c93aee6728a827a6aa153
+                mysql-standard-4.0.10-gamma-pc-linux-i686.tar.gz
+You should check, if the resulting checksum matches the one printed on the download page right below the respective package.
+
+
+Step 2:
+
+To perform a standard minimal installation, run: 
+
+shell> rpm -i MySQL-server-VERSION.i386.rpm MySQL-client-VERSION.i386.rpm

@@ -1,0 +1,42 @@
+{
+  "version":"5.0.18-889",
+  "license":"SAGONET_E6387662A5",
+  "ipv6_pool":0,
+  "ips":{
+    "96.31.87.249":{
+      "ip":"96.31.87.249",
+      "ip_version":"4",
+      "is_static":false,
+      "is_used":true,
+      "is_ssl":false,
+      "ssl_domain":false,
+      "domains":[
+        "benjamintoll.com"
+      ]
+    },
+    "0":{
+      "ip":"0",
+      "note":"Zero as the IPv6 indicates none has been assigned",
+      "ip_version":"6",
+      "is_static":false,
+      "is_used":true,
+      "is_ssl":false,
+      "ssl_domain":false,
+      "domains":[
+        "benjamintoll.com"
+      ]
+    },
+    "pool":{
+      "ip":"pool",
+      "note":"Pool indicates to pull a new IP from the pool",
+      "ip_version":"6",
+      "is_static":false,
+      "is_used":false,
+      "is_ssl":false,
+      "ssl_domain":false,
+      "domains":[
+
+      ]
+    }
+  }
+}

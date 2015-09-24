@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>JavaScript Observer design pattern</title>
+<style type="text/css">
+div#app {
+  float: left;
+  width: 46%;
+}
+form {
+  margin: 20px;
+}
+#formOne fieldset, #formThree fieldset {
+  background: #EED;
+}
+#resetApp fieldset {
+  background: #FFC;
+}
+label {
+  display: block;
+  margin: 5px 0;
+}
+div#log {
+  background: #EDD;
+  border: 1px solid #CCC;
+  float: left;
+  margin: 20px;
+  padding: 10px;
+  width: 46%;
+}
+div#log h3 {
+  border-bottom: 1px solid #CCC;
+}
+div#log p {
+  border-bottom: 1px solid #CCC;
+  margin: 2px 0;
+}
+</style>
+<script type="text/javascript">
+var $ = function (sElem) {
+  return document.getElementById(sElem);
+};
+Array.prototype.forEach = function(fn, thisObj) {
+  var scope = thisObj || window;
+  for (var i = 0, j = this.length; i < j; ++i ) {
+    fn.call(scope, this[i], i, this);
+  }
+};
+Array.prototype.indexOf = function(elt /*, from*/) {
+  var len = this.length;
+
+  var from = Number(arguments[1]) || 0;
+  from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+  if (from < 0) {
+    from += len;
+  }
+
+  for (; from < len; from++) {
+    if (from in this && this[from] === elt) {
+      return from;
+    }
+  }
+  return -1;
+};
+Array.prototype.filter = function(fun /*, thisp*/) {
+  var len = this.length;
+  if (typeof fun != "function") throw new TypeError();
+
+  var res = [];
+  var thisp = arguments[1];
+  for (var i = 0; i < len; i++) {
+    if (i in this) {
+      var val = this[i]; // in case fun mutates this
+      if (fun.call(thisp, val, i, this)) {
+        res.push(val);
+      }
+    }
+  }
+  return res;
+};
+
+function Observable() {
+  this.subscribers = [];
+}
+Observable.prototype = {
+
+  deliver: function () {
+    var arr = this.subscribers;
+    arr.forEach(function (fn) {
+      fn.call(this);
+    });
+  },
+
+  subscribe: function (fn) {
+    if (this.subscribers.indexOf(fn) == -1) {
+      this.subscribers.push(fn);
+    }
+    return this;
+  },
+
+  unsubscribe: function (fn) {
+    this.subscribers = this.subscribers.filter(function (value) {
+      if (value !== fn) {
+        return value;
+      }
+    });
+  }
+
+};
+
+var ResetApp = new Observable();
+
+var fnFormOne = function () {
+  $("formOne").reset();
+};
+var fnFormTwo = function () {
+  $("formTwo").reset();
+};
+var fnFormThree = function () {
+  $("formThree").reset();
+};
+var fnRemoveLog = function () {
+  if ($("log")) {
+    document.body.removeChild($("log"));
+  }
+};
+
+var fnClearValues = function (e) {
+  e = e || window.event;
+  var target = e.target || e.srcElement;
+  if (target.nodeName.toLowerCase() == "input" && target.type == "text") {
+    target.value = "";
+  }
+  document.addEventListener ? e.stopPropagation : e.cancelBubble = true;
+};
+var fnLog = function (e) {
+  e = e || window.event;
+  var target = e.target || e.srcElement;
+  var fnCreateLog = function () {
+    if (!$("log")) { //create the log if it doesn't exist;
+      var oDiv = document.createElement("div");
+      oDiv.id = "log";
+      var oH = document.createElement("h3");
+      oH.appendChild(document.createTextNode("Log"));
+      oDiv.appendChild(oH);
+      document.body.appendChild(oDiv);
+    }
+    $("log").appendChild(oPara);
+  };
+  if (target.nodeName.toLowerCase() == "input" && target.type != "button") {
+    var oPara = document.createElement("p");
+    switch (e.type) {
+      case "click":
+        if (["checkbox", "radio"].indexOf(target.type) != -1) {
+          fnCreateLog();
+          oPara.innerHTML = "Value: " + target.id + "; State: " + target.checked;
+        }
+        break;
+
+      case "change":
+        if (target.type == "text") {
+          fnCreateLog();
+          oPara.innerHTML = "Value: " + target.value + "; Element: " + target.id;
+        }
+        break;
+    }
+  }
+  document.addEventListener ? e.stopPropagation() : e.cancelBubble = true;
+};
+
+window.onload = function () {
+
+  /*event delegation*/
+  if (document.addEventListener) {
+    document.addEventListener("click", fnClearValues, false);
+    document.addEventListener("click", fnLog, false);
+    document.addEventListener("change", fnLog, false);
+  } else {
+    document.attachEvent("onclick", fnClearValues);
+    document.attachEvent("onclick", fnLog);
+    var cInputs = document.getElementsByTagName("input");
+    for (var i = 0, iLength = cInputs.length; i < iLength; i++) {
+      if (cInputs[i].type == "text") {
+        cInputs[i].onchange = fnLog;
+      }
+    }
+  }
+
+  var cForms = document.getElementsByTagName("form");
+  for (var i = 0, iLength = cForms.length; i < iLength; i++) {
+    cForms[i].onsubmit = function () { return false; };
+  }
+
+  ResetApp.subscribe(fnFormOne);
+  ResetApp.subscribe(fnFormTwo);
+  ResetApp.subscribe(fnFormThree);
+  ResetApp.subscribe(fnRemoveLog);
+
+  $("resetApp").onclick = function () {
+    ResetApp.deliver();
+  };
+
+};
+</script>
+</head>
+
+<body>
+
+<div id="app">
+
+<form id="formOne">
+
+  <fieldset>
+  <legend>Form One</legend>
+    <label>First Name <input type="text" id="nameOne" name="nameOne" value="Default Value 1" /></label>
+    Favorite Sport <label><input type="radio" name="sport" id="Baseball" checked="checked" /> Baseball</label><label><input type="radio" name="sport" id="Football" /> Football</label>
+  </fieldset>
+
+</form>
+
+<form id="formTwo">
+  <fieldset>
+  <legend>Form Two</legend>
+    <label>First Name <input type="text" id="nameTwo" name="nameTwo" value="Default Value 2" /></label>
+    Favorite Book <label><input type="radio" name="book" id="1984" /> 1984</label><label><input type="radio" name="book" id="LOTR" checked="checked" /> Lord of the Rings</label>
+
+  </fieldset>
+</form>
+
+<form id="formThree">
+  <fieldset>
+  <legend>Form Three</legend>
+    <label>First Name <input type="text" id="nameThree" name="nameThree" value="Default Value 3"  /></label>
+    Favorite Foods <label><input type="checkbox" name="pizza" id="Pizza" /> Pizza</label><label><input type="checkbox" name="cheeseburger" id="Cheeseburger" /> Cheeseburger</label>
+
+  </fieldset>
+</form>
+
+<form id="resetApp">
+  <fieldset>
+  <legend>Reset Application</legend>
+    <input type="button" id="clearForms" value="Reset Application" />
+  </fieldset>
+</form>
+
+</div>
+
+
+</body>
+</html>

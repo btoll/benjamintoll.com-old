@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+	<script type='text/javascript' src='../../utils/zapatec.js'></script>
+	<script type='text/javascript' src='../../utils/dndmodule.js'></script>
+	<script type='text/javascript' src='../../utils/pane.js'></script>
+</head>
+
+<body>
+	<div id="1"></div>
+
+	<input type="Text" id="2" value="50"><button onclick="split.setSplitPos(0, document.getElementById('2').value);">Set!</button>
+</body>
+<script>
+	var pane1 = new Zapatec.Pane({containerType : "div", theme : null});
+	pane1.setWidth(100);
+	pane1.getContainer().style.backgroundColor = "green";
+	var pane2 = new Zapatec.Pane({containerType : "div", theme : null});
+	pane2.setWidth(200);
+	pane2.getContainer().style.backgroundColor = "green";
+	var pane3 = new Zapatec.Pane({containerType : "div", theme : null});
+	pane3.setHeight(200);
+	pane3.getContainer().style.backgroundColor = "green";
+	var split = new Zapatec.SplitPane({
+		orientation : "horizontal",
+		size : 500,
+		panes : [pane1,	pane2]
+	});
+	var split1 = new Zapatec.SplitPane({
+		parent : "1",
+		orientation : "vertical",
+		size : 800,
+		panes : [split,	pane3]
+	});
+	
+</script>
+</html>

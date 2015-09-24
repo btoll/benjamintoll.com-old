@@ -1,0 +1,7 @@
+How to resolve the pesky '425 Security: Bad IP Connecting' error.
+
+     Simply add the following line to your vsftpd.conf file:
+
+     pasv_promiscuous=YES
+
+     Restart your server.

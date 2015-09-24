@@ -1,0 +1,70 @@
+I've compiled the Samba server from source and now I can't locate 
+SWAT (Samba Web Administration Tool) and its binary.  Help!!
+
+
+First, you must find where the binary is located in the file system.
+Different Linux distributions will put this in different directories,
+however you can usually find it in /usr/local/samba/sbin or some similarity.
+
+Enter the following at the shell:
+
+	find / -name swat
+
+	For example, my search resulted in the following
+	files and directories:
+
+		/usr/local/samba/sbin/swat
+		/usr/local/samba/swat
+
+	A little investigation revealed that the binary is the former
+	and the latter is a directory containing SWAT's support files.
+
+	If you cd to the /usr/local/samba/sbin directory, the following 
+	command reveals SWAT to be an ELF (Executable and Linking Format) 
+	binary, the default binary format for Linux.
+
+		file swat
+
+
+Next, SWAT needs to be enabled for use.  It should be installed to run via
+the network super-daemon, either inetd or xinetd depending on your system.
+
+The control file should be located within the /etc/[x]inet[d].d directory.
+If the SWAT file isn't in the directory then you must create it.  Here's how
+the control file could look:
+
+	# default: off
+	# description:  SWAT is the Samba Web Admin Tool. Use swat \
+	#		to configure your Samba server. To use SWAT, \
+	#		connect to port 901 with your favorite web browser.
+	service swat
+	{
+		port	= 901
+		socket_type	= stream
+		wait	= no
+		only_from = localhost
+		user	= root
+		server	= /usr/local/samba/sbin/swat
+		log_on_failure	+= USERID
+		disable	= yes
+	}
+
+
+Note - If the server's directory path isn't where your SWAT binary is located then
+you must change it to where it resides.  Also, you must enable SWAT by editing disable 
+to equal no.
+
+Restart the xinetd daemon:
+
+	/etc/rc.d/init.d/xinetd restart
+
+You then should be able to go to Mozilla (or whatever) and enter your hostname followed
+by the port that the daemon is listening to.
+
+	localhost:901
+
+If that doesn't work then you should verify your hostname.  Try this instead:
+
+	127.0.0.1:901
+
+If that doesn't work then RTFM.

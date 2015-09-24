@@ -1,0 +1,295 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+	<meta name="description" content=" The date range is Today plus 30 days. The selection of multiple days is allowed. Click a week day to select all the days for that week day in the date range. The calendar is refreshed to show only the selected week day The first day of week is always Sunday. The user can not change this. The Submit Days button is used to submit the selected dates. This example just displays an alert box with selected days and refreshes the calendar. The Clears Days button clears the multiple days hash and refreshes the calendar. The title of the calendar supports custom text that can include html. ">
+	<meta name="keywords" content="dhtml tools,javascript,DHTML Tools,Javascript,ajax,AJAX,Ajax,ajax tools,AJAX Tools,tools controls,simple javascript tools">
+	<title>Zapatec DHTML Calendar Widget - Day of Week Selection</title>
+
+	<!-- Common JS files -->
+	<script type='text/javascript' src='../utils/zapatec.js'></script>
+
+	<!-- Custom includes -->	
+		<!-- import the calendar script -->
+		<script type="text/javascript" src="../src/calendar.js"></script>
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+
+		<!-- other languages might be available in the lang directory; please check
+		your distribution archive. -->
+
+
+	<!-- ALL demos need these css -->
+	<link href="../website/css/zpcal.css" rel="stylesheet" type="text/css">
+	<link href="../website/css/template.css" rel="stylesheet" type="text/css">
+
+	<!-- Theme css -->
+	<link href="../themes/bluexp.css" rel="stylesheet" type="text/css">
+
+	<link rel="SHORTCUT ICON" href="http://www.zapatec.com/website/main/favicon.ico">
+	
+
+
+</head>
+<body>
+	<div class="zpStandard">
+
+	<div class="topMenuHeader">
+		<div class="logo">
+			<a href='http://www.zapatec.com'><img src='../website/images/logoNew.gif' alt='Zapatec logo' border='0'></a>
+		</div>
+		<div class="btn1">
+			<a href="https://www.zapatec.com/zadmin/buy.jsp">
+				<img src="../website/images/buttonBuy.png" alt='Buy Zapatec DHTML Calendar Widget' border ="0">
+			</a>
+		</div>
+
+		<div class="btn1">
+			<a href="http://www.zapatec.com/website/main/pricing.jsp">
+				<img src="../website/images/buttonPricing.png" alt='Pricing for Zapatec DHTML Calendar Widget' border="0">
+			</a>
+		</div>
+	</div>
+
+	<div class="pageMain">
+	<div style="width: 104px; height: 31px; float: right;">&nbsp;</div>
+	<a href="specialdays.html" style="float:left; margin-left:2em; margin-top:.5em;" accesskey="P" title="Previous Zapatec DHTML Calendar Widget Example">
+			<img border="0" src="../website/images/previous.png" alt="Previous Zapatec DHTML Calendar Widget Example"></a>
+	<div class='zpCalSubHeader' style='text-align:center;'>Day of Week Selection</div>
+
+
+		<div class='zpCalDemoText'>
+		<ul>
+		<li>This demo uses the <b>bluexp theme</b>.</li>
+		
+		<li>The date range is Today plus 30 days.</li>
+		<li>The selection of multiple days  is allowed.</li>
+		<li>Click a week day to select all the days for that week day in the date range.</li>
+			<ul>
+			<li>The calendar is refreshed to show only the selected week day</li>
+			<li>The first day of week is always Sunday. The user can not change this.</li>
+			</ul>
+			<li>The Submit Days button is used to submit the selected dates.  This example just displays an alert box with selected days and refreshes the calendar.</li>
+		<li>The Clears Days button clears the multiple days hash and refreshes the calendar.</li>
+		<li>The title of the calendar supports custom text that can include html.</li>
+
+		</ul>
+		</div>
+
+
+
+<div align=center>
+<table border=0>
+<tr><td align=center id="calendar-container"></td></tr>
+<tr><td align=center>
+	<input type='button' value='Submit Days' onclick='cal_submit_days()' 
+	title='Button Submit Days can be used to submit the calendar selected dates.  This example will just display an alert box with selected days.  The calendar is refreshed.'>
+
+	<input type='button' value='Clear Days' onclick='cal_clear_days()' 
+	title='Button Clears Days will clear the multiple days hash and refresh the view of calendar'>
+</td></tr>
+</table>
+</div>
+
+
+
+<script type="text/javascript">//<![CDATA[
+	<!--  to hide script contents from old browsers
+	/* Globals */
+	var cal;
+	// the default multiple dates selected, first time the calendar is instantiated
+	var MA = []
+	var arrDOW=Array(7)
+	var bDow=false	// did user click dow?
+
+	var bDebug=false;
+	var bTrace=true;
+	/* end Globals */
+
+	// Function to use as a debug trace for alert/confirm message.  Once cancel is clicked
+	// the trace stops
+	function trace(strMsg)
+	{
+		if (!bDebug) return
+		if (!bTrace) return
+		bTrace=confirm(strMsg)
+	}
+
+	// This function is called when the user clicked on submit
+	function dateChanged(cal) {
+		var strDates='Dates Selected:\n'
+
+		// walk the calendar's multiple dates selection hash
+		for (var i in cal.multiple) {
+			var currentDate = cal.multiple[i];
+			// sometimes the date is not actually selected, that's why we need to check.
+			if (currentDate) {
+				// OK, selected.  Fill an input field.  Or something.  Just for example,
+				// we will display all selected dates in the element having the id "output".
+				MA[MA.length]=currentDate.print("%a, %B %d %Y");
+			}
+		}
+		for (var i in MA)
+			strDates+=MA[i] + '\n'
+
+		alert(strDates)
+		}
+
+		// Just show the select days
+		function cal_submit_days() {
+			dateChanged(cal)
+			cal_clear_days()
+		}
+
+		function init_globals() {
+			var i
+				Zapatec.Calendar._TT["DAY_FIRST"] = "Select <b>%s</b> days between " 
+				+ dateStart.print("<i>%a %b %d %Y</i>") + " and " 
+				+ dateEnd.print("<i>%a %b %d %Y</i>") + "."
+			MA=[]
+			bDow=false
+			for (i=0; i<arrDOW.length; i++)
+				arrDOW[i]=false
+		}
+
+		// Clear the selected multiple days
+		function cal_clear_days() {
+			init_globals()
+			cal.multiple=[]
+			// Will refressh the view of the calendar
+			// Set reinit call date to today
+			cal.date=new Date()
+			cal.reinit()
+		}
+
+		/*
+		-Set the allowed start and end dates
+		-These variables are used for DATE only compares, so zero out time
+		*/
+		var dateStart=new Date() // Today
+		dateStart.setHours(0,0,0,0)
+		var dateEnd=new Date() // Today
+		dateEnd.setDate(dateStart.getDate()+30);	// Allow 30 days
+		dateEnd.setHours(0,0,0,0)
+
+
+		// Override default function, user can NOT change first day of week
+		function fdow_set(intDOW, bInit) {
+			var i=0
+			//alert('You selected ' + Zapatec.Calendar.i18(intFDOW))
+			cal.setFirstDayOfWeek(0); // fdow Always sunday
+			if (bInit) return
+
+			bDow=true;
+			arrDOW[intDOW]=true
+
+			// Loop thru start and end dates and select the DOW
+			var d=new Date(dateStart)
+			d.setHours(0,0,0,0)
+
+			i=0
+			var strTrace='Find:dow=' + intDOW + ',' + d.print("%a, %B %d %Y") + '\n'
+			while (d <= dateEnd)
+			{
+				if (d.getDay() == intDOW)
+				{
+					if (bDebug) strTrace+='Select:' + d.print("%a, %B %d %Y") + '\n'
+					MA[MA.length] =  d.print("%a, %B %d %Y")
+				}
+				d.setDate(d.getDate()+ 1);
+				d.setHours(0,0,0,0)
+			}
+
+			if (bDebug) alert(strTrace)
+			//alert('You selected ' + intDOW)
+			cal.date=new Date()
+			cal.reinit()
+		}
+
+			/* 
+			* Can't choose days after the
+			* end date if it is choosen, hilights start and end dates with one style and dates between them with another
+			*/
+			function dateOutOfRange(date) {
+				var dateSelected=new Date(date)
+				dateSelected.setHours(0,0,0,0)
+
+				if (dateSelected < dateStart || dateSelected > dateEnd)
+					// out of range, not allowed
+					return true;
+
+				// see if this day of week is allowed
+				if (bDow) 
+				{
+					// If DOW clicked see if this DOW is allowed, 
+					// if allowed then return false, not disabled
+					return !arrDOW[date.getDay()]
+				}
+
+
+				if (bTrace)
+					trace(
+						'dateStart.....' + dateStart.print("%a, %B %d %Y") + '\n' +
+						'dateSelect....' + dateSelected.print("%a, %B %d %Y") +  '\n' +
+						'dateEnd.......' + dateEnd.print("%a, %B %d %Y"))
+
+				return false
+			}
+
+		init_globals()
+		//-->
+	</script>
+
+	<script type="text/javascript">
+		var cal = new Zapatec.Calendar.setup({
+		
+		flat         : "calendar-container", // ID of the parent element
+		// Call back to submit the dates for FLAT
+		// NOTE: If multiple defined then this is NOT called
+		flatCallback : dateChanged,          
+		showOthers   : true,
+		numberMonths : 2,
+		// pass the initial or computed array of multiple dates to be initially selected
+		multiple     : MA, 
+		//the function to call, true to disable, false to enable
+		disableFunc  : dateOutOfRange, 
+		// numeric: 0 to 6.  0 means display Sunday first, 1 means display Monday first, etc.
+		firstDay     : 0, 
+
+		// Always allow click of dow, regardless if 1st.  This is used so the user can
+		// select Sun (first day of week).  If this was false (default) then the first
+		// day of week is NOT selectable
+		fdowClick     : true,  
+		titleHtml     : "<i>Select</i> Week Days - <a href='http://www.zapatec.com'>Visit Zapatec</a>",
+
+		singleClick: false,
+
+		// NOTE: If week numbers are shown, than selecting first day of week is disabled, therefore turn off weekNumbers
+		weekNumbers: false
+
+		});
+		
+		// user can NOT change first day of week (fdow), call this function to set fdow
+		cal.onFDOW=fdow_set
+		// Make sure this is set
+		fdow_set(0, true)
+
+	</script>
+
+
+	<noscript>
+		<br/>
+		This page uses a <a href='http://www.zapatec.com/website/main/products/prod1/'>
+		Zapatec DHTML Calendar Widget</a>, but your browser does not support Javascript.
+		<br/>
+		<br/>
+	</noscript>      
+		<br/><br/><br/>
+		<div id="divFooter" class="footer" style='text-align:center; margin-top:2em'>
+		&copy; 2004-2006 <strong> <a href='http://www.zapatec.com/'>Zapatec, Inc.</a> </strong>
+		</div>
+	</div>
+</body>
+</html>

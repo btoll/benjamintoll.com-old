@@ -1,0 +1,24 @@
+<iworx-backup>
+  <backup type="array">
+    <cmd>backup.php --domain benjamintoll.com --backup-options all --email benjam72@yahoo.com</cmd>
+    <timestamp type="integer">1443053420</timestamp>
+    <sys_arch>i686</sys_arch>
+    <version>5.0.18</version>
+    <rpm_release>5.0.18-889</rpm_release>
+    <type>FULL</type>
+    <has_ip_map type="integer">1</has_ip_map>
+    <options type="array">
+      <hex>7fffffff</hex>
+      <numeric type="integer">2147483647</numeric>
+      <string type="array">
+        <ALL>ALL</ALL>
+      </string>
+    </options>
+  </backup>
+  <master_domain type="array">
+    <domain>benjamintoll.com</domain>
+    <manifest_file>manifest-benjamintoll.com.xml</manifest_file>
+  </master_domain>
+  <slave_domains type="array">
+  </slave_domains>
+</iworx-backup>
