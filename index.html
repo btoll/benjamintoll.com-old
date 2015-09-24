@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+h1 {
+    font-size: 30em;
+    padding-left: 4%;
+}
+
+#page > div {
+    background-color: #50789e;
+}
+
+#page > div + div {
+    background-color: #a9bcad;
+}
+
+#page > div + div + div {
+    background-color: #e5eac7;
+}
+
+/* https://css-tricks.com/centering-css-complete-guide/ */
+.section {
+    display: flex;
+    flex-direction: column;
+    height: 45em;
+    /* Uncomment to also center horizontally.
+    align-items: center;
+    */
+}
+
+#footer {
+    background-color: #333;
+    color: #fff;
+}
+
+#footer div {
+    padding: 2% 4%;
+}
+
+#footer #social a {
+    background-color: #333;
+    color: #fff;
+}
+
+#footer ul {
+    list-style: none;
+}
+
+#footer ul li {
+    margin-top: 1%;
+}
+
+#footer a {
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 20em;
+        margin: auto 0;
+    }
+
+    .section {
+        height: 35em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 8em;
+    }
+
+    .section {
+        height: 30em;
+    }
+
+    #footer div {
+        padding: 6%;
+    }
+
+    #footer ul li {
+        margin-top: 2%;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 800px) {
+    h1 {
+        font-size: 14em;
+    }
+}
+</style>
+<script>
+</script>
+</head>
+
+<body>
+    <div id="page">
+        <div class="section">
+            <h1>You</h1>
+        </div>
+
+        <div class="section">
+            <h1>are</h1>
+        </div>
+
+        <div class="section">
+            <h1>here.</h1>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="social">
+            <ul>
+                <li>benjam72 (at) yahoo (dot) com</li>
+                <li><a href="http://www.benjamintoll.com/gpg.txt">GPG Key</a></li>
+                <li><a href="https://github.com/btoll">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/benjamintoll">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
