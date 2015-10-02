@@ -17,8 +17,73 @@ html {
     box-sizing: inherit;
 }
 
+ul a:link,
+ul a:visited,
+ul a:active {
+    color: inherit;
+}
+
+ul a:hover {
+    background: #e58852;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 5em 1em 1em;
+    overflow: hidden;
+}
+
+ul ul {
+    padding-top: .4em;
+}
+
+ul li {
+    color: #000;
+    font-size: 1.3em;
+    padding-left: .5em;
+}
+
+div > ul > li {
+    border-top: 1px solid #63a4aa;
+    padding-top: .8em;
+}
+
+ul li ul li {
+    color: #fff;
+    font-size: .75em;
+}
+
+ul a {
+    background-color: #333;
+    color: #fff;
+    display: block;
+    padding: .2em 0 .2em 1em;
+    text-decoration: none;
+}
+
+#nav {
+    background: #333;
+    color: #fff;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.hamburger {
+    color: #000;
+    cursor: pointer;
+    font-size: 3em;
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    right: .5em;
+    z-index: 10;
+}
+
 h1 {
-    font-size: 30em;
+    font-size: 17em;
     padding-left: 4%;
 }
 
@@ -50,18 +115,17 @@ h1 {
 }
 
 #footer ul {
-    list-style: none;
-    padding: 2% 4%;
+    padding: 2%;
 }
 
-#footer ul li {
-    margin-top: 1%;
-}
-
-#footer a {
-    background-color: #333;
+#footer li {
+    border: 0;
     color: #fff;
-    text-decoration: none;
+    font-size: 1em;
+}
+
+#footer li + li {
+    padding-top: .7%;
 }
 
 @media (max-width: 800px) {
@@ -76,6 +140,10 @@ h1 {
 }
 
 @media (max-width: 480px) {
+    #nav {
+        width: 100%;
+    }
+
     h1 {
         font-size: 8em;
     }
@@ -94,16 +162,114 @@ h1 {
 }
 
 @media (orientation: landscape) and (max-width: 800px) {
+    #nav {
+        width: 100%;
+    }
+
     h1 {
-        font-size: 14em;
+        font-size: 10em;
     }
 }
 </style>
 <script>
+window.onload = function () {
+    var nav = document.querySelector('#nav'),
+        list = nav.querySelector('ul'),
+        link = document.getElementsByTagName('a')[0],
+        div = document.createElement('div'),
+        style = div.style,
+        body = document.body,
+        currentHeight = 0,
+        listHeight;
+
+    function animate(closing) {
+        if (!closing) {
+            nav.style.display = 'block';
+
+            if (currentHeight < listHeight) {
+                currentHeight += 10;
+                list.style.height = currentHeight + 'px';
+
+                setTimeout(function () {
+                    animate(false);
+                }, 5);
+            }
+
+        } else {
+            if (currentHeight > 10) {
+                currentHeight -= 10;
+                list.style.height = currentHeight + 'px';
+
+                setTimeout(function () {
+                    animate(true);
+                }, 5);
+            } else {
+                nav.style.display = 'none';
+            }
+        }
+    }
+
+    // Position the new div safely outside of the viewport.
+    style.display = 'block';
+    style.position = 'absolute';
+    style.top = '-10000px';
+
+    // Append the element to be measured.
+    div.appendChild(list);
+
+    // The new div must be in the DOM in order for it or any hierarchical elements to be measured.
+    body.appendChild(div);
+
+    // Measure, re-append, and cleanup.
+    listHeight = list.scrollHeight;
+    list.style.height = 0;
+    nav.appendChild(list);
+    body.removeChild(div);
+    div = null;
+
+    link.addEventListener('click', function (e) {
+        animate(nav.style.display === 'block');
+        e.preventDefault();
+    });
+};
 </script>
 </head>
 
 <body>
+    <div>
+        <a href="#" class="hamburger">&#9776;</a>
+
+        <div id="nav">
+            <ul>
+                <li>Stuff
+                    <ul>
+                        <li><a href="http://www.benjamintoll.com/software/css_compress.html">CSSCompress</a></li>
+                        <li><a href="http://www.benjamintoll.com/software/htmlify.html">HTMLify()</a></li>
+                        <li><a href="http://www.benjamintoll.com/software/memory_game.php">Memory Game</a></li>
+                        <li><a href="http://music.theowlsnestfarm.com/">Music Theory Quiz</a></li>
+                        <li><a href="http://italy.benjamintoll.com/wotd/">Online Italian Dictionary</a></li>
+                        <li><a href="http://pete.theowlsnestfarm.com/">PeteJS</a></li>
+                        <li><a href="https://github.com/btoll/utley">Utley</a></li>
+                    </ul>
+                </li>
+                <li>Mailing Lists
+                    <ul>
+                        <li><a href="http://italy.benjamintoll.com/wotd/">Italian Word of the Day</a></li>
+                        <li><a href="http://www.benjamintoll.com/software/cotd.php">Linux Command of the Day</a></li>
+                    </ul>
+                </li>
+                <li>Other
+                    <ul>
+                        <li><a href="http://www.benjamintoll.com/gpg.txt">GPG Key</a></li>
+                        <li><a href="https://github.com/btoll">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/benjamintoll">LinkedIn</a></li>
+                        <li><a href="https://www.facebook.com/Theowlsnestfarm">The Owl's Nest Farm</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div id="page">
         <div class="section">
             <h1>You</h1>
@@ -121,9 +287,7 @@ h1 {
     <div id="footer">
         <ul>
             <li>benjam72 (at) yahoo (dot) com</li>
-            <li><a href="http://www.benjamintoll.com/gpg.txt">GPG Key</a></li>
-            <li><a href="https://github.com/btoll">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/benjamintoll">LinkedIn</a></li>
+            <li>&copy; 2001 - 2015</li>
         </ul>
     </div>
 </body>
