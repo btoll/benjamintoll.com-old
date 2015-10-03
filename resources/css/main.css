@@ -68,7 +68,7 @@ ul a:hover {
     right: 0;
 }
 
-#hamburger {
+.hamburger {
     color: #000;
     font-size: 2.5em;
     padding: 0 .3em;
@@ -157,6 +157,16 @@ footer li + li {
 
     footer ul li {
         margin-top: 2%;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 800px) {
+    #menu {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 8em;
     }
 }
 
