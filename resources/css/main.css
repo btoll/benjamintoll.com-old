@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 6em 1em 1em;
+    overflow: hidden;
+}
+
+ul li {
+    color: #000;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-left: .5em;
+}
+
+ul a {
+    background-color: #333;
+    color: #fff;
+    display: block;
+    padding: .2em 0 .2em 1em;
+    text-decoration: none;
+}
+
+ul a:link,
+ul a:visited,
+ul a:active {
+    color: inherit;
+}
+
+ul a:hover {
+    background: #63a4aa;
+    border-radius: 5px;
+}
+
+.list-inner {
+    padding-top: .4em;
+}
+
+.list-outer > li {
+    border-top: 1px solid #63a4aa;
+    padding-top: .8em;
+}
+
+.list-inner li {
+    color: #fff;
+    font-size: .75em;
+    font-weight: normal;
+}
+
+#menu {
+    background: #333;
+    color: #fff;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#hamburger {
+    color: #000;
+    font-size: 2.5em;
+    padding: 0 .3em;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    text-decoration: none;
+    z-index: 10;
+}
+
+/* https://css-tricks.com/centering-css-complete-guide/ */
+.section {
+    display: flex;
+    flex-direction: column;
+    height: 40em;
+    justify-content: center;
+    /* Uncomment to also center horizontally.
+    align-items: center;
+    */
+}
+
+.section.one {
+    background-color: #50789e;
+}
+
+.section.two {
+    background-color: #a9bcad;
+}
+
+.section.three {
+    background-color: #e5eac7;
+}
+
+h1 {
+    font-size: 17em;
+    padding-left: 4%;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+}
+
+footer ul {
+    padding: 2%;
+}
+
+footer li {
+    border: 0;
+    color: #fff;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+footer li + li {
+    padding-top: .7%;
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 20em;
+        margin: auto 0;
+    }
+
+    .section {
+        height: 35em;
+    }
+}
+
+@media (max-width: 480px) {
+    #menu {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 8em;
+    }
+
+    .section {
+        height: 30em;
+    }
+
+    footer div {
+        padding: 6%;
+    }
+
+    footer ul li {
+        margin-top: 2%;
+    }
+}
+
