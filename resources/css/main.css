@@ -19,17 +19,15 @@ ul {
 }
 
 ul li {
-    color: #000;
     font-size: 1.3em;
-    font-weight: bold;
     padding-left: .5em;
 }
 
 ul a {
     background-color: #333;
-    color: #fff;
+    color: #bbb;
     display: block;
-    padding: .2em 0 .2em 1em;
+    padding: .2em 1em;
     text-decoration: none;
 }
 
@@ -42,6 +40,7 @@ ul a:active {
 ul a:hover {
     background: #63a4aa;
     border-radius: 5px;
+    color: #fff;
 }
 
 .list-inner {
@@ -54,9 +53,8 @@ ul a:hover {
 }
 
 .list-inner li {
-    color: #fff;
+    color: #bbb;
     font-size: .75em;
-    font-weight: normal;
 }
 
 #menu {
@@ -120,7 +118,6 @@ footer li {
     border: 0;
     color: #fff;
     font-size: 1em;
-    font-weight: normal;
 }
 
 footer li + li {
