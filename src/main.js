@@ -63,10 +63,12 @@ window.onload = function () {
     // The new div must be in the DOM in order for it or any hierarchical elements to be measured.
     body.appendChild(div);
 
-    // Measure, re-append, and cleanup.
+    // Measure, re-append, hide the menu, show the hamburger span and link, and cleanup.
     listHeight = list.scrollHeight;
     list.style.height = 0;
     menu.appendChild(list);
+    menu.style.display = 'none';
+    placeholder.style.display = link.style.display = 'block';
     body.removeChild(div);
     div = null;
 

@@ -5,20 +5,14 @@
     }],
 
     "js": [{
-        "src": "lib",
+        "src": "src",
         "output": "build/main.js"
     }],
 
-    "build": [
-        "#clean",
-        "#lint",
-        "css",
-        "js"
-    ],
-
     "tasks": {
+        "build": "utley --clean --lint css js",
         "clean": "rm -rf build",
-        "lint": "eslint lib"
+        "lint": "eslint src"
     }
 }
 
